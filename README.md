@@ -1,64 +1,120 @@
-# CCM - Modern Static Website
+# Wonderful World of Manipulative Marketing
 
-A beautiful, responsive static website built with modern web technologies and best practices. Perfect for hosting on GitHub Pages or any static hosting service.
+An artistic and interactive website created by students in the **CCM (Communication, Culture & Media)** program at **ESSEC Business School**. This project aims to create awareness about marketing techniques and their psychological impact on consumer behavior.
 
-## 🚀 Features
+## 🎨 Project Overview
 
-- **Responsive Design**: Looks great on all devices and screen sizes
-- **Modern UI/UX**: Clean, contemporary design with smooth animations
-- **Fast Performance**: Optimized for speed and performance
-- **Accessibility**: Built with accessibility best practices
-- **SEO Friendly**: Semantic HTML and meta tags for better search engine visibility
-- **Cross-browser Compatible**: Works on all modern browsers
-- **GitHub Pages Ready**: Configured for easy deployment on GitHub Pages
+This is an **artistic awareness project** that explores the fascinating world of marketing psychology through an interactive, immersive experience. The website demonstrates various marketing techniques while educating visitors about how these strategies influence decision-making.
+
+## 🎯 Educational Goals
+
+- **Raise Awareness**: Help people understand how marketing techniques work
+- **Interactive Learning**: Provide hands-on experience with different marketing strategies
+- **Critical Thinking**: Encourage visitors to think critically about marketing messages
+- **Transparency**: Show the "behind-the-scenes" of marketing psychology
+
+## 🌟 Features
+
+### **Main Experience**
+- **Interactive Journey**: Navigate through 6 different "worlds" of marketing
+- **Real-time Demonstrations**: Experience marketing techniques in action
+- **Educational Content**: Learn about the psychology behind each technique
+- **Responsive Design**: Works seamlessly on all devices
+
+### **Six Marketing Worlds**
+1. **⚡ Urgency World**: Explore scarcity and time-limited offers
+2. **🎮 Reward World**: Experience gamification and status systems
+3. **👥 Social World**: Discover social proof and influencer marketing
+4. **💰 Deal World**: Understand pricing psychology and anchoring
+5. **🖼️ Framing World**: Learn about perspective and choice architecture
+6. **✨ Persuasion World**: Dive into advertising and persuasive techniques
+
+## 🎭 Artistic Elements
+
+- **Immersive Design**: Each world has unique visual themes and animations
+- **Interactive Elements**: Click, scroll, and engage with marketing techniques
+- **Sound Effects**: Audio feedback for enhanced user experience
+- **Visual Storytelling**: Narrative-driven exploration of marketing concepts
+- **Minimalist Aesthetics**: Clean, modern design that focuses on content
+
+## 🛠️ Technical Implementation
+
+### **Technologies Used**
+- **HTML5**: Semantic structure and accessibility
+- **CSS3**: Advanced animations, glassmorphism, and responsive design
+- **JavaScript**: Interactive features, animations, and user engagement
+- **AOS Library**: Scroll-triggered animations
+- **GitHub Pages**: Free hosting and deployment
+
+### **Design Philosophy**
+- **User-Centric**: Designed to educate and engage
+- **Accessible**: Follows web accessibility guidelines
+- **Performance**: Optimized for fast loading and smooth interactions
+- **Mobile-First**: Responsive design for all screen sizes
 
 ## 📁 Project Structure
 
 ```
-CCM/
-├── index.html          # Main HTML file
-├── styles.css          # CSS styles and responsive design
-├── script.js           # JavaScript for interactivity
-├── README.md           # Project documentation
-└── .gitignore          # Git ignore file
+wwmm/
+├── index.html                    # Main interactive experience
+├── styles.css                    # Global styles and animations
+├── script.js                     # Interactive functionality
+├── components/
+│   └── footer.html              # Shared footer component
+├── urgency-scarcity/            # Urgency World
+│   ├── index.html
+│   ├── styles.css
+│   └── script.js
+├── gamification-rewards/        # Reward World
+│   ├── index.html
+│   ├── styles.css
+│   └── script.js
+├── social-proof-influencer/     # Social World
+│   ├── index.html
+│   ├── styles.css
+│   └── script.js
+├── pricing-techniques/          # Deal World
+│   ├── index.html
+│   ├── styles.css
+│   └── script.js
+├── framing-anchoring/           # Framing World
+│   ├── index.html
+│   ├── styles.css
+│   └── script.js
+├── advertising-persuasive/      # Persuasion World
+│   ├── index.html
+│   ├── styles.css
+│   └── script.js
+└── res/sound/                   # Audio assets
+    ├── retro-coin.mp3
+    └── clapping.mp3
 ```
 
-## 🛠️ Technologies Used
+## 🎓 Educational Value
 
-- **HTML5**: Semantic markup and modern HTML features
-- **CSS3**: Flexbox, Grid, animations, and responsive design
-- **JavaScript (ES6+)**: Modern JavaScript with DOM manipulation
-- **Google Fonts**: Inter font family for typography
-- **SVG Icons**: Scalable vector graphics for icons
+### **For Students**
+- **Marketing Psychology**: Understanding consumer behavior
+- **Web Development**: Modern web technologies and best practices
+- **User Experience**: Designing engaging and educational interfaces
+- **Project Management**: Collaborative development and deployment
 
-## 🎨 Design Features
+### **For Visitors**
+- **Awareness**: Recognizing marketing techniques in daily life
+- **Critical Thinking**: Questioning marketing messages and strategies
+- **Digital Literacy**: Understanding how online marketing works
+- **Consumer Empowerment**: Making more informed decisions
 
-- **Color Scheme**: Modern blue and gray palette
-- **Typography**: Inter font family for excellent readability
-- **Layout**: CSS Grid and Flexbox for responsive layouts
-- **Animations**: Smooth transitions and hover effects
-- **Mobile-first**: Responsive design starting from mobile devices
+## 🌐 Live Website
 
-## 📱 Responsive Breakpoints
-
-- **Mobile**: < 480px
-- **Tablet**: 480px - 768px
-- **Desktop**: > 768px
+**Visit the live website**: [https://ebzgr.github.io/wwmm/](https://ebzgr.github.io/wwmm/)
 
 ## 🚀 Getting Started
 
-### Prerequisites
-
-- A modern web browser
-- Git (for version control)
-- GitHub account (for hosting)
-
-### Installation
-
+### **Local Development**
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/CCM.git
-   cd CCM
+   git clone https://github.com/ebzgr/wwmm.git
+   cd wwmm
    ```
 
 2. **Open in browser**
@@ -72,157 +128,94 @@ CCM/
    # Using Python
    python -m http.server 8000
    
-   # Using Node.js (if you have http-server installed)
+   # Using Node.js
    npx http-server
-   
-   # Using PHP
-   php -S localhost:8000
    ```
 
-## 🌐 Deployment
+## 🎨 Customization
 
-### GitHub Pages
+### **Adding New Worlds**
+1. Create a new directory in the root folder
+2. Add `index.html`, `styles.css`, and `script.js`
+3. Update the main page navigation
+4. Follow the existing design patterns
 
-1. **Push to GitHub**
-   ```bash
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/yourusername/CCM.git
-   git push -u origin main
-   ```
+### **Modifying Content**
+- **Text Content**: Edit HTML files for new messaging
+- **Styling**: Modify CSS for visual changes
+- **Interactions**: Update JavaScript for new behaviors
+- **Audio**: Replace sound files in `res/sound/`
 
-2. **Enable GitHub Pages**
-   - Go to your repository settings
-   - Scroll down to "Pages" section
-   - Select "Deploy from a branch"
-   - Choose "main" branch and "/ (root)" folder
-   - Click "Save"
+## 📚 Learning Resources
 
-3. **Access your site**
-   - Your site will be available at: `https://yourusername.github.io/CCM`
+### **Marketing Psychology**
+- Consumer behavior theories
+- Persuasion techniques
+- Social psychology principles
+- Decision-making processes
 
-### Other Hosting Services
-
-This static website can be deployed to any static hosting service:
-
-- **Netlify**: Drag and drop the folder or connect your Git repository
-- **Vercel**: Import your Git repository
-- **Firebase Hosting**: Use Firebase CLI to deploy
-- **AWS S3**: Upload files to an S3 bucket with static website hosting
-
-## 🎯 Customization
-
-### Colors
-
-The color scheme can be customized by modifying CSS custom properties in `styles.css`:
-
-```css
-:root {
-  --primary-color: #3b82f6;
-  --secondary-color: #64748b;
-  --background-color: #ffffff;
-  --text-color: #334155;
-}
-```
-
-### Content
-
-1. **Update text content** in `index.html`
-2. **Modify sections** by editing the HTML structure
-3. **Change images** by replacing the SVG placeholders
-4. **Update contact information** in the contact section
-
-### Styling
-
-- **Typography**: Change fonts by updating the Google Fonts import
-- **Layout**: Modify grid and flexbox properties in `styles.css`
-- **Animations**: Adjust transition durations and effects
-- **Responsive design**: Update media queries for different breakpoints
-
-## 📝 Sections
-
-The website includes the following sections:
-
-1. **Navigation**: Fixed header with smooth scrolling navigation
-2. **Hero**: Eye-catching landing section with call-to-action buttons
-3. **About**: Feature cards highlighting key benefits
-4. **Services**: Detailed service offerings with feature lists
-5. **Contact**: Contact form and contact information
-6. **Footer**: Links and social media icons
-
-## 🔧 JavaScript Features
-
-- **Mobile Navigation**: Hamburger menu for mobile devices
-- **Smooth Scrolling**: Animated scrolling between sections
-- **Form Validation**: Client-side form validation with notifications
-- **Scroll Effects**: Navbar background change on scroll
-- **Animations**: Intersection Observer for scroll-triggered animations
-- **Accessibility**: Keyboard navigation support
-
-## 🎨 CSS Features
-
-- **CSS Grid**: Modern layout system for complex layouts
-- **Flexbox**: Flexible box layout for component alignment
-- **CSS Variables**: Custom properties for easy theming
-- **Media Queries**: Responsive design for all screen sizes
-- **Animations**: Smooth transitions and hover effects
-- **Backdrop Filter**: Modern blur effects for glassmorphism
-
-## 📊 Performance
-
-- **Optimized Images**: SVG icons for scalability
-- **Minimal Dependencies**: No external CSS frameworks
-- **Efficient CSS**: Optimized selectors and properties
-- **Debounced Events**: Performance-optimized scroll handlers
-- **Lazy Loading**: Intersection Observer for animations
-
-## 🔒 Security
-
-- **No External Scripts**: All JavaScript is inline for security
-- **Form Validation**: Client-side validation with sanitization
-- **HTTPS Ready**: Compatible with HTTPS hosting
-- **No Dependencies**: Reduces attack surface
+### **Web Development**
+- Modern HTML5 and CSS3
+- JavaScript ES6+ features
+- Responsive design principles
+- Web accessibility standards
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+This is an educational project, but contributions are welcome:
+
+1. **Fork the repository**
+2. **Create a feature branch** (`git checkout -b feature/educational-enhancement`)
+3. **Commit your changes** (`git commit -m 'Add educational feature'`)
+4. **Push to the branch** (`git push origin feature/educational-enhancement`)
+5. **Open a Pull Request**
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is created for educational purposes and is available under the [MIT License](LICENSE).
 
 ## 🙏 Acknowledgments
 
-- **Google Fonts** for the Inter font family
-- **Heroicons** for the SVG icons
-- **Modern CSS** techniques and best practices
-- **Web accessibility** guidelines and standards
+### **ESSEC CCM Program**
+- **Faculty**: For guidance and support in marketing education
+- **Students**: Collaborative effort in creating awareness
+- **Program**: Providing the platform for creative expression
 
-## 📞 Support
+### **Technical Resources**
+- **AOS Library**: For smooth scroll animations
+- **Google Fonts**: For typography
+- **GitHub Pages**: For free hosting
+- **Web Standards**: For accessibility and performance
 
-If you have any questions or need help with customization, please:
+## 📞 Contact
 
-1. Check the documentation above
-2. Search existing issues
-3. Create a new issue with detailed information
+**Project Team**: ESSEC CCM Students
+**Institution**: ESSEC Business School
+**Program**: Communication, Culture & Media (CCM)
 
-## 🔄 Updates
+For questions about this educational project, please create an issue in the repository.
 
-This project is actively maintained and updated with:
+## 🎯 Future Enhancements
 
-- Latest web standards and best practices
-- Performance optimizations
-- Accessibility improvements
-- Browser compatibility updates
-- New features and enhancements
+- **Additional Marketing Worlds**: More techniques and strategies
+- **Multilingual Support**: International accessibility
+- **Analytics Integration**: Understanding user engagement
+- **Mobile App**: Native mobile experience
+- **Community Features**: User-generated content and discussions
 
 ---
 
-**Happy coding! 🎉**
+## 🎓 About ESSEC CCM
 
-Built with ❤️ for the web development community.
+The **Communication, Culture & Media (CCM)** program at ESSEC Business School focuses on understanding the intersection of business, culture, and media in our digital world. This project represents the program's commitment to:
+
+- **Critical Media Literacy**
+- **Digital Culture Understanding**
+- **Creative Expression**
+- **Social Awareness**
+
+**Built with ❤️ by ESSEC CCM students for educational awareness.**
+
+---
+
+*This project is designed to educate and raise awareness about marketing techniques. It is not intended to promote manipulative practices, but rather to help people understand and recognize them in their daily lives.*
