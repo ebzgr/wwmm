@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonderful World of Manipulative Marketing</title>
+    <meta name="description" content="Explore the fascinating world of marketing techniques and discover how they influence your decisions">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Progress Indicator -->
+    <div class="progress-indicator">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>WWMM</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="#welcome" class="nav-link">Welcome</a>
+                <a href="#worlds" class="nav-link">Map</a>
+                <a href="#thank-you" class="nav-link">⭐ Referral bonus</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Welcome Section -->
+    <section id="welcome" class="section welcome-section">
+        <div class="parallax-bg"></div>
+        <div class="section-content">
+            <div class="welcome-content">
+                <h1 class="main-title">
+                    <span class="title-line">Welcome to the</span>
+                    <span class="title-line highlight">Wonderful World of</span>
+                    <span class="title-line highlight">Manipulative Marketing</span>
+                </h1>
+                <p class="welcome-subtitle">
+                    Here we <span class="typing-text-1"></span> you, and you <span class="typing-text-2"></span>
+                </p>
+                <div class="welcome-actions">
+                    <button class="btn-primary" onclick="scrollToNext()">Begin Journey</button>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- Six Worlds Section -->
+    <section id="worlds" class="section worlds-section">
+        <div class="section-content">
+            <div class="worlds-header" data-aos="fade-up">
+                <h2 class="section-title worlds-main-title">Six Enchanted Realms</h2>
+                <p class="worlds-subtitle">Where ancient whispers dance with modern desires</p>
+                <div class="artistic-intro" data-aos="fade-up" data-aos-delay="200">
+                    <p class="intro-text">Each realm sings its own siren song to lure you deeper into the maze of influence</p>
+                </div>
+            </div>
+            
+            <div class="worlds-showcase">
+                <div class="worlds-grid">
+                    <div class="world-ad" data-aos="fade-up" data-aos-delay="100" onclick="scrollToSectionById('urgency')">
+                        <div class="ad-glow urgency-glow"></div>
+                        <div class="ad-header">
+                            <div class="ad-icon">⚡</div>
+                            <div class="ad-badge">LIMITED TIME</div>
+                        </div>
+                        <h3 class="world-title">Urgency World</h3>
+                        <p>Act now or miss out forever - time is running out!</p>
+                    </div>
+                    
+                    <div class="world-ad" data-aos="fade-up" data-aos-delay="200" onclick="scrollToSectionById('gamification')">
+                        <div class="ad-glow gamification-glow"></div>
+                        <div class="ad-header">
+                            <div class="ad-icon">🎮</div>
+                            <div class="ad-badge">GOLD STATUS</div>
+                        </div>
+                        <h3 class="world-title">Reward World</h3>
+                        <p>Unlimited rewards and status upgrades!</p>
+                    </div>
+                    
+                    <div class="world-ad" data-aos="fade-up" data-aos-delay="300" onclick="scrollToSectionById('social-proof')">
+                        <div class="ad-glow social-glow"></div>
+                        <div class="ad-header">
+                            <div class="ad-icon">👥</div>
+                            <div class="ad-badge">MOST POPULAR</div>
+                        </div>
+                        <h3 class="world-title">Social World</h3>
+                        <p>Join millions who already made the smart choice!</p>
+                    </div>
+                    
+                    <div class="world-ad" data-aos="fade-up" data-aos-delay="400" onclick="scrollToSectionById('pricing')">
+                        <div class="ad-glow pricing-glow"></div>
+                        <div class="ad-header">
+                            <div class="ad-icon">💰</div>
+                            <div class="ad-badge">SAVE 100%</div>
+                        </div>
+                        <h3 class="world-title">Deal World</h3>
+                        <p>Was 100 Euro, now 0. Harry and save 100 Euros!</p>
+                    </div>
+                    
+                    <div class="world-ad" data-aos="fade-up" data-aos-delay="500" onclick="scrollToSectionById('framing')">
+                        <div class="ad-glow framing-glow"></div>
+                        <div class="ad-header">
+                            <div class="ad-icon">🖼️</div>
+                            <div class="ad-badge">EXCLUSIVE</div>
+                        </div>
+                        <h3 class="world-title">Framing World</h3>
+                        <p>We set the frame to make you see things our way!</p>
+                    </div>
+                    
+                    <div class="world-ad" data-aos="fade-up" data-aos-delay="600" onclick="scrollToSectionById('advertising')">
+                        <div class="ad-glow advertising-glow"></div>
+                        <div class="ad-header">
+                            <div class="ad-icon">✨</div>
+                            <div class="ad-badge">TRENDING</div>
+                        </div>
+                        <h3 class="world-title">Persuasion World</h3>
+                        <p>Rewire your brain, unlock your potential, enter the matrix!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgency Section -->
+    <section id="urgency" class="section urgency-section">
+        <div class="section-content">
+            <div class="urgency-content">
+                <h2 class="section-title" data-aos="zoom-in">⏰ LIMITED TIME OFFER! ⏰</h2>
+                <p class="urgency-text" data-aos="fade-up" data-aos-delay="200">
+                    Only <span class="countdown-timer">00:30</span> left to explore the <span class="urgency-world-highlight">URGENCY WORLD</span>
+                </p>
+                <div class="urgency-actions" data-aos="fade-up" data-aos-delay="400">
+                    <button class="btn-urgency" id="urgency-btn" onclick="window.location.href='urgency-scarcity/index.html'">
+                        CLICK NOW OR MISS OUT FOREVER!
+                    </button>
+                </div>
+                <div class="urgency-stats" data-aos="fade-up" data-aos-delay="600">
+                    <span class="stat">🔥 2,847 people are viewing this right now!</span>
+                    <span class="stat">⚡ Only 3 spots left at this price!</span>
+                </div>
+                <div class="extension-message" id="extension-message" style="display: none;">
+                    <h3>🎉 CONGRATULATIONS! 🎉</h3>
+                    <p>You just won a 30-second extension just for you!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gamification Section -->
+    <section id="gamification" class="section gamification-section">
+        <div class="section-content">
+            <div class="gamification-content">
+                <div class="gamification-dashboard" data-aos="fade-up">
+                    <h2>🎮 GAMIFICATION WORLD 🎮</h2>
+                    <div class="score-display">
+                        <div class="score-item">
+                            <span class="score-label">Total Score:</span>
+                            <span class="score-value" id="total-score">0</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">Status:</span>
+                            <span class="status-value" id="player-status">Select</span>
+                        </div>
+                    </div>
+                    <div class="push-section">
+                        <button class="btn-push" id="push-btn" onclick="pushForPoints()">
+                            PUSH ME!
+                        </button>
+                        <p class="push-description">Each push gives you 10 bonus points!</p>
+                    </div>
+                    <button class="btn-gamification" onclick="window.location.href='gamification-rewards/index.html'">
+                        Enter Gamification World
+                    </button>
+                </div>
+                
+                <!-- Bonus Points Modal -->
+                <div class="bonus-modal" id="bonus-modal">
+                    <div class="bonus-content">
+                        <span class="bonus-text">+10 Points!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section id="social-proof" class="section social-proof-section">
+        <div class="section-content">
+            <div class="social-proof-content">
+                <div class="popular-badge" data-aos="zoom-in">MOST POPULAR</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="200">Join Thousands of Satisfied Explorers!</h2>
+                <div class="testimonial-carousel" data-aos="fade-up" data-aos-delay="400">
+                    <div class="carousel-container">
+                        <div class="testimonial-slide active">
+                            <div class="testimonial-content">
+                                <div class="testimonial-text">"This changed my life! 10/10 would recommend!"</div>
+                                <div class="testimonial-author">- Sarah M., Marketing Expert</div>
+                            </div>
+                            <div class="ai-badge">⭐ Generated with AI</div>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-content">
+                                <div class="testimonial-text">"I learned so much! My brain is now 300% smarter!"</div>
+                                <div class="testimonial-author">- John D., PhD in Everything</div>
+                            </div>
+                            <div class="ai-badge">⭐ Generated with AI</div>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-content">
+                                <div class="testimonial-text">"Best website ever! My cat even learned marketing!"</div>
+                                <div class="testimonial-author">- Fluffy, Certified Cat</div>
+                            </div>
+                            <div class="ai-badge">⭐ Generated with AI</div>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-content">
+                                <div class="testimonial-text">"I made $1M in 24 hours after visiting this site!"</div>
+                                <div class="testimonial-author">- Mike R., Overnight Millionaire</div>
+                            </div>
+                            <div class="ai-badge">⭐ Generated with AI</div>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-content">
+                                <div class="testimonial-text">"My plants started growing better after I learned these techniques!"</div>
+                                <div class="testimonial-author">- Green Thumb Gary</div>
+                            </div>
+                            <div class="ai-badge">⭐ Generated with AI</div>
+                        </div>
+                    </div>
+                    <div class="carousel-indicators">
+                        <span class="indicator active" data-slide="0"></span>
+                        <span class="indicator" data-slide="1"></span>
+                        <span class="indicator" data-slide="2"></span>
+                        <span class="indicator" data-slide="3"></span>
+                        <span class="indicator" data-slide="4"></span>
+                    </div>
+                </div>
+                <button class="btn-social-proof" onclick="window.location.href='social-proof-influencer/index.html'" data-aos="fade-up" data-aos-delay="600">
+                    Join the Crowd - Enter Now!
+                </button>
+                
+                <!-- Join the Crowd Messages -->
+                <div class="join-crowd-section" data-aos="fade-up" data-aos-delay="800">
+                    <div class="join-message" id="join-message">
+                        <span class="join-icon">👤</span>
+                        <span class="join-text">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section pricing-section">
+        <div class="section-content">
+            <div class="pricing-content">
+                <h2 class="section-title">INCREDIBLE SAVINGS!</h2>
+                <div class="price-display">
+                    <span class="original-price">€100</span>
+                    <span class="current-price">€0</span>
+                </div>
+                <p class="savings-text">Save €100 by going to this world</p>
+                <div class="pricing-features">
+                    <div class="feature">✅ Lifetime Access</div>
+                    <div class="feature">✅ Exclusive Deals</div>
+                </div>
+                <button class="btn-pricing" onclick="window.location.href='pricing-techniques/index.html'">
+                    Save in Deal World!
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Framing Section -->
+    <section id="framing" class="section framing-section">
+        <div class="section-content">
+            <div class="framing-content">
+                <h2 class="section-title" data-aos="fade-up">EXCLUSIVE MEMBERS ONLY</h2>
+                <p class="framing-text" data-aos="fade-up" data-aos-delay="200">This section is reserved for our luckiest members</p>
+                
+                <div class="exclusive-roller" data-aos="fade-up" data-aos-delay="400">
+                    <div class="roller-container">
+                        <div class="roller-display" id="roller-display">
+                            <div class="roller-text">Roll to see if you win access</div>
+                            <div class="roller-icon" id="roller-icon">🎲</div>
+                        </div>
+                        <button class="roll-button" id="roll-button" onclick="rollForAccess()">
+                            ROLL FOR ACCESS
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="access-result" id="access-result" style="display: none;">
+                    <div class="congratulations">
+                        <div class="crown-icon">👑</div>
+                        <h3>Congratulations!</h3>
+                        <p>You won access to the section!</p>
+                    </div>
+                    <div class="welcome-message">
+                        <p>Welcome, exclusive member!</p>
+                    </div>
+                </div>
+                
+                <button class="btn-framing" onclick="window.location.href='framing-anchoring/index.html'" disabled id="framing-btn" data-aos="fade-up" data-aos-delay="600">
+                    Enter Framing World
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advertising Section -->
+    <section id="advertising" class="section advertising-section">
+        <div class="section-content">
+            <div class="advertising-content">
+                <h2 class="section-title neon-text">ADVERTISING & PERSUASIVE WORLD</h2>
+                <div class="neon-lights">
+                    <div class="neon-light light-1"></div>
+                    <div class="neon-light light-2"></div>
+                    <div class="neon-light light-3"></div>
+                    <div class="neon-light light-4"></div>
+                    <div class="neon-light light-5"></div>
+                </div>
+                <p class="advertising-text">Bright lights, big promises, and irresistible offers await!</p>
+                <button class="btn-advertising neon-button" onclick="window.location.href='advertising-persuasive/index.html'">
+                    ENTER THE BRIGHT WORLD
+                </button>
+                <div class="cool-message">
+                    <div class="mystery-line">Rewire your brain</div>
+                    <div class="power-line">UNLOCK YOUR POTENTIAL</div>
+                    <div class="modern-line">ENTER THE MATRIX</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thank You Section -->
+    <section id="thank-you" class="section thank-you-section">
+        <div class="section-content">
+            <div class="thank-you-content">
+                <h2 class="section-title" data-aos="fade-up">Referral Bonus!</h2>
+                <p class="thank-you-text" data-aos="fade-up" data-aos-delay="200">You've completed your journey through the Wonderful World of Manipulative Marketing!</p>
+                
+                <div class="referral-section" data-aos="fade-up" data-aos-delay="400">
+                    <h3>🎁 BONUS REWARD! 🎁</h3>
+                    <p>Get <span class="referral-points">1000 referral points</span> for sharing this page with your friends!</p>
+                </div>
+                
+                <div class="share-section" data-aos="fade-up" data-aos-delay="600">
+                    <p>Share this amazing experience with your friends!</p>
+                    <div class="share-buttons">
+                        <button class="share-btn facebook" onclick="shareOnFacebook()">📘 Facebook</button>
+                        <button class="share-btn twitter" onclick="shareOnTwitter()">🐦 Twitter</button>
+                        <button class="share-btn linkedin" onclick="shareOnLinkedIn()">💼 LinkedIn</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Audio elements for gamification sounds -->
+    <audio id="coin-sound" preload="auto">
+        <source src="res/sound/retro-coin.mp3" type="audio/mpeg">
+        <source src="res/sound/retro-coin.wav" type="audio/wav">
+    </audio>
+    
+    <audio id="clapping-sound" preload="auto">
+        <source src="res/sound/clapping.mp3" type="audio/mpeg">
+        <source src="res/sound/clapping.wav" type="audio/wav">
+    </audio>
+    
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Load footer component
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => {
+                console.log('Footer component not found, using fallback');
+                // Fallback footer if component fails to load
+                document.getElementById('footer-placeholder').innerHTML = `
+                    <footer class="footer">
+                        <div class="footer-content">
+                            <div class="footer-section">
+                                <h3>Thank You!</h3>
+                                <p>Hope you learned something valuable about marketing techniques!</p>
+                                <button class="btn-footer-top" onclick="scrollToTop()">Back to Top</button>
+                            </div>
+                            <div class="footer-section">
+                                <h3>Join Our Next Project</h3>
+                                <p>Want to participate? We'd love to hear from you!</p>
+                                <a href="mailto:contact@marketingforbetterment.com" class="footer-email">Send us an email</a>
+                            </div>
+                        </div>
+                    </footer>
+                `;
+            });
+    </script>
+</body>
+</html>

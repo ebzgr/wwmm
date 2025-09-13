@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social World - Wonderful World of Manipulative Marketing</title>
+    <meta name="description" content="Explore the psychology of social proof and influencer marketing">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>WWMM</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="../../index.html#worlds" class="nav-link">← Back to Map</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Social Proof World Welcome Section -->
+    <section class="section social-proof-section">
+        <div class="section-content">
+            <div class="social-proof-content">
+                <div class="popular-badge" data-aos="zoom-in">MOST POPULAR</div>
+                <h1 class="section-title" data-aos="fade-up" data-aos-delay="200">👥 SOCIAL WORLD 👥</h1>
+                <p class="social-text" data-aos="fade-up" data-aos-delay="400">
+                    Welcome to the realm where <span class="social-highlight">EVERYONE ELSE IS DOING IT!</span>
+                </p>
+                <div class="social-actions" data-aos="fade-up" data-aos-delay="600">
+                    <div class="coming-soon-container">
+                        <h2>🚀 COMING SOON! 🚀</h2>
+                        <p>This world is under construction. Soon you'll discover:</p>
+                        <ul class="coming-soon-features">
+                            <li>👥 Testimonials and reviews psychology</li>
+                            <li>⭐ Star ratings and social validation</li>
+                            <li>📊 "Join thousands of users" tactics</li>
+                            <li>🎭 Influencer marketing strategies</li>
+                            <li>🔥 Viral content creation techniques</li>
+                        </ul>
+                        <div class="testimonial-preview" data-aos="fade-up" data-aos-delay="800">
+                            <div class="testimonial-slide active">
+                                <div class="testimonial-content">
+                                    <div class="testimonial-text">"This world changed my life! 10/10 would recommend!"</div>
+                                    <div class="testimonial-author">- Sarah M., Marketing Expert</div>
+                                </div>
+                                <div class="ai-badge">⭐ Generated with AI</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    
+    <script src="script.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out',
+            once: true,
+            offset: 50
+        });
+        
+        // Load footer component
+        fetch('../components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

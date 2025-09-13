@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deal World - Wonderful World of Manipulative Marketing</title>
+    <meta name="description" content="Explore the psychology of pricing techniques and deals in marketing">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>WWMM</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="../../index.html#worlds" class="nav-link">← Back to Map</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pricing World Welcome Section -->
+    <section class="section pricing-section">
+        <div class="section-content">
+            <div class="pricing-content">
+                <h1 class="section-title" data-aos="zoom-in">💰 DEAL WORLD 💰</h1>
+                <p class="pricing-text" data-aos="fade-up" data-aos-delay="200">
+                    Welcome to the realm where <span class="deal-highlight">EVERYTHING IS ON SALE!</span>
+                </p>
+                <div class="pricing-actions" data-aos="fade-up" data-aos-delay="400">
+                    <div class="coming-soon-container">
+                        <h2>🚀 COMING SOON! 🚀</h2>
+                        <p>This world is under construction. Soon you'll discover:</p>
+                        <ul class="coming-soon-features">
+                            <li>💸 Anchoring and price comparison tactics</li>
+                            <li>🎯 "Was €100, now €0" psychological tricks</li>
+                            <li>⏰ Limited-time offer strategies</li>
+                            <li>🎁 Bundle pricing and value perception</li>
+                            <li>💎 Premium vs. budget positioning</li>
+                        </ul>
+                        <div class="price-display" data-aos="fade-up" data-aos-delay="600">
+                            <span class="original-price">€100</span>
+                            <span class="current-price">€0</span>
+                        </div>
+                        <p class="savings-text">Save €100 by going to this world</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    
+    <script src="script.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out',
+            once: true,
+            offset: 50
+        });
+        
+        // Load footer component
+        fetch('../components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+# GitHub Pages Configuration
+title: CCM - Modern Static Website
+description: A beautiful, responsive static website built with modern web technologies
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Include files
+include:
+  - _redirects
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:categories/:year/:month/:day/:title:output_ext
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO
+author: CCM
+social:
+  name: CCM
+  links:
+    - https://github.com/yourusername
+    - https://twitter.com/yourusername
+    - https://linkedin.com/in/yourusername
+
+# Analytics (uncomment and add your tracking ID)
+# google_analytics: UA-XXXXXXXXX-X
+
+# Comments (uncomment and configure)
+# disqus:
+#   shortname: your-disqus-shortname
+
