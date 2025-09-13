@@ -88,6 +88,9 @@ function setupScrollBehavior() {
             AOS.refresh();
         }
     });
+    
+    // Setup magnetic scrolling effect
+    setupMagneticScrolling();
 }
 
 
@@ -697,6 +700,204 @@ function throttle(func, limit) {
 window.addEventListener('scroll', throttle(function() {
     updateProgressBar();
 }, 16)); // ~60fps
+
+// Magnetic Scrolling Effect - Enhanced Version
+function setupMagneticScrolling() {
+    let isMagneticActive = false;
+    let currentSection = null;
+    let scrollVelocity = 0;
+    let lastScrollTime = 0;
+    let lastScrollTop = 0;
+    
+    // Get all sections
+    const sections = document.querySelectorAll('.section');
+    const magneticStrength = 0.8; // Much stronger magnetic effect
+    const magneticThreshold = 200; // Larger threshold for more noticeable effect
+    const snapThreshold = 150; // Distance to snap to section center
+    
+    // Disable smooth scrolling temporarily for magnetic effect
+    document.documentElement.style.scrollBehavior = 'auto';
+    
+    function findCurrentSection(scrollTop) {
+        let current = null;
+        let minDistance = Infinity;
+        
+        sections.forEach((section, index) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionCenter = sectionTop + (sectionHeight / 2);
+            const viewportCenter = scrollTop + (window.innerHeight / 2);
+            const distance = Math.abs(viewportCenter - sectionCenter);
+            
+            if (distance < minDistance) {
+                minDistance = distance;
+                current = {
+                    element: section,
+                    index: index,
+                    center: sectionCenter,
+                    top: sectionTop,
+                    height: sectionHeight,
+                    distance: distance
+                };
+            }
+        });
+        
+        return current;
+    }
+    
+    function applyMagneticResistance(e) {
+        if (!currentSection) return;
+        
+        const scrollTop = window.pageYOffset;
+        const viewportCenter = scrollTop + (window.innerHeight / 2);
+        const sectionCenter = currentSection.center;
+        const distance = viewportCenter - sectionCenter;
+        
+        // Calculate magnetic resistance based on distance
+        const resistance = Math.max(0, 1 - (Math.abs(distance) / magneticThreshold));
+        
+        if (resistance > 0.1) { // Only apply if close enough to section
+            // Reduce scroll speed based on magnetic resistance
+            const reducedDelta = e.deltaY * (1 - resistance * magneticStrength);
+            
+            // Apply the reduced scroll
+            window.scrollBy(0, reducedDelta);
+            
+            // Prevent default scroll
+            e.preventDefault();
+            
+            // Add visual feedback
+            currentSection.element.style.transform = `scale(${1 + resistance * 0.02})`;
+            currentSection.element.style.filter = `brightness(${1 + resistance * 0.1})`;
+            
+            return true; // Indicates magnetic effect was applied
+        }
+        
+        return false;
+    }
+    
+    function snapToSection() {
+        if (!currentSection) return;
+        
+        const scrollTop = window.pageYOffset;
+        const viewportCenter = scrollTop + (window.innerHeight / 2);
+        const sectionCenter = currentSection.center;
+        const distance = Math.abs(viewportCenter - sectionCenter);
+        
+        // Snap to section if close enough
+        if (distance < snapThreshold) {
+            const targetScroll = sectionCenter - (window.innerHeight / 2);
+            
+            // Smooth scroll to section center
+            window.scrollTo({
+                top: targetScroll,
+                behavior: 'smooth'
+            });
+            
+            // Add snap effect
+            currentSection.element.style.transform = 'scale(1.05)';
+            currentSection.element.style.transition = 'transform 0.3s ease';
+            
+            setTimeout(() => {
+                currentSection.element.style.transform = 'scale(1)';
+            }, 300);
+        }
+    }
+    
+    // Enhanced wheel event handler
+    window.addEventListener('wheel', function(e) {
+        const now = Date.now();
+        const scrollTop = window.pageYOffset;
+        
+        // Calculate scroll velocity
+        scrollVelocity = (scrollTop - lastScrollTop) / (now - lastScrollTime);
+        lastScrollTop = scrollTop;
+        lastScrollTime = now;
+        
+        // Find current section
+        currentSection = findCurrentSection(scrollTop);
+        
+        // Apply magnetic resistance
+        const magneticApplied = applyMagneticResistance(e);
+        
+        if (!magneticApplied) {
+            // Reset section styling if not in magnetic zone
+            sections.forEach(section => {
+                section.style.transform = 'scale(1)';
+                section.style.filter = 'brightness(1)';
+                section.style.transition = 'transform 0.3s ease, filter 0.3s ease';
+            });
+        }
+        
+        // Snap to section after scrolling stops
+        clearTimeout(window.magneticSnapTimeout);
+        window.magneticSnapTimeout = setTimeout(snapToSection, 200);
+        
+    }, { passive: false }); // Important: not passive so we can preventDefault
+    
+    // Handle scroll events for visual feedback
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset;
+        currentSection = findCurrentSection(scrollTop);
+        
+        // Add subtle visual feedback to current section
+        sections.forEach((section, index) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionCenter = sectionTop + (sectionHeight / 2);
+            const viewportCenter = scrollTop + (window.innerHeight / 2);
+            const distance = Math.abs(viewportCenter - sectionCenter);
+            
+            if (distance < magneticThreshold) {
+                const intensity = 1 - (distance / magneticThreshold);
+                section.style.boxShadow = `0 0 ${20 + intensity * 30}px rgba(255, 255, 255, ${intensity * 0.1})`;
+            } else {
+                section.style.boxShadow = 'none';
+            }
+        });
+    });
+    
+    // Handle touch events for mobile
+    let touchStartY = 0;
+    let touchStartTime = 0;
+    
+    window.addEventListener('touchstart', function(e) {
+        touchStartY = e.touches[0].clientY;
+        touchStartTime = Date.now();
+    }, { passive: true });
+    
+    window.addEventListener('touchend', function(e) {
+        const touchEndY = e.changedTouches[0].clientY;
+        const touchEndTime = Date.now();
+        const touchDistance = touchStartY - touchEndY;
+        const touchDuration = touchEndTime - touchStartTime;
+        
+        // Calculate touch velocity
+        const touchVelocity = touchDistance / touchDuration;
+        
+        // Apply magnetic effect based on touch velocity
+        if (Math.abs(touchVelocity) > 0.5) { // Fast enough swipe
+            setTimeout(() => {
+                snapToSection();
+            }, 100);
+        }
+    }, { passive: true });
+    
+    // Add CSS for magnetic effect
+    const style = document.createElement('style');
+    style.textContent = `
+        .section {
+            transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.3s ease;
+            will-change: transform, filter, box-shadow;
+        }
+        
+        .section.magnetic-active {
+            transform: scale(1.02);
+            filter: brightness(1.1);
+        }
+    `;
+    document.head.appendChild(style);
+}
 
 // Cleanup on page unload
 window.addEventListener('beforeunload', function() {

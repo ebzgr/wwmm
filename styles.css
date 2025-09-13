@@ -10,6 +10,18 @@ html {
     overflow-x: hidden;
 }
 
+/* Enhanced smooth scrolling for magnetic effect */
+body {
+    scroll-behavior: smooth;
+    transition: scroll-behavior 0.3s ease;
+}
+
+/* Magnetic scrolling enhancement */
+.section {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    will-change: transform;
+}
+
 body {
     font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;

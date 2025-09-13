@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urgency World - Wonderful World of Manipulative Marketing</title>
-    <meta name="description" content="Explore the psychology of urgency and scarcity in marketing">
-    <link rel="stylesheet" href="styles.css">
+    <title>Deal World - Wonderful World of Manipulative Marketing</title>
+    <meta name="description" content="Explore the psychology of pricing techniques and deals in marketing">
+    <link rel="stylesheet" href="sources/deal-world.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -20,34 +20,35 @@
                 <h2>WWMM</h2>
             </div>
             <div class="nav-menu">
-                <a href="../index.html#worlds" class="nav-link">← Back to Map</a> 
+                <a href="index.html#worlds" class="nav-link">← Back to Map</a>
             </div>
         </div>
     </nav>
 
-    <!-- Urgency World Welcome Section -->
-    <section class="section urgency-section">
+    <!-- Pricing World Welcome Section -->
+    <section class="section pricing-section">
         <div class="section-content">
-            <div class="urgency-content">
-                <h1 class="section-title" data-aos="zoom-in">⚡ URGENCY WORLD ⚡</h1>
-                <p class="urgency-text" data-aos="fade-up" data-aos-delay="200">
-                    Welcome to the realm where <span class="urgency-world-highlight">TIME IS RUNNING OUT!</span>
+            <div class="pricing-content">
+                <h1 class="section-title" data-aos="zoom-in">💰 DEAL WORLD 💰</h1>
+                <p class="pricing-text" data-aos="fade-up" data-aos-delay="200">
+                    Welcome to the realm where <span class="deal-highlight">EVERYTHING IS ON SALE!</span>
                 </p>
-                <div class="urgency-actions" data-aos="fade-up" data-aos-delay="400">
+                <div class="pricing-actions" data-aos="fade-up" data-aos-delay="400">
                     <div class="coming-soon-container">
                         <h2>🚀 COMING SOON! 🚀</h2>
                         <p>This world is under construction. Soon you'll discover:</p>
                         <ul class="coming-soon-features">
-                            <li>⏰ Countdown timers that create panic</li>
-                            <li>🔥 Limited stock indicators</li>
-                            <li>⚡ Flash sale techniques</li>
-                            <li>🎯 FOMO (Fear of Missing Out) strategies</li>
-                            <li>💥 Urgency-driven conversion tactics</li>
+                            <li>💸 Anchoring and price comparison tactics</li>
+                            <li>🎯 "Was €100, now €0" psychological tricks</li>
+                            <li>⏰ Limited-time offer strategies</li>
+                            <li>🎁 Bundle pricing and value perception</li>
+                            <li>💎 Premium vs. budget positioning</li>
                         </ul>
-                        <div class="urgency-stats" data-aos="fade-up" data-aos-delay="600">
-                            <span class="stat">🔥 2,847 people are viewing this right now!</span>
-                            <span class="stat">⚡ Only 3 spots left at this price!</span>
+                        <div class="price-display" data-aos="fade-up" data-aos-delay="600">
+                            <span class="original-price">€100</span>
+                            <span class="current-price">€0</span>
                         </div>
+                        <p class="savings-text">Save €100 by going to this world</p>
                     </div>
                 </div>
             </div>
@@ -60,7 +61,7 @@
     <!-- Footer -->
     <div id="footer-placeholder"></div>
     
-    <script src="script.js"></script>
+    <script src="sources/deal-world.js"></script>
     <script>
         // Initialize AOS
         AOS.init({
@@ -71,7 +72,7 @@
         });
         
         // Load footer component
-        fetch('../components/footer.html')
+        fetch('components/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-placeholder').innerHTML = data;
