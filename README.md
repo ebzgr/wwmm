@@ -57,37 +57,48 @@ This is an **artistic awareness project** that explores the fascinating world of
 ```
 wwmm/
 ├── index.html                    # Main interactive experience
-├── styles.css                    # Global styles and animations
-├── script.js                     # Interactive functionality
+├── about.html                    # About page
+├── urgency-world.html            # World pages (6 total)
+├── reward-world.html
+├── social-world.html
+├── deal-world.html
+├── framing-world.html
+├── persuasion-world.html
 ├── components/
 │   └── footer.html              # Shared footer component
-├── urgency-scarcity/            # Urgency World
-│   ├── index.html
-│   ├── styles.css
-│   └── script.js
-├── gamification-rewards/        # Reward World
-│   ├── index.html
-│   ├── styles.css
-│   └── script.js
-├── social-proof-influencer/     # Social World
-│   ├── index.html
-│   ├── styles.css
-│   └── script.js
-├── pricing-techniques/          # Deal World
-│   ├── index.html
-│   ├── styles.css
-│   └── script.js
-├── framing-anchoring/           # Framing World
-│   ├── index.html
-│   ├── styles.css
-│   └── script.js
-├── advertising-persuasive/      # Persuasion World
-│   ├── index.html
-│   ├── styles.css
-│   └── script.js
-└── res/sound/                   # Audio assets
-    ├── retro-coin.mp3
-    └── clapping.mp3
+├── assets/                      # All static assets
+│   ├── css/
+│   │   ├── main.css             # Global styles and animations
+│   │   └── worlds/              # World-specific styles
+│   │       ├── urgency-world.css
+│   │       ├── reward-world.css
+│   │       ├── social-world.css
+│   │       ├── deal-world.css
+│   │       ├── framing-world.css
+│   │       └── persuasion-world.css
+│   ├── js/
+│   │   ├── main.js              # Main interactive functionality
+│   │   ├── core/                # Core system files
+│   │   │   ├── user-id-system.js
+│   │   │   ├── ab-testing-system.js
+│   │   │   ├── event-system.js
+│   │   │   ├── event-tracking.js
+│   │   │   ├── page-load-tracking.js
+│   │   │   ├── ab-testing-config.js
+│   │   │   └── footer-loader.js
+│   │   └── worlds/              # World-specific functionality
+│   │       ├── urgency-world.js
+│   │       ├── reward-world.js
+│   │       ├── social-world.js
+│   │       ├── deal-world.js
+│   │       ├── framing-world.js
+│   │       └── persuasion-world.js
+│   ├── sound/                   # Audio assets
+│   │   ├── retro-coin.mp3
+│   │   └── clapping.mp3
+│   └── Contributors list.csv    # Contributors data
+└── database/
+    └── schema.sql               # Database schema
 ```
 
 ## 🎓 Educational Value
@@ -136,7 +147,7 @@ wwmm/
 
 ### **Adding New Worlds**
 1. Create a new directory in the root folder
-2. Add `index.html`, `styles.css`, and `script.js`
+2. Add `index.html`, `assets/css/main.css`, and `assets/js/main.js`
 3. Update the main page navigation
 4. Follow the existing design patterns
 
@@ -144,7 +155,7 @@ wwmm/
 - **Text Content**: Edit HTML files for new messaging
 - **Styling**: Modify CSS for visual changes
 - **Interactions**: Update JavaScript for new behaviors
-- **Audio**: Replace sound files in `res/sound/`
+- **Audio**: Replace sound files in `assets/sound/`
 
 ## 📚 Learning Resources
 

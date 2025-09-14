@@ -1,4 +1,4 @@
-// Urgency World Script
+// Gamification World Script
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize AOS
     if (typeof AOS !== 'undefined') {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Load footer component
-    fetch('../components/footer.html')
+    fetch('../../components/footer.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wonderful World of Manipulative Marketing</title>
     <meta name="description" content="Explore the fascinating world of marketing techniques and discover how they influence your decisions">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -27,6 +27,7 @@
             <div class="nav-menu">
                 <a href="#welcome" class="nav-link">Welcome</a>
                 <a href="#worlds" class="nav-link">Map</a>
+                <a href="about.html" class="nav-link">About</a>
                 <a href="#thank-you" class="nav-link">⭐ Referral bonus</a>
             </div>
         </div>
@@ -373,48 +374,44 @@
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
+    <!-- User ID System (load first) -->
+    <script src="assets/js/core/user-id-system.js"></script>
+    
+    <!-- A/B Testing System -->
+    <script src="assets/js/core/ab-testing-system.js"></script>
+    
+    <!-- Event System -->
+    <script src="assets/js/core/event-system.js"></script>
+    
+    <!-- Configuration -->
+    <script src="assets/js/core/ab-testing-config.js"></script>
+    
+    <!-- Event Tracking System -->
+    <script src="assets/js/core/event-tracking.js"></script>
+    
+    <!-- Page Load Tracking System -->
+    <script src="assets/js/core/page-load-tracking.js"></script>
+    
+    <!-- Footer Loader -->
+    <script src="assets/js/core/footer-loader.js"></script>
+    
     <!-- Audio elements for gamification sounds -->
     <audio id="coin-sound" preload="auto">
-        <source src="res/sound/retro-coin.mp3" type="audio/mpeg">
-        <source src="res/sound/retro-coin.wav" type="audio/wav">
+        <source src="assets/sound/retro-coin.mp3" type="audio/mpeg">
+        <source src="assets/sound/retro-coin.wav" type="audio/wav">
     </audio>
     
     <audio id="clapping-sound" preload="auto">
-        <source src="res/sound/clapping.mp3" type="audio/mpeg">
-        <source src="res/sound/clapping.wav" type="audio/wav">
+        <source src="assets/sound/clapping.mp3" type="audio/mpeg">
+        <source src="assets/sound/clapping.wav" type="audio/wav">
     </audio>
     
     <!-- Footer -->
     <div id="footer-placeholder"></div>
 
-    <script src="script.js"></script>
+    <script src="assets/js/main.js"></script>
     <script>
-        // Load footer component
-        fetch('components/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => {
-                console.log('Footer component not found, using fallback');
-                // Fallback footer if component fails to load
-                document.getElementById('footer-placeholder').innerHTML = `
-                    <footer class="footer">
-                        <div class="footer-content">
-                            <div class="footer-section">
-                                <h3>Thank You!</h3>
-                                <p>Hope you learned something valuable about marketing techniques!</p>
-                                <button class="btn-footer-top" onclick="scrollToTop()">Back to Top</button>
-                            </div>
-                            <div class="footer-section">
-                                <h3>Join Our Next Project</h3>
-                                <p>Want to participate? We'd love to hear from you!</p>
-                                <a href="mailto:contact@marketingforbetterment.com" class="footer-email">Send us an email</a>
-                            </div>
-                        </div>
-                    </footer>
-                `;
-            });
+        // Footer is now loaded by footer-loader.js
     </script>
 </body>
 </html>

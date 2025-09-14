@@ -89,8 +89,7 @@ function setupScrollBehavior() {
         }
     });
     
-    // Setup magnetic scrolling effect
-    setupMagneticScrolling();
+    // Magnetic scrolling effect removed
 }
 
 
@@ -319,18 +318,22 @@ function setupEndorsementSlider() {
     endorsementInterval = setInterval(showNextSlide, 4000);
 }
 
+// Global progress bar function
+function updateProgressBar() {
+    const progressBar = document.querySelector('.progress-bar');
+    if (!progressBar) return;
+    
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    
+    progressBar.style.width = scrollPercent + '%';
+}
+
 // Setup progress bar
 function setupProgressBar() {
     const progressBar = document.querySelector('.progress-bar');
     if (!progressBar) return;
-    
-    function updateProgressBar() {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercent = (scrollTop / docHeight) * 100;
-        
-        progressBar.style.width = scrollPercent + '%';
-    }
     
     window.addEventListener('scroll', updateProgressBar);
 }
@@ -702,7 +705,9 @@ window.addEventListener('scroll', throttle(function() {
 }, 16)); // ~60fps
 
 // Magnetic Scrolling Effect - Enhanced Version
+// Magnetic scrolling effect removed - function disabled
 function setupMagneticScrolling() {
+    return; // Function disabled
     let isMagneticActive = false;
     let currentSection = null;
     let scrollVelocity = 0;
