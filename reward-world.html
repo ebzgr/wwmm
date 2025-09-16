@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reward World - Wonderful World of Manipulative Marketing</title>
+    <title>Gamification World - Wonderful World of Manipulative Marketing</title>
     <meta name="description" content="Explore the psychology of gamification and rewards in marketing">
     <link rel="stylesheet" href="assets/css/worlds/reward-world.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Gaming Typeface -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -25,37 +27,141 @@
         </div>
     </nav>
 
+    <!-- Status Tracker (fixed top-left) -->
+    <div class="status-tracker" id="status-tracker" aria-live="polite">
+        <div class="tracker-tier" id="tracker-tier">Wood</div>
+        <div class="tracker-points" id="tracker-points">0 pts</div>
+        <div class="tracker-bar"><span id="tracker-bar-fill"></span></div>
+    </div>
+
     <!-- Gamification World Welcome Section -->
     <section class="section gamification-section">
         <div class="section-content">
             <div class="gamification-content">
-                <h1 class="section-title" data-aos="zoom-in">🎮 REWARD WORLD 🎮</h1>
+                <h1 class="section-title" data-aos="zoom-in">🎮 GAMIFICATION WORLD 🎮</h1>
                 <p class="gamification-text" data-aos="fade-up" data-aos-delay="200">
                     Welcome to the realm where <span class="reward-highlight">EVERY ACTION EARNS REWARDS!</span>
                 </p>
                 <div class="gamification-actions" data-aos="fade-up" data-aos-delay="400">
-                    <div class="coming-soon-container">
-                        <h2>🚀 COMING SOON! 🚀</h2>
-                        <p>This world is under construction. Soon you'll discover:</p>
-                        <ul class="coming-soon-features">
-                            <li>🏆 Achievement systems and badges</li>
-                            <li>⭐ Point accumulation strategies</li>
-                            <li>🎯 Progress bars and completion psychology</li>
-                            <li>🎁 Reward tiers and status levels</li>
-                            <li>🎪 Gamified user experiences</li>
-                        </ul>
-                        <div class="gamification-dashboard" data-aos="fade-up" data-aos-delay="600">
-                            <div class="score-display">
-                                <div class="score-item">
-                                    <span class="score-label">Your Status:</span>
-                                    <span class="status-value">Explorer</span>
-                                </div>
-                                <div class="score-item">
-                                    <span class="score-label">Next Level:</span>
-                                    <span class="status-value">Coming Soon!</span>
-                                </div>
+                    <!-- Awareness Box -->
+                    <div class="awareness-box" data-aos="zoom-in" data-aos-delay="420">
+                        <div class="awareness-content">
+                            <div class="awareness-percentage" id="awareness-percentage" aria-label="Eighty-nine percent">0%</div>
+                            <div class="awareness-text">
+                                <p><strong>89%</strong> of people would spend more time on an app if it included gamification elements, according to a 2023 study by <span class="awareness-source">Tech Report</span>.</p>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Image Swap Slider -->
+                    <div class="image-swapper" data-aos="fade-up" data-aos-delay="460">
+                        <h3 class="swap-title">Attention Shift Slider</h3>
+                        <div class="swap-container">
+                            <img id="swap-image-normal" class="swap-image is-visible" src="assets/img/normal.jpg" alt="Normal scene" data-fallback-label="Normal scene">
+                            <img id="swap-image-phones" class="swap-image" src="assets/img/phones.jpg" alt="Characters on their phones" data-fallback-label="On the phone">
+                        </div>
+                        <input type="range" id="swap-slider" class="swap-slider" min="0" max="100" value="0" aria-label="Slide to change the scene">
+                        <div class="swap-hint">Slide to switch from a normal scene to one where characters are on their phones.</div>
+                    </div>
+
+                    <!-- Why is it so effective? -->
+                    <section class="why-effective" data-aos="fade-up" data-aos-delay="520">
+                        <div class="why-grid">
+                            <div class="why-copy">
+                                <h3 class="why-title">Why is it so effective?</h3>
+                                <p>Gamification taps core reward systems: goals, uncertainty, and progress. Variable rewards keep us engaged, while streaks and badges turn small actions into habits.</p>
+                                <ul class="why-points">
+                                    <li><strong>Variable rewards:</strong> Unpredictable outcomes drive repetition.</li>
+                                    <li><strong>Progress cues:</strong> Bars, levels, and streaks create momentum.</li>
+                                    <li><strong>Social proof:</strong> Leaderboards and badges signal status.</li>
+                                </ul>
+                            </div>
+                            <figure class="why-figure">
+                                <img id="why-illustration" src="assets/img/why-effective-illustration.webp" alt="Why effective illustration" data-fallback-label="Why is it so effective?">
+                                <img id="why-original" class="hidden" style="display:none" src="assets/img/why-effective.jpg" alt="Illustration explaining why gamification is effective" data-fallback-label="Why is it so effective?">
+                                <figcaption>Illustration: triggers that drive repetitive engagement</figcaption>
+                                <button id="discover-why" class="discover-btn" type="button">Discover</button>
+                            </figure>
+                        </div>
+                    </section>
+
+                    <!-- Dopamine Insight Aside -->
+                    <section class="dopamine-aside" data-aos="fade-up" data-aos-delay="560">
+                        <div class="dopamine-aside-inner">
+                            <figure class="dopamine-figure">
+                                <img id="dopamine-illustration" src="assets/img/dopamine-illustration.jpg" alt="Dopamine illustration" data-fallback-label="Dopamine insight">
+                                <img id="dopamine-original" class="hidden" src="assets/img/dopamine.jpg" alt="Dopamine visual" data-fallback-label="Dopamine insight">
+                            </figure>
+                            <div class="dopamine-copy">
+                                <h3 class="dopamine-title-2">Dopamine, cues and tiny wins</h3>
+                                <p>Dopamine spikes in anticipation — not just at the reward. Notifications, progress ticks and near-misses all prime the system, nudging us to keep going.</p>
+                                <div class="dopamine-bullets">
+                                    <div class="dopamine-chip">Anticipation > Reward</div>
+                                    <div class="dopamine-chip">Variable schedules</div>
+                                    <div class="dopamine-chip">Micro-feedback</div>
+                                </div>
+                                <button id="discover-dopamine" class="discover-btn" type="button">Discover</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Media Section -->
+                    <section class="media-section" data-aos="fade-up" data-aos-delay="580">
+                        <div class="media-hero">
+                            <h3 class="media-title">Explore more</h3>
+                            <p class="media-sub">Dive deeper with audio: a podcast and a quick sound bite.</p>
+                            <div class="media-actions">
+                                <button id="btn-podcast" class="media-btn media-btn-large podcast" type="button">▶ Listen to podcast</button>
+                                <button id="btn-sound" class="media-btn media-btn-large sound" type="button">♪ Play sound</button>
+                                <audio id="podcast-audio" preload="none" src="assets/sound/podcast.mp3"></audio>
+                                <audio id="sfx-audio" preload="auto" src="assets/sound/retro-coin.mp3"></audio>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Better World Gallery -->
+                    <section class="better-world" data-aos="fade-up" data-aos-delay="600">
+                        <h3 class="better-title">Toward a Better World</h3>
+                        <p class="better-sub">Three concrete directions that use design to protect attention and wellbeing.</p>
+                        <div class="better-grid">
+                            <figure class="better-card" data-example="better1">
+                                <img src="assets/img/logo-orange.png" alt="Orange logo" data-fallback-label="Orange">
+                                <figcaption>Orange — Transparent rewards and user awareness.</figcaption>
+                            </figure>
+                            <figure class="better-card" data-example="better2">
+                                <img src="assets/img/logo-designers-ethiques.png" alt="Designers Ethiques logo" data-fallback-label="Designers Ethiques">
+                                <figcaption>Designers Ethiques — Designing without dark patterns.</figcaption>
+                            </figure>
+                            <figure class="better-card" data-example="better3">
+                                <img src="assets/img/logo-betclic.svg.png" alt="Betclic logo" data-fallback-label="Betclic">
+                                <figcaption>Betclic — Honest odds and transparent messaging.</figcaption>
+                            </figure>
+                        </div>
+                    </section>
+
+                    <!-- Dopamine Meter Experience -->
+                    <div class="dopamine-experience" data-aos="fade-up" data-aos-delay="500">
+                        <h3 class="dopamine-title">Dopamine Meter</h3>
+                        <div class="dopamine-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                            <div class="dopamine-bar" style="width: 0%"></div>
+                            <div class="dopamine-percentage">0%</div>
+                        </div>
+
+                        <div class="push-grid">
+                            <button class="push-btn" data-boost="5">PUSH ME!</button>
+                            <button class="push-btn" data-boost="4">PUSH ME!</button>
+                            <button class="push-btn" data-boost="6">PUSH ME!</button>
+                            <button class="push-btn" data-boost="5">PUSH ME!</button>
+                            <button class="push-btn" data-boost="7">PUSH ME!</button>
+                            <button class="push-btn" data-boost="3">PUSH ME!</button>
+                            <button class="push-btn" data-boost="6">PUSH ME!</button>
+                            <button class="push-btn" data-boost="4">PUSH ME!</button>
+                            <button class="push-btn" data-boost="5">PUSH ME!</button>
+                            <button class="push-btn" data-boost="8">PUSH ME!</button>
+                            <button class="push-btn" data-boost="3">PUSH ME!</button>
+                            <button class="push-btn" data-boost="5">PUSH ME!</button>
+                        </div>
+                        <div class="dopamine-hint">Each press releases a tiny burst of dopamine ✨</div>
                     </div>
                 </div>
             </div>
@@ -86,7 +192,39 @@
     <!-- Footer -->
     <div id="footer-placeholder"></div>
     
+    <!-- Footer Loader -->
+    <script src="assets/js/core/footer-loader.js"></script>
+    
     <script src="assets/js/worlds/reward-world.js"></script>
+    
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+        <button class="lightbox-close" aria-label="Close">×</button>
+        <img class="lightbox-image" alt="Expanded view">
+        <div class="lightbox-caption"></div>
+    </div>
+
+    <!-- Info Modal for Better World examples -->
+    <div id="info-modal" class="info-modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="info-modal-dialog">
+            <button class="info-close" aria-label="Close">×</button>
+            <div class="info-header">
+                <div class="info-logo" id="info-logo"></div>
+                <h3 class="info-title" id="info-title">Title</h3>
+            </div>
+            <div class="info-body">
+                <p id="info-text"></p>
+                <a id="info-link" class="info-link" href="#" target="_blank" rel="noopener" style="display:none;">Learn more</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Warning -->
+    <section class="final-warning">
+        <div class="final-warning-content">
+            <p>Your dopamine has been artificially stimulated, which has harmful effects on your mental and emotional health, potentially contributing to problems such as anxiety, depression, and chronic stress.</p>
+        </div>
+    </section>
     <script>
         // Initialize AOS
         AOS.init({
@@ -95,13 +233,6 @@
             once: true,
             offset: 50
         });
-        
-        // Load footer component
-        fetch('components/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
     </script>
 </body>
 </html>

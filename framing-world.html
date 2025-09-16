@@ -34,36 +34,132 @@
                     Welcome to the realm where <span class="framing-highlight">PERSPECTIVE IS EVERYTHING!</span>
                 </p>
                 <div class="framing-actions" data-aos="fade-up" data-aos-delay="400">
-                    <div class="coming-soon-container">
-                        <h2>🚀 COMING SOON! 🚀</h2>
-                        <p>This world is under construction. Soon you'll discover:</p>
-                        <ul class="coming-soon-features">
-                            <li>🎭 Positive vs. negative framing techniques</li>
-                            <li>⚖️ Loss aversion and gain framing</li>
-                            <li>🎯 Anchoring bias and reference points</li>
-                            <li>🔄 Context switching and perspective shifts</li>
-                            <li>🎪 Choice architecture and decision framing</li>
-                        </ul>
-                        <div class="exclusive-roller" data-aos="fade-up" data-aos-delay="600">
-                            <div class="roller-container">
-                                <div class="roller-display">
-                                    <div class="roller-text">This world is EXCLUSIVE</div>
-                                    <div class="roller-icon">👑</div>
-                                </div>
-                                <div class="access-result">
-                                    <div class="congratulations">
-                                        <div class="crown-icon">👑</div>
-                                        <h3>Access Granted!</h3>
-                                        <p>Welcome to the exclusive Framing World!</p>
+                    <!-- Framing Lab: Initial Interactive Ideas (Prototype) -->
+                    <div class="framing-lab" data-aos="fade-up" data-aos-delay="200">
+                        <h2 class="lab-title">Framing Lab</h2>
+                        <p class="lab-subtitle">Mini-experiments to feel how wording and anchors change perception.</p>
+
+                        <!-- Experiment 1: Positive vs Negative Framing -->
+                        <div class="lab-section" id="lab-framing">
+                            <div class="lab-image-wrap">
+                                <img src="assets/img/framing-effect.png" alt="Two yoghurt tubs: 20% fat vs 80% fat-free framing" class="lab-image lab-image--small">
+                            </div>
+                            <div class="lab-header">
+                                <p class="lab-question">Which sounds better to you?</p>
+                            </div>
+                            <div class="lab-cards">
+                                <div class="lab-card" data-option="negative">
+                                    <div class="lab-card-badge badge-danger">Negative frame</div>
+                                    <div class="lab-card-content">
+                                        <div class="lab-metric">20% fat</div>
                                     </div>
+                                    <button class="choice-btn" data-choice="negative">This sounds better</button>
+                                </div>
+                                <div class="lab-card" data-option="positive">
+                                    <div class="lab-card-badge">Positive frame</div>
+                                    <div class="lab-card-content">
+                                        <div class="lab-metric">80% fat-free</div>
+                                    </div>
+                                    <button class="choice-btn" data-choice="positive">This sounds better</button>
                                 </div>
                             </div>
+                            
+                        </div>
+
+                        <!-- Experiment 2: Price Anchoring -->
+                        <div class="lab-section" id="lab-anchoring">
+                            <div class="lab-image-wrap">
+                                <img src="assets/img/shoe_with_centered_price.png" alt="Shoe ad illustrating price anchoring" class="lab-image lab-image--smaller">
+                            </div>
+                            <div class="lab-header">
+                                <p class="lab-question">How good does this deal feel?</p>
+                            </div>
+                            <div class="anchor-panel">
+                                <div class="anchor-display">
+                                    <div class="anchor-label">Anchor price</div>
+                                    <div class="anchor-value" id="anchor-value">€199</div>
+                                </div>
+                                
+                            </div>
+                            <div class="deal-panel">
+                                <div class="deal-price">
+                                    <span class="deal-current">Today: €99</span>
+                                    <span class="deal-badge">Same product</span>
+                                </div>
+                                <div class="rating-group" role="group" aria-label="Deal rating">
+                                    <button class="rate-btn" data-rating="1">Not good</button>
+                                    <button class="rate-btn" data-rating="2">Okay</button>
+                                    <button class="rate-btn" data-rating="3">Great deal</button>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Reveal the Frame Section (Ford example) -->
+    <section class="section framing-section">
+        <div class="section-content">
+            <div class="framing-content">
+                <div class="lab-section" id="lab-reveal-frame" data-aos="fade-up">
+                    <p class="lab-question">Reveal the frame</p>
+                    <div class="reveal-wrap">
+                        <div class="reveal-stack">
+                            <img src="assets/img/ford framé boosté.jpeg" alt="Framed version" class="reveal-img top">
+                            <img src="assets/img/ford unframed boosté.jpeg" alt="Unframed full context" class="reveal-img bottom">
+                        </div>
+                        <div class="reveal-message" id="reveal-message">
+                            <span>Now you got all the facts</span>
+                        </div>
+                    </div>
+                    <div class="reveal-legend">
+                        <span style="color: #facc15; font-weight: 600;">Click on this image to start the animation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Second Reveal Section (Publicité example) -->
+    <section class="section framing-section">
+        <div class="section-content">
+            <div class="framing-content">
+                <div class="lab-section" id="lab-reveal-publicite" data-aos="fade-up">
+                    <div class="reveal-wrap reveal-wrap--smaller" id="reveal-wrap-2">
+                        <div class="reveal-stack">
+                            <img src="assets/img/Image publicité pour poster framing.png" alt="Framed advertisement" class="reveal-img top">
+                            <img src="assets/img/Image publicité côté dark.png" alt="Full context advertisement" class="reveal-img bottom">
+                        </div>
+                        <div class="reveal-message" id="reveal-message-2">
+                            <span>See how it changes your opinion?</span>
+                        </div>
+                    </div>
+                    <div class="reveal-legend">
+                        <span style="color: #facc15; font-weight: 600;">Click on this image to start the animation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Warning Message -->
+    <section class="section framing-section final-section">
+        <div class="section-content">
+            <div class="framing-content">
+                <div class="final-warning" data-aos="fade-up">
+                    <h1 class="warning-text">BEWARE THE FRAME</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Framing feedback overlay -->
+    <div class="lab-overlay" id="lab-overlay" aria-hidden="true">
+        <div class="lab-overlay-message" id="lab-overlay-message"></div>
+    </div>
 
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -89,6 +185,9 @@
     <!-- Footer -->
     <div id="footer-placeholder"></div>
     
+    <!-- Footer Loader -->
+    <script src="assets/js/core/footer-loader.js"></script>
+    
     <script src="assets/js/worlds/framing-world.js"></script>
     <script>
         // Initialize AOS
@@ -98,13 +197,6 @@
             once: true,
             offset: 50
         });
-        
-        // Load footer component
-        fetch('components/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
     </script>
 </body>
 </html>

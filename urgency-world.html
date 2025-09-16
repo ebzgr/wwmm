@@ -14,42 +14,211 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Top navigation">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>WWMM</h2>
-            </div>
+            <div class="nav-logo"></div>
             <div class="nav-menu">
-                <a href="index.html#worlds" class="nav-link">← Back to Map</a> 
+                <button id="backdoor" class="nav-link backdoor" aria-label="Return to main page">Home</button>
             </div>
         </div>
     </nav>
 
-    <!-- Urgency World Welcome Section -->
-    <section class="section urgency-section">
+    <!-- Fullscreen manipulation overlay -->
+    <div id="manipOverlay" class="manip-overlay" role="alertdialog" aria-live="assertive" aria-modal="true" aria-hidden="true">
+        <div class="manip-inner">
+            <div class="manip-text">you have been manipulated</div>
+            <div class="manip-see-how">see how</div>
+            <div class="manip-explanation">You clicked on a fake urgency trigger designed to bypass your rational thinking and force an impulsive decision. This is exactly how marketers manipulate you every day.</div>
+            <div class="manip-count" aria-hidden="true">(5)</div>
+        </div>
+    </div>
+
+    <!-- FOMO Introduction Section -->
+    <section class="section fomo-section">
         <div class="section-content">
-            <div class="urgency-content">
-                <h1 class="section-title" data-aos="zoom-in">⚡ URGENCY WORLD ⚡</h1>
-                <p class="urgency-text" data-aos="fade-up" data-aos-delay="200">
-                    Welcome to the realm where <span class="urgency-world-highlight">TIME IS RUNNING OUT!</span>
+            <div class="fomo-content">
+                <h1 class="fomo-title" data-aos="zoom-in">If you don't learn these 4 techniques, you'll be condemned to financial precarity!</h1>
+                <p class="fomo-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    Quick! The portal closes in <span class="fomo-timer" data-seconds="120">02:00</span>!!!
                 </p>
-                <div class="urgency-actions" data-aos="fade-up" data-aos-delay="400">
-                    <div class="coming-soon-container">
-                        <h2>🚀 COMING SOON! 🚀</h2>
-                        <p>This world is under construction. Soon you'll discover:</p>
-                        <ul class="coming-soon-features">
-                            <li>⏰ Countdown timers that create panic</li>
-                            <li>🔥 Limited stock indicators</li>
-                            <li>⚡ Flash sale techniques</li>
-                            <li>🎯 FOMO (Fear of Missing Out) strategies</li>
-                            <li>💥 Urgency-driven conversion tactics</li>
-                        </ul>
-                        <div class="urgency-stats" data-aos="fade-up" data-aos-delay="600">
-                            <span class="stat">🔥 2,847 people are viewing this right now!</span>
-                            <span class="stat">⚡ Only 3 spots left at this price!</span>
-                        </div>
+                <div class="fomo-warning" data-aos="fade-up" data-aos-delay="400">
+                    ⚠️ Time is running out! Don't miss this life-changing opportunity!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Psychology Explanation 1: Overconsumption -->
+    <section class="section psychology-section" id="psychology">
+        <div class="section-content">
+            <div class="psy-block" data-aos="fade-up" data-aos-delay="100">
+                <h3>Overconsumption → Capital loss</h3>
+                <p>Scarcity campaigns push consumers to buy without real need, leading to waste and financial loss. The consumer accumulates unnecessary goods, to the detriment of their economic stability.</p>
+                <label class="awareness-checkbox">
+                    <input type="checkbox" class="aware-box"> I am now aware
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technique 1: Limited Stock Alerts -->
+    <section class="section techniques-section" id="techniques">
+        <div class="section-content">
+            <article class="tech-card" data-aos="fade-up" data-aos-delay="100">
+                <header class="tech-header">
+                    <span class="tech-badge danger">LIMITED STOCK</span>
+                    <h3>Limited Stock Alerts</h3>
+                </header>
+                <p class="tech-desc">"Only <span class="stock-count" data-initial="3">3</span> left in stock" increases pressure to act now (FOMO).</p>
+                <div class="tech-illustration">
+                    <div class="stock-bar">
+                        <div class="stock-fill" style="width: 25%"></div>
+                    </div>
+                    <div class="stock-labels">
+                        <span>Almost sold out</span>
+                        <span class="stock-live">3 left</span>
                     </div>
                 </div>
+                <button class="btn-offer offer-btn" data-offer="limited_stock" data-offer-button>Get Last One</button>
+            </article>
+        </div>
+    </section>
+
+    <!-- Psychology Explanation 2: Binge-buying -->
+    <section class="section psychology-section">
+        <div class="section-content">
+            <div class="psy-block" data-aos="fade-up" data-aos-delay="100">
+                <h3>Binge-buying → Loss of control</h3>
+                <p>Limited offers trigger compulsive and sometimes addictive purchases. The fear of missing out overrides reason, leading to regrets.</p>
+                <label class="awareness-checkbox">
+                    <input type="checkbox" class="aware-box"> I am now aware
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technique 2: Push Notifications (Trap) -->
+    <section class="section techniques-section">
+        <div class="section-content">
+            <article class="tech-card" data-aos="fade-up" data-aos-delay="200">
+                <header class="tech-header">
+                    <span class="tech-badge warn">PUSH NOTIFICATION</span>
+                    <h3>Real-time Alerts</h3>
+                </header>
+                <p class="tech-desc">A phone-like notification invites instant taps. Clicking it reveals the trap.</p>
+                <div class="phone-frame">
+                    <div class="status-bar">
+                        <span>09:41</span>
+                        <span>📶 🔋</span>
+                    </div>
+                    <div class="notification-trap" role="button" tabindex="0" aria-label="Limited offer notification" data-offer-button>
+                        <div class="notif-icon">🛎️</div>
+                        <div class="notif-content">
+                            <div class="notif-title">Limited Offer</div>
+                            <div class="notif-text">-50% ends in <span class="notif-timer" data-seconds="45">00:45</span>. Tap to claim.</div>
+                        </div>
+                        <div class="notif-cta">View</div>
+                    </div>
+                </div>
+                <button class="btn-offer offer-btn" data-offer="push_notification" data-offer-button>Claim -50%</button>
+            </article>
+        </div>
+    </section>
+
+    <!-- Psychology Explanation 3: Unconscious manipulation -->
+    <section class="section psychology-section">
+        <div class="section-content">
+            <div class="psy-block" data-aos="fade-up" data-aos-delay="100">
+                <h3>Unconscious manipulation → Erosion of autonomy</h3>
+                <p>Counters or fake stock alerts exploit our psychological reflexes. The consumer believes they are choosing freely but their decision is actually guided.</p>
+                <label class="awareness-checkbox">
+                    <input type="checkbox" class="aware-box"> I am now aware
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technique 3: Real-time social proof banner with activity feed -->
+    <section class="section techniques-section">
+        <div class="section-content">
+            <article class="tech-card" data-aos="fade-up" data-aos-delay="250">
+                <header class="tech-header">
+                    <span class="tech-badge social">REAL-TIME</span>
+                    <h3>Real-time Social Proof</h3>
+                </header>
+                <p class="tech-desc">"People are viewing this right now" nudges action through herd cues.</p>
+                <div class="realtime-wrap" aria-live="polite">
+                    <div class="realtime-banner">
+                        <span class="pulse-dot" aria-hidden="true"></span>
+                        <span class="live-text"><span id="viewerCount">37</span> people are viewing this right now</span>
+                    </div>
+                    <ul class="activity-feed" id="activityFeed" aria-label="Recent viewing activity"></ul>
+                </div>
+                <button class="btn-offer offer-btn activity-btn" data-offer="real_time" data-offer-button>See what they're seeing</button>
+            </article>
+        </div>
+    </section>
+
+    <!-- Psychology Explanation 4: FOMO -->
+    <section class="section psychology-section">
+        <div class="section-content">
+            <div class="psy-block" data-aos="fade-up" data-aos-delay="100">
+                <h3>FOMO → Psychological stress</h3>
+                <p>The fear of missing an opportunity generates anxiety and pressure. Flash sales and ephemeral offers trap buyers in a cycle of stressed consumption.</p>
+                <label class="awareness-checkbox">
+                    <input type="checkbox" class="aware-box"> I am now aware
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technique 4: Flash Sales -->
+    <section class="section techniques-section">
+        <div class="section-content">
+            <article class="tech-card" data-aos="fade-up" data-aos-delay="300">
+                <header class="tech-header">
+                    <span class="tech-badge flash">FLASH SALE</span>
+                    <h3>Flash Sales</h3>
+                </header>
+                <p class="tech-desc">Short time windows force rapid decisions. Timer below intensifies urgency.</p>
+                <div class="timer-box">
+                    <span class="timer-label">Ends in</span>
+                    <span class="flash-timer" data-seconds="120">02:00</span>
+                </div>
+                <button class="btn-offer offer-btn" data-offer="flash_sale" data-offer-button>Buy Before It Ends</button>
+            </article>
+        </div>
+    </section>
+
+    <!-- Awareness world trigger -->
+    <section class="section psychology-section">
+        <div class="section-content">
+            <div class="calm-trigger" id="calm-trigger" data-aos="fade-up" data-aos-delay="300">
+                <p class="bottom-text">congratulations, you have reached the bottom of the page</p>
+                <button class="btn-calm" id="enterCalmBtn" disabled>enter awareness world</button>
+                <p class="calm-hint">Check all awareness boxes above to unlock the awareness world.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awareness World (calm view) -->
+    <section class="section calm-section" id="calm" aria-hidden="true">
+        <div class="section-content">
+            <h2 class="calm-title" data-aos="fade-up">Awareness World</h2>
+            <p class="calm-sub" data-aos="fade-up" data-aos-delay="100">From manipulation to mindfulness — choose consciously, live freely.</p>
+            <div class="mountain-wrap" data-aos="fade-up" data-aos-delay="200">
+                <img class="mountain-img" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1800&auto=format&fit=crop&q=70" alt="Majestic mountain landscape with snow-capped peaks and vast valleys">
+            </div>
+            <div class="awareness-copy" data-aos="fade-up" data-aos-delay="260">
+                <h3>Why ethical marketing matters</h3>
+                <p>Ethical marketing respects consumer autonomy and builds genuine trust. It informs rather than manipulates.</p>
+                
+                <h3>Why awareness is crucial</h3>
+                <p>Understanding manipulation techniques empowers you to make conscious choices. Recognize triggers, pause, and decide based on your true needs.</p>
+            </div>
+            <div class="awareness-actions">
+                <button class="btn-back-top" id="btn-back-top">Back to Top</button>
+                <button class="btn-back-main" id="btn-back-main">Back to Main Menu</button>
             </div>
         </div>
     </section>
@@ -78,6 +247,9 @@
     <!-- Footer -->
     <div id="footer-placeholder"></div>
     
+    <!-- Footer Loader -->
+    <script src="assets/js/core/footer-loader.js"></script>
+    
     <script src="assets/js/worlds/urgency-world.js"></script>
     <script>
         // Initialize AOS
@@ -87,13 +259,6 @@
             once: true,
             offset: 50
         });
-        
-        // Load footer component
-        fetch('components/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
     </script>
 </body>
 </html>

@@ -263,8 +263,9 @@ function setupCountdownTimer() {
                     }, 5000);
                 }, 2000);
             } else {
-                // Reset timer when it reaches 0 again
+                // Timer reached 0 again after extension - reset for another cycle
                 timeLeft = 30;
+                hasExtended = false; // Allow extension again
             }
         }
     }

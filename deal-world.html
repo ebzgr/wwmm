@@ -25,35 +25,168 @@
         </div>
     </nav>
 
-    <!-- Pricing World Welcome Section -->
-    <section class="section pricing-section">
-        <div class="section-content">
-            <div class="pricing-content">
-                <h1 class="section-title" data-aos="zoom-in">💰 DEAL WORLD 💰</h1>
-                <p class="pricing-text" data-aos="fade-up" data-aos-delay="200">
-                    Welcome to the realm where <span class="deal-highlight">EVERYTHING IS ON SALE!</span>
-                </p>
-                <div class="pricing-actions" data-aos="fade-up" data-aos-delay="400">
-                    <div class="coming-soon-container">
-                        <h2>🚀 COMING SOON! 🚀</h2>
-                        <p>This world is under construction. Soon you'll discover:</p>
-                        <ul class="coming-soon-features">
-                            <li>💸 Anchoring and price comparison tactics</li>
-                            <li>🎯 "Was €100, now €0" psychological tricks</li>
-                            <li>⏰ Limited-time offer strategies</li>
-                            <li>🎁 Bundle pricing and value perception</li>
-                            <li>💎 Premium vs. budget positioning</li>
-                        </ul>
-                        <div class="price-display" data-aos="fade-up" data-aos-delay="600">
-                            <span class="original-price">€100</span>
-                            <span class="current-price">€0</span>
-                        </div>
-                        <p class="savings-text">Save €100 by going to this world</p>
-                    </div>
-                </div>
+    <!-- Promo Banner -->
+    <section class="promo-banner" aria-label="Promotional banner">
+        <div class="promo-content">
+            <div class="promo-badges">
+                <span class="badge badge-hot">Exceptional</span>
+                <span class="badge badge-timer">Available for 24h only</span>
+            </div>
+            <h1 class="promo-title">Premium access to the site</h1>
+            <div class="promo-pricing">
+                <span class="promo-old">€20</span>
+                <span class="promo-sep">→</span>
+                <span class="promo-new">€19.99/month</span>
+            </div>
+            <p class="promo-sub">Price anchoring at work: a tiny drop can make the offer feel irresistible.</p>
+            <div class="promo-actions">
+                <a class="promo-cta" href="#overview" title="See pricing techniques overview">See the techniques</a>
+            </div>
+        </div>
+        <div class="promo-glow"></div>
+    </section>
+
+    <!-- Deal World Overview Grid -->
+    <section id="overview" class="deal-overview">
+        <div class="overview-content">
+            <h2 class="overview-title">Explore pricing techniques</h2>
+            <p class="overview-sub">Click a card to jump to its demo below</p>
+            <div class="deal-grid">
+                <a class="deal-card card-addon" href="#addon">
+                    <div class="card-icon">🍔</div>
+                    <h3 class="card-title">Add-on Pricing</h3>
+                    <p class="card-text">Build your burger with paid extras</p>
+                </a>
+                <a class="deal-card card-discounting" href="#discounting">
+                    <div class="card-icon">🛍️</div>
+                    <h3 class="card-title">Discounting Price</h3>
+                    <p class="card-text">Black Friday: fear of missing savings</p>
+                </a>
+                <a class="deal-card card-decoy" href="#decoy">
+                    <div class="card-icon">🍿</div>
+                    <h3 class="card-title">Decoy Pricing</h3>
+                    <p class="card-text">Cinema popcorn: the medium decoy</p>
+                </a>
+                <a class="deal-card card-charm" href="#charm">
+                    <div class="card-icon">🧁</div>
+                    <h3 class="card-title">Charm Pricing</h3>
+                    <p class="card-text">€1.99 instead of €2</p>
+                </a>
+                <a class="deal-card card-prestige" href="#prestige">
+                    <div class="card-icon">📱</div>
+                    <h3 class="card-title">Prestige Pricing</h3>
+                    <p class="card-text">High-end tech with round prices</p>
+                </a>
+            </div>
+            <div class="explain-panel" id="explain-overview" aria-hidden="true">
+                <h3 class="explain-title">Psychology: Priming & Visual Framing</h3>
+                <p>This playful map primes your attention and sets expectations. Clear categories and fun icons nudge where you’ll explore first.</p>
             </div>
         </div>
     </section>
+
+    <!-- Themed Sections -->
+    <section id="addon" class="deal-theme-section theme-addon">
+        <div class="theme-content">
+            <h2 class="theme-title">Add-on Pricing — Build Your Burger</h2>
+            <p class="theme-intro">Create a “complete” burger, but every extra adds up. Build yours below.</p>
+            <div class="burger-builder" id="burger-builder">
+                <div class="burger-item"><label><input type="checkbox" class="burger-extra" data-price="0" checked disabled> Burger base</label><span>€5.00</span></div>
+                <div class="burger-item"><label><input type="checkbox" class="burger-extra" data-price="0.8"> Cheese +</label><span>€0.80</span></div>
+                <div class="burger-item"><label><input type="checkbox" class="burger-extra" data-price="0.5"> Tomato +</label><span>€0.50</span></div>
+                <div class="burger-item"><label><input type="checkbox" class="burger-extra" data-price="1.2"> Bacon +</label><span>€1.20</span></div>
+                <div class="burger-item"><label><input type="checkbox" class="burger-extra" data-price="2"> Fries +</label><span>€2.00</span></div>
+                <div class="burger-item"><label><input type="checkbox" class="burger-extra" data-price="1.5"> Soda +</label><span>€1.50</span></div>
+                <div class="burger-total"><span>Total</span><span id="burger-total">€5.00</span></div>
+            </div>
+            <button class="why-toggle" data-target="#explain-addon">Why this works</button>
+            <div class="explain-panel" id="explain-addon" aria-hidden="true">
+                <h3 class="explain-title">Psychology: Partitioned Pricing</h3>
+                <p>Small add-ons feel trivial when separated, so you accept more of them. The total creeps up without a single “big” decision.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="theme-divider"></div>
+
+    <section id="discounting" class="deal-theme-section theme-discounting">
+        <div class="theme-content">
+            <h2 class="theme-title">Discounting Price — Black Friday</h2>
+            <p class="theme-intro">“Buy now or miss the deal!” Feel the pressure of time and scarcity.</p>
+            <div class="discount-banner">
+                <div class="discount-badge">-70%</div>
+                <div class="discount-texts">
+                    <div class="line">Mega Sale Ends In <span class="fake-timer" id="bf-timer">00:30</span></div>
+                    <div class="line">Only <b id="bf-left">3</b> items left at this price</div>
+                </div>
+                <button class="discount-cta" id="bf-cta">Grab the deal</button>
+            </div>
+            <button class="why-toggle" data-target="#explain-discounting">Why this works</button>
+            <div class="explain-panel" id="explain-discounting" aria-hidden="true">
+                <h3 class="explain-title">Psychology: Scarcity & Urgency</h3>
+                <p>Ticking clocks and “Only X left” spike arousal and FOMO, pushing snap decisions to avoid imagined loss.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="theme-divider"></div>
+
+    <section id="decoy" class="deal-theme-section theme-decoy">
+        <div class="theme-content">
+            <h2 class="theme-title">Decoy Pricing — Cinema Popcorn</h2>
+            <p class="theme-intro">Pick your size. Notice how one option makes another look “obvious”.</p>
+            <div class="popcorn-table" id="popcorn-table">
+                <button class="pop-row" data-size="small" data-price="3"><span>Small</span><span>€3.00</span></button>
+                <button class="pop-row decoy" data-size="medium" data-price="6.5"><span>Medium</span><span>€6.50</span></button>
+                <button class="pop-row highlight" data-size="large" data-price="7"><span>Large — Best Value</span><span>€7.00</span></button>
+            </div>
+            <div class="pop-choice" id="pop-choice">Selected: —</div>
+            <button class="why-toggle" data-target="#explain-decoy">Why this works</button>
+            <div class="explain-panel" id="explain-decoy" aria-hidden="true">
+                <h3 class="explain-title">Psychology: Asymmetric Dominance</h3>
+                <p>An inferior “decoy” (Medium) makes the Large feel like a no-brainer, steering you to the pricier option.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="theme-divider"></div>
+
+    <section id="charm" class="deal-theme-section theme-charm">
+        <div class="theme-content">
+            <h2 class="theme-title">Charm Pricing — €1.99 vs €2.00</h2>
+            <p class="theme-intro">Toggle the price and feel how different they seem.</p>
+            <div class="charm-display">
+                <button class="charm-toggle" id="charm-toggle" aria-pressed="false">Switch to €1.99</button>
+                <div class="charm-values"><span class="charm-old" id="charm-old">€2.00</span><span class="promo-sep">→</span><span class="charm-new" id="charm-new">€1.99</span></div>
+            </div>
+            <button class="why-toggle" data-target="#explain-charm">Why this works</button>
+            <div class="explain-panel" id="explain-charm" aria-hidden="true">
+                <h3 class="explain-title">Psychology: Left-Digit Bias</h3>
+                <p>€1.99 is processed closer to €1 than €2. The leading digit anchors perception, making it feel cheaper.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="theme-divider"></div>
+
+    <section id="prestige" class="deal-theme-section theme-prestige">
+        <div class="theme-content">
+            <h2 class="theme-title">Prestige Pricing — High-End Tech</h2>
+            <p class="theme-intro">Switch between round and .99 pricing to see the vibe shift.</p>
+            <div class="prestige-display" id="prestige-display">
+                <div class="prestige-item"><span>iPhone</span><span class="prestige-price" data-round="1200" data-charm="1199">€1,200</span></div>
+                <div class="prestige-item"><span>Headphones</span><span class="prestige-price" data-round="300" data-charm="299">€300</span></div>
+            </div>
+            <div class="prestige-actions"><button class="prestige-toggle" id="prestige-toggle">Switch to .99</button></div>
+            <button class="why-toggle" data-target="#explain-prestige">Why this works</button>
+            <div class="explain-panel" id="explain-prestige" aria-hidden="true">
+                <h3 class="explain-title">Psychology: Rounded vs .99</h3>
+                <p>Rounded prices signal elegance and quality; .99 endings push “deal” vibes. Brands choose intentionally to shape perception.</p>
+            </div>
+        </div>
+    </section>
+
+    
 
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -79,6 +212,9 @@
     <!-- Footer -->
     <div id="footer-placeholder"></div>
     
+    <!-- Footer Loader -->
+    <script src="assets/js/core/footer-loader.js"></script>
+    
     <script src="assets/js/worlds/deal-world.js"></script>
     <script>
         // Initialize AOS
@@ -88,13 +224,6 @@
             once: true,
             offset: 50
         });
-        
-        // Load footer component
-        fetch('components/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
     </script>
 </body>
 </html>

@@ -1,0 +1,64 @@
+INTRODUCTION 
+Imagine you’re casually scrolling through your favorite online store when a bright red banner pops up:
+? “Only 2 items left in stock—order in the next 10 minutes to secure yours!” ?
+Suddenly, even if you hadn’t planned on buying anything, your heart starts beating a little faster. You don’t want to miss out, right? Nobody does. And that’s exactly what certain marketing techniques are designed to trigger.
+At its core, marketing can be defined as the activity of promoting and selling products or services—often relying on advertising and market research. Today, it has become one of the most powerful tools to persuade, influence, and ultimately drive consumption. This influence has only grown stronger with the rise of AI and generative technologies, which continue to transform how businesses reach us and contribute to mental health challenges (e.g., anxiety, reduced attention span), social inequalities (e.g., polarization, exclusionary targeting), and environmental harm (e.g., overconsumption, waste generation). Despite being widely studied, the full impact of marketing on both individual and social behavior is still not completely addressed and remains widely untackled. 
+Within this vast field, companies rely on numerous techniques to shape our decisions. In this presentation, we’ll focus on one of the most striking: the manipulation of urgency and scarcity. These strategies create the impression that time is running out or that a product is in limited supply, pushing customers to act now instead of postponing their decision.
+For instance, think of those bold online banners shouting: “Only 50 tickets left for this concert!” or “Flash Sale ends at midnight!” . Such messages play on our natural fears—especially our fear of missing out (FOMO) and the desire to belong to a group—turning hesitation into immediate action. I would now like to shortly develop these diverse techniques : 
+Presentation of several techniques creating urgency and scarcity : 
+- 1) Limited Stock Alerts
+Showing customers that an item is running low creates a sense of urgency. Messages like “Only 3 left in stock” or “Almost sold out” push shoppers to act quickly before the opportunity disappears. This technique works well because it leverages people’s natural fear of missing out.
+Example : Bath&Body Works, online travel agencies, hotel websites  
+- 2) Push Notifications
+Real-time alerts sent directly to a customer’s phone or browser are powerful for creating urgency. Push notifications can announce time-limited offers, restocks, or trending items that are selling fast. Since they reach users instantly, they encourage immediate engagement.
+Examples : H&M, AIRBNB… 
+- 3) Flash Sales
+Flash sales add urgency by putting a strict time limit on discounts, often just a few hours or a single day. The short window encourages quick decision-making and impulse purchases. Shoppers are less likely to postpone buying when they know the deal won’t last.
+Examples : Shein, Fnac, Zara 
+- 4) Exclusive Collaborations
+Partnering with popular brands, influencers, or creators to release limited-edition products builds scarcity through exclusivity. Customers feel they’re getting something rare and unique, which increases demand and drives faster purchases.
+Example : Louis Vuitton x Takashi Murakami, Balenciaga x Gucci
+- 5) Social Scarcity
+Social scarcity leverages the power of exclusivity and status to drive demand. When a product is associated with prestige or limited access, customers feel compelled to own it as a symbol of belonging to an elite group. 
+Example : NFTs (non-fungible tokens), Hermès Birkin bags
+
+What is the psychology behind it ? 
+The psychology behind scarcity is based on the idea that people naturally desire what is rare or difficult to obtain. When something seems limited, our brain interprets it as more valuable, because we associate scarcity with exclusivity and importance. This perception creates a strong motivation to acquire the product before it disappears.
+The psychology behind the sense of urgency comes from time pressure. When a deadline is imposed, people feel that they have less time to think and evaluate their options. This can lead to impulsive decisions, because the fear of missing the opportunity becomes stronger than the desire to carefully analyze the purchase.
+Both techniques are powerful because they trigger a basic human fear: the fear of missing out (FOMO). People do not want to lose a chance that others might take, so they act quickly. By combining scarcity and urgency, marketers push customers to make faster decisions, often reducing hesitation and increasing conversions.
+
+What is the challenge?
+The main challenge with scarcity and urgency marketing lies in the fine balance between persuasion and manipulation. On the one hand, businesses use these tactics to drive sales, create excitement, and stand out in already saturated markets. On the other hand, they risk fostering behaviors that may harm consumers—therefore persuading them to purchase things that are neither rational nor aligned with their real needs. Subsequently, the tension lies between short-term profit maximization for companies and long-term consumer trust and well-being.
+
+Therefore what does scarcity and urgency marketing entail for the consumer? (ethical problems)
+? Overconsumption ? Capital loss
+Scarcity and urgency campaigns push consumers to buy quickly, often without pausing to consider whether they truly need the product. This can lead to overconsumption, where individuals accumulate items they rarely use. The financial consequences are significant: money is wasted on unnecessary purchases, which can create long-term frustration and even financial insecurity. For example, during Black Friday sales, shoppers often rush to purchase discounted electronics or clothing, only to realize later that many of these items were never essential. The company profits, but the consumer’s economic stability is weakened.
+? Binge-buying ? Loss of control
+Scarcity strategies, such as “Limited-time offer: 50% off until midnight!” or “Only 3 items left in stock,” stimulate impulsive, binge-like buying behaviors. Instead of making carefully planned purchases, consumers may fall into a cycle of compulsive shopping that resembles addictive patterns. The sense of “stocking up before it’s too late” overrides rational decision-making. A typical example is the panic-buying of toilet paper and basic goods during the COVID-19 pandemic, where fear and scarcity drove people to hoard far beyond their needs—often leading to regret afterward.
+
+? Unconscious manipulation of the customer ? Erosion of autonomy
+These marketing strategies often bypass rational evaluation and exploit psychological shortcuts. For instance, countdown timers or fake scarcity cues (“20 people are looking at this hotel room right now!”) trigger instinctive reactions, reducing the consumer’s ability to make free, informed choices. The danger is that autonomy is undermined: individuals think they are choosing freely, while in reality they are being subtly steered toward a decision. Online travel agencies and booking platforms frequently use these tactics to accelerate bookings.
+
+? Fear Of Missing Out (FOMO) ? Psychological stress
+Scarcity and urgency marketing thrive on FOMO – the fear that if one does not act immediately, a unique opportunity will vanish forever. While effective at generating sales, this tactic fuels anxiety and stress, as consumers feel pressured to make snap decisions. For example, online fashion retailers like Shein or Zara often run flash sales lasting only a few hours, pushing shoppers to act instantly for fear of missing a trendy item. The psychological burden is real: rather than enjoying the purchase, consumers may feel trapped in a cycle of stress-driven consumption.
+How do those techniques affect SDGs ? 
+? SDG 12 (Responsible Consumption and Production): encourage impulsive buying rather than thoughtful, sustainable consumption. Consequently, this leads to waste, as consumers often purchase items they don’t truly need or that quickly become obsolete. Ultimately, it reinforces unsustainable production patterns and undermines efforts to reduce resource depletion and waste.
+? SDG 3 (Good Health and Well-being): can push consumers to overconsume unhealthy products, such as fast food, sugary drinks, or limited-edition snacks. Therefore, this fosters poor dietary habits and contributes to rising obesity rates and related health issues. Additionally, the stress and anxiety caused by the constant pressure to “buy now” can negatively affect mental well-being.
+How do we want to address it  / solve it by raising awareness?
+Raising awareness about marketing techniques is an important step in reducing the often invisible impact they have on individuals and society. Many strategies work beneath the surface of conscious decision-making, subtly shaping habits, preferences, and consumption patterns without people fully realizing it. By learning how these techniques operate, consumers gain the ability to critically analyze advertisements and reflect on their own choices rather than simply reacting to persuasive cues. This awareness not only protects individual autonomy but also creates a more informed public capable of resisting manipulative or exploitative practices.
+The consequences of such awareness are twofold. First, when consumers recognize tactics like artificial scarcity or urgency, these techniques often become less effective, forcing businesses to rethink their strategies. Second, awareness can spark broader change in how goods are made and marketed. Campaigns such as “Save Ralph” against animal testing illustrate how consumer consciousness can push industries toward more ethical practices, demonstrating that marketing itself can evolve into a tool for positive change rather than manipulation.
+Moreover, the impact of marketing goes beyond immediate financial loss; it shapes social values, emotional well-being, and even environmental outcomes. This raises the question: What alternatives exist to manipulative strategies like urgency and scarcity? Instead of exploiting FOMO (fear of missing out), companies can build positive associations and foster curiosity about their products. For example, campaigns that emphasize creativity, empathy, or belonging—using inclusive language like “we” instead of “you”—make people feel part of a collective rather than pressured individuals. Brands can also connect with personal or global challenges such as sustainability, diversity, or mental health, which resonate deeply with modern consumers. Finally, marketers can reframe FOMO into JOMO (joy of missing out), encouraging mindful consumption and authentic experiences instead of panic-driven shopping.
+In the long run, understanding both the risks and alternatives of marketing strategies creates space for more intentional, balanced, and ethical interactions between businesses and society—where persuasion does not come at the expense of trust, autonomy, or well-being.
+Bibliography : 
+? Integrating Sustainable Development Goals (SDGs) into Corporate Marketing Strategies: A Technological Approach to Responsible Business. 2025. Sangeetha P. and co.
+? Netflix documentary “Buy Now: The Shopping Conspiracy”
+? Better marketing for a better world (BMBW) : the Journal of Marketing Rajesh K Chandy
+? Influence : The Psychology of Persuasion, R. Cialdini
+? The Stanford Behaviour Design Laboratory Website
+
+
+Sense of urgency and scarcity
+
+
+1
+

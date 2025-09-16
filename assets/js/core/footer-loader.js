@@ -23,17 +23,6 @@ function loadFooter() {
                         </ul>
                     </div>
                     
-                    <div class="footer-section">
-                        <h4>Worlds</h4>
-                        <ul>
-                            <li><a href="urgency-world.html">Urgency World</a></li>
-                            <li><a href="reward-world.html">Reward World</a></li>
-                            <li><a href="social-world.html">Social World</a></li>
-                            <li><a href="deal-world.html">Deal World</a></li>
-                            <li><a href="framing-world.html">Framing World</a></li>
-                            <li><a href="persuasion-world.html">Persuasion World</a></li>
-                        </ul>
-                    </div>
                     
                     <div class="footer-section">
                         <h4>Resources</h4>
@@ -45,7 +34,7 @@ function loadFooter() {
                 </div>
                 
                 <div class="footer-bottom">
-                    <p>&copy; 2024 ESSEC Business School - Comprendre & Changer le Monde. Educational project for awareness and learning.</p>
+                    <p>2025 ESSEC Business School - Comprendre & Changer le Monde. Educational project for awareness and learning.</p>
                 </div>
             </footer>
 
@@ -174,17 +163,6 @@ function loadFooter() {
                             </ul>
                         </div>
                         
-                        <div class="footer-section">
-                            <h4>Worlds</h4>
-                            <ul>
-                                <li><a href="urgency-world.html">Urgency World</a></li>
-                                <li><a href="reward-world.html">Reward World</a></li>
-                                <li><a href="social-world.html">Social World</a></li>
-                                <li><a href="deal-world.html">Deal World</a></li>
-                                <li><a href="framing-world.html">Framing World</a></li>
-                                <li><a href="persuasion-world.html">Persuasion World</a></li>
-                            </ul>
-                        </div>
                         
                         <div class="footer-section">
                             <h4>Resources</h4>
@@ -196,7 +174,7 @@ function loadFooter() {
                     </div>
                     
                     <div class="footer-bottom">
-                        <p>&copy; 2024 ESSEC Business School - Comprendre & Changer le Monde. Educational project for awareness and learning.</p>
+                        <p>2025 ESSEC Business School - Comprendre & Changer le Monde. Educational project for awareness and learning.</p>
                     </div>
                 </footer>
 
