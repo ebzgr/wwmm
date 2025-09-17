@@ -40,19 +40,21 @@ function loadFooter() {
 
             <style>
             .footer {
-                background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
                 color: #ffffff;
-                padding: 3rem 0 1rem;
+                padding: 2rem 0 1.5rem;
+                margin-top: 0;
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             .footer-content {
                 max-width: 1200px;
                 margin: 0 auto;
-                padding: 0 20px;
+                padding: 0 2rem;
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                grid-template-columns: 1fr 1fr;
                 gap: 2rem;
+                text-align: center;
             }
 
             .footer-section h3 {
@@ -179,20 +181,21 @@ function loadFooter() {
 
                 <style>
                 .footer {
-                    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+                    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
                     color: #ffffff;
-                    padding: 3rem 0 1rem;
-                    margin-top: 4rem;
+                    padding: 2rem 0 1.5rem;
+                    margin-top: 0;
                     border-top: 1px solid rgba(255, 255, 255, 0.1);
                 }
 
                 .footer-content {
                     max-width: 1200px;
                     margin: 0 auto;
-                    padding: 0 20px;
+                    padding: 0 2rem;
                     display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    grid-template-columns: 1fr 1fr;
                     gap: 2rem;
+                    text-align: center;
                 }
 
                 .footer-section h3 {
