@@ -25,7 +25,7 @@
         </div>
     </nav>
 
-    <!-- Social Proof World Welcome Section -->
+    <!-- Social Proof World Feed Section -->
     <section class="section social-proof-section">
         <div class="section-content">
             <div class="social-proof-content">
@@ -34,27 +34,16 @@
                 <p class="social-text" data-aos="fade-up" data-aos-delay="400">
                     Welcome to the realm where <span class="social-highlight">EVERYONE ELSE IS DOING IT!</span>
                 </p>
-                <div class="social-actions" data-aos="fade-up" data-aos-delay="600">
-                    <div class="coming-soon-container">
-                        <h2>🚀 COMING SOON! 🚀</h2>
-                        <p>This world is under construction. Soon you'll discover:</p>
-                        <ul class="coming-soon-features">
-                            <li>👥 Testimonials and reviews psychology</li>
-                            <li>⭐ Star ratings and social validation</li>
-                            <li>📊 "Join thousands of users" tactics</li>
-                            <li>🎭 Influencer marketing strategies</li>
-                            <li>🔥 Viral content creation techniques</li>
-                        </ul>
-                        <div class="testimonial-preview" data-aos="fade-up" data-aos-delay="800">
-                            <div class="testimonial-slide active">
-                                <div class="testimonial-content">
-                                    <div class="testimonial-text">"This world changed my life! 10/10 would recommend!"</div>
-                                    <div class="testimonial-author">- Sarah M., Marketing Expert</div>
-                                </div>
-                                <div class="ai-badge">⭐ Generated with AI</div>
-                            </div>
-                        </div>
-                    </div>
+
+                
+
+                <div id="social-feed" class="social-feed" data-aos="fade-up" data-aos-delay="700">
+                    <!-- Posts will be rendered here by JS -->
+                </div>
+
+                <div id="feed-loader" class="feed-loader" aria-hidden="true">
+                    <div class="spinner"></div>
+                    <span>Loading more posts...</span>
                 </div>
             </div>
         </div>
@@ -84,9 +73,6 @@
     <!-- Footer -->
     <div id="footer-placeholder"></div>
     
-    <!-- Footer Loader -->
-    <script src="assets/js/core/footer-loader.js"></script>
-    
     <script src="assets/js/worlds/social-world.js"></script>
     <script>
         // Initialize AOS
@@ -96,6 +82,13 @@
             once: true,
             offset: 50
         });
+        
+        // Load footer component
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
     </script>
 </body>
 </html>
