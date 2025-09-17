@@ -15,13 +15,13 @@ function loadFooter() {
                         <p>An educational journey through marketing techniques and consumer psychology.</p>
                     </div>
                     
-                    <div class="footer-section">
-                        <h4>About</h4>
-                        <ul>
-                            <li><a href="about.html">About the Project</a></li>
-                            <li><a href="index.html">Home</a></li>
-                        </ul>
-                    </div>
+                        <div class="footer-section">
+                            <h4>About</h4>
+                            <ul>
+                                <li><a href="about.html">About the Project</a></li>
+                                <li><a href="join-us.html">Join Our Community</a></li>
+                            </ul>
+                        </div>
                     
                     
                     <div class="footer-section">
@@ -43,7 +43,6 @@ function loadFooter() {
                 background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
                 color: #ffffff;
                 padding: 3rem 0 1rem;
-                margin-top: 4rem;
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
 
@@ -159,7 +158,7 @@ function loadFooter() {
                             <h4>About</h4>
                             <ul>
                                 <li><a href="about.html">About the Project</a></li>
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="join-us.html">Join Our Community</a></li>
                             </ul>
                         </div>
                         

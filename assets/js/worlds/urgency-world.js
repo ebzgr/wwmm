@@ -14,6 +14,8 @@
 		initFlashTimers();
 		initRealtimeCounters();
 		wireDelegatedOfferClicks();
+		wireModalCloseButton();
+		wireAwarenessModalClose();
 		wireBottomDetection();
 		wireAwarenessCheckboxes();
 		wireCalmEnter();
@@ -75,35 +77,45 @@
 		});
 	}
 
+	function wireModalCloseButton(){
+		document.body.addEventListener('click', (e) => {
+			const closeBtn = e.target.closest('.manip-close');
+			if (!closeBtn) return;
+			e.preventDefault();
+			handleModalClose();
+		});
+	}
+
+	function handleModalClose(){
+		hideOverlay();
+		resetPresentationToInitialState();
+		hasClickedOffer = false;
+		// Removed window.scrollTo(0,0) to maintain scroll position
+	}
+
+	function wireAwarenessModalClose(){
+		document.body.addEventListener('click', (e) => {
+			const closeBtn = e.target.closest('.awareness-modal-close');
+			const backdrop = e.target.closest('.awareness-modal-backdrop');
+			if (closeBtn || backdrop) {
+				e.preventDefault();
+				hideAwarenessModal();
+			}
+		});
+	}
+
 	function handleOfferClick(){
 		hasClickedOffer = true;
-		window.scrollTo(0,0);
+		// Removed window.scrollTo(0,0) to maintain scroll position
 		showOverlay();
-		const startedAt = performance.now();
-		setTimeout(() => {
-			hideOverlay();
-			resetPresentationToInitialState();
-			hasClickedOffer = false;
-			window.scrollTo(0,0);
-		}, OFFER_LOCK_MS);
+		// Remove automatic timeout - modal will be closed by user clicking close button
 	}
 
 	function showOverlay(){
 		const overlay = ensureOverlay();
 		overlay.setAttribute('aria-hidden', 'false');
 		overlay.classList.add('show');
-		let remaining = OFFER_LOCK_MS / 1000;
-		const countEl = overlay.querySelector('.manip-count');
-		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-			if (countEl) countEl.textContent = `(${remaining})`;
-		} else {
-			if (countEl) countEl.textContent = `(${remaining})`;
-			const id = setInterval(() => {
-				remaining -= 1;
-				if (countEl) countEl.textContent = `(${remaining})`;
-				if (remaining <= 0) clearInterval(id);
-			}, 1000);
-		}
+		// Remove countdown timer - modal will be closed by user
 	}
 
 	function hideOverlay(){
@@ -168,17 +180,23 @@
 		if (!calmBtn) return;
 		calmBtn.addEventListener('click', (e) => {
 			if (calmBtn.disabled) return;
-			enterCalmMode();
+			showAwarenessModal();
 		});
 	}
 
-	function enterCalmMode(){
-		document.body.classList.add('calm-enabled');
-		const calm = document.getElementById('calm');
-		if (calm) {
-			calm.classList.add('active');
-			calm.setAttribute('aria-hidden', 'false');
-			calm.scrollIntoView({ behavior: 'smooth' });
+	function showAwarenessModal(){
+		const modal = document.getElementById('awarenessModal');
+		if (modal) {
+			modal.setAttribute('aria-hidden', 'false');
+			modal.classList.add('show');
+		}
+	}
+
+	function hideAwarenessModal(){
+		const modal = document.getElementById('awarenessModal');
+		if (modal) {
+			modal.classList.remove('show');
+			modal.setAttribute('aria-hidden', 'true');
 		}
 	}
 

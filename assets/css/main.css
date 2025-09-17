@@ -105,6 +105,35 @@ body {
     width: 100%;
 }
 
+/* Special styling for Join Us button - subtle highlight */
+.join-us-btn {
+    color: #4ECDC4 !important;
+    font-weight: 600;
+    position: relative;
+}
+
+.join-us-btn::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(45deg, #4ECDC4, #FF6B6B);
+    border-radius: 1px;
+    opacity: 0.8;
+}
+
+.join-us-btn:hover {
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+.join-us-btn:hover::before {
+    opacity: 1;
+    height: 3px;
+}
+
 /* Section Base Styles */
 .section {
     min-height: 100vh;
@@ -121,6 +150,11 @@ body {
     font-weight: 800;
     margin-bottom: 2rem;
     text-align: center;
+}
+
+/* Social proof title - 80% of normal section title size */
+.social-proof-title {
+    font-size: clamp(1.6rem, 4.8vw, 3.2rem);
 }
 
 .section-content {
@@ -679,20 +713,20 @@ body {
 
 /* Testimonial Carousel */
 .testimonial-carousel {
-    max-width: 700px;
-    margin: 2rem auto;
+    max-width: 600px;
+    margin: 1.5rem auto;
     position: relative;
 }
 
 .carousel-container {
     position: relative;
-    height: 200px;
+    height: 150px;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 15px;
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(20px);
     border: 2px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .testimonial-slide {
@@ -702,7 +736,7 @@ body {
     opacity: 0;
     transition: all 0.6s ease-in-out;
     transform: translateX(100%);
-    padding: 2rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -719,13 +753,13 @@ body {
 
 .ai-badge {
     position: absolute;
-    bottom: 1rem;
-    left: 1rem;
+    bottom: 0.8rem;
+    left: 0.8rem;
     background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
     color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.6rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -740,9 +774,9 @@ body {
 }
 
 .testimonial-text {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-style: italic;
     color: #ffffff;
     line-height: 1.4;
@@ -750,7 +784,7 @@ body {
 }
 
 .testimonial-author {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #feca57;
     font-weight: 500;
     text-align: right;
@@ -1264,6 +1298,7 @@ body {
 /* Thank You Section */
 .thank-you-section {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 3rem 0;
 }
 
 .thank-you-text {

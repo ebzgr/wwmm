@@ -14,11 +14,13 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar" role="navigation" aria-label="Top navigation">
+    <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo"></div>
+            <div class="nav-logo">
+                <h2>WWMM</h2>
+            </div>
             <div class="nav-menu">
-                <button id="backdoor" class="nav-link backdoor" aria-label="Return to main page">Home</button>
+                <a href="index.html#worlds" class="nav-link">← Back to Map</a>
             </div>
         </div>
     </nav>
@@ -26,10 +28,46 @@
     <!-- Fullscreen manipulation overlay -->
     <div id="manipOverlay" class="manip-overlay" role="alertdialog" aria-live="assertive" aria-modal="true" aria-hidden="true">
         <div class="manip-inner">
-            <div class="manip-text">you have been manipulated</div>
-            <div class="manip-see-how">see how</div>
-            <div class="manip-explanation">You clicked on a fake urgency trigger designed to bypass your rational thinking and force an impulsive decision. This is exactly how marketers manipulate you every day.</div>
-            <div class="manip-count" aria-hidden="true">(5)</div>
+            <button class="manip-close" aria-label="Close modal">×</button>
+            <div class="manip-alert-icon">⚠️</div>
+            <div class="manip-text">You are not alone</div>
+            <div class="manip-explanation">You just fell for a classic urgency trap! These techniques exploit our fear of missing out and make us act fast without thinking. It's completely normal - our brains are wired to respond to scarcity and urgency.</div>
+        </div>
+    </div>
+
+    <!-- Awareness World Modal -->
+    <div id="awarenessModal" class="awareness-modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="awareness-modal-backdrop"></div>
+        <div class="awareness-modal-content">
+            <button class="awareness-modal-close" aria-label="Close modal">×</button>
+            <div class="awareness-modal-header">
+                <div class="awareness-icon">🌱</div>
+                <h2 class="awareness-modal-title">By knowing about urgency techniques, you are already in the awareness world</h2>
+            </div>
+            <div class="awareness-modal-body">
+                <p class="awareness-main-message">You've taken the first step toward mindful decision-making. There's no need to rush - most decisions can wait.</p>
+                
+                <div class="awareness-solutions">
+                    <h3>Solutions to Counter Urgency & Scarcity:</h3>
+                    <ul class="solutions-list">
+                        <li><strong>Pause and reflect:</strong> Ask yourself if you really need this item or if it's just the urgency talking</li>
+                        <li><strong>Research alternatives:</strong> Look for similar products or services without time pressure</li>
+                        <li><strong>Set a waiting period:</strong> Give yourself 24-48 hours before making significant purchases</li>
+                        <li><strong>Question the scarcity:</strong> Is this really limited, or is it a marketing tactic?</li>
+                        <li><strong>Focus on value:</strong> Consider the long-term value rather than immediate availability</li>
+                    </ul>
+                </div>
+                
+                <div class="awareness-encouragement">
+                    <p>Remember: Most decisions can wait. True opportunities will still be there tomorrow.</p>
+                </div>
+            </div>
+            <div class="awareness-modal-footer">
+                <button class="awareness-modal-btn" onclick="window.location.href='index.html#worlds'">
+                    Explore Other Worlds
+                </button>
+                <a href="index.html#worlds" class="awareness-modal-link">← Back to Map</a>
+            </div>
         </div>
     </div>
 
@@ -48,145 +86,205 @@
         </div>
     </section>
 
-    <!-- Psychology Explanation 1: Overconsumption -->
-    <section class="section psychology-section" id="psychology">
+    <!-- Urgency Themes Section -->
+    <section class="section urgency-themes-section">
         <div class="section-content">
-            <div class="psy-block" data-aos="fade-up" data-aos-delay="100">
-                <h3>Overconsumption → Capital loss</h3>
-                <p>Scarcity campaigns push consumers to buy without real need, leading to waste and financial loss. The consumer accumulates unnecessary goods, to the detriment of their economic stability.</p>
-                <label class="awareness-checkbox">
-                    <input type="checkbox" class="aware-box"> I am now aware
-                </label>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technique 1: Limited Stock Alerts -->
-    <section class="section techniques-section" id="techniques">
-        <div class="section-content">
-            <article class="tech-card" data-aos="fade-up" data-aos-delay="100">
-                <header class="tech-header">
-                    <span class="tech-badge danger">LIMITED STOCK</span>
-                    <h3>Limited Stock Alerts</h3>
-                </header>
-                <p class="tech-desc">"Only <span class="stock-count" data-initial="3">3</span> left in stock" increases pressure to act now (FOMO).</p>
-                <div class="tech-illustration">
-                    <div class="stock-bar">
-                        <div class="stock-fill" style="width: 25%"></div>
+            <div class="urgency-themes-content">
+                <h2 class="section-title" data-aos="fade-up">Signs of Urgency</h2>
+                <p class="themes-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    Red, orange, timers, and limited availability are classic signs of urgency techniques used in marketing
+                </p>
+                <div class="themes-grid" data-aos="fade-up" data-aos-delay="400">
+                    <div class="theme-card red-theme">
+                        <div class="theme-icon">🔴</div>
+                        <h3>Red Colors</h3>
+                        <p>Red triggers urgency and danger signals, making us act quickly without thinking</p>
                     </div>
-                    <div class="stock-labels">
-                        <span>Almost sold out</span>
-                        <span class="stock-live">3 left</span>
+                    <div class="theme-card orange-theme">
+                        <div class="theme-icon">🟠</div>
+                        <h3>Orange Alerts</h3>
+                        <p>Orange creates a sense of warning and immediate action needed</p>
+                    </div>
+                    <div class="theme-card timer-theme">
+                        <div class="theme-icon">⏰</div>
+                        <h3>Countdown Timers</h3>
+                        <p>Timers create artificial scarcity and force rapid decision-making</p>
+                    </div>
+                    <div class="theme-card limited-theme">
+                        <div class="theme-icon">📦</div>
+                        <h3>Limited Availability</h3>
+                        <p>"Only X left" messages exploit our fear of missing out and create artificial scarcity</p>
                     </div>
                 </div>
-                <button class="btn-offer offer-btn" data-offer="limited_stock" data-offer-button>Get Last One</button>
-            </article>
-        </div>
-    </section>
-
-    <!-- Psychology Explanation 2: Binge-buying -->
-    <section class="section psychology-section">
-        <div class="section-content">
-            <div class="psy-block" data-aos="fade-up" data-aos-delay="100">
-                <h3>Binge-buying → Loss of control</h3>
-                <p>Limited offers trigger compulsive and sometimes addictive purchases. The fear of missing out overrides reason, leading to regrets.</p>
-                <label class="awareness-checkbox">
-                    <input type="checkbox" class="aware-box"> I am now aware
-                </label>
             </div>
         </div>
     </section>
 
-    <!-- Technique 2: Push Notifications (Trap) -->
-    <section class="section techniques-section">
+    <!-- Daily Playground Section -->
+    <section class="section daily-playground-section">
         <div class="section-content">
-            <article class="tech-card" data-aos="fade-up" data-aos-delay="200">
-                <header class="tech-header">
-                    <span class="tech-badge warn">PUSH NOTIFICATION</span>
-                    <h3>Real-time Alerts</h3>
-                </header>
-                <p class="tech-desc">A phone-like notification invites instant taps. Clicking it reveals the trap.</p>
-                <div class="phone-frame">
-                    <div class="status-bar">
-                        <span>09:41</span>
-                        <span>📶 🔋</span>
-                    </div>
-                    <div class="notification-trap" role="button" tabindex="0" aria-label="Limited offer notification" data-offer-button>
-                        <div class="notif-icon">🛎️</div>
-                        <div class="notif-content">
-                            <div class="notif-title">Limited Offer</div>
-                            <div class="notif-text">-50% ends in <span class="notif-timer" data-seconds="45">00:45</span>. Tap to claim.</div>
+            <div class="playground-content">
+                <h2 class="section-title" data-aos="fade-up">Daily Playground</h2>
+                <p class="playground-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    Experience these common urgency techniques used in everyday marketing
+                </p>
+                
+                <!-- Technique 1: Limited Stock Alerts -->
+                <div class="techniques-container">
+                    <article class="tech-card" data-aos="fade-up" data-aos-delay="100">
+                        <header class="tech-header">
+                            <span class="tech-badge danger">LIMITED STOCK</span>
+                            <h3>Limited Stock Alerts</h3>
+                        </header>
+                        <p class="tech-desc">"Only <span class="stock-count" data-initial="3">3</span> left in stock" increases pressure to act now (FOMO).</p>
+                        <div class="tech-illustration">
+                            <div class="stock-bar">
+                                <div class="stock-fill" style="width: 25%"></div>
+                            </div>
+                            <div class="stock-labels">
+                                <span>Almost sold out</span>
+                                <span class="stock-live">3 left</span>
+                            </div>
                         </div>
-                        <div class="notif-cta">View</div>
-                    </div>
-                </div>
-                <button class="btn-offer offer-btn" data-offer="push_notification" data-offer-button>Claim -50%</button>
-            </article>
-        </div>
-    </section>
+                        <button class="btn-offer offer-btn" data-offer="limited_stock" data-offer-button>Get Last One</button>
+                    </article>
 
-    <!-- Psychology Explanation 3: Unconscious manipulation -->
-    <section class="section psychology-section">
-        <div class="section-content">
-            <div class="psy-block" data-aos="fade-up" data-aos-delay="100">
-                <h3>Unconscious manipulation → Erosion of autonomy</h3>
-                <p>Counters or fake stock alerts exploit our psychological reflexes. The consumer believes they are choosing freely but their decision is actually guided.</p>
-                <label class="awareness-checkbox">
-                    <input type="checkbox" class="aware-box"> I am now aware
-                </label>
+                    <!-- Technique 2: Push Notifications (Trap) -->
+                    <article class="tech-card" data-aos="fade-up" data-aos-delay="200">
+                        <header class="tech-header">
+                            <span class="tech-badge warn">PUSH NOTIFICATION</span>
+                            <h3>Real-time Alerts</h3>
+                        </header>
+                        <p class="tech-desc">A phone-like notification invites instant taps. Clicking it reveals the trap.</p>
+                        <div class="tech-illustration">
+                            <div class="phone-frame">
+                                <div class="status-bar">
+                                    <span>09:41</span>
+                                    <span>📶 🔋</span>
+                                </div>
+                                <div class="notification-trap" role="button" tabindex="0" aria-label="Limited offer notification" data-offer-button>
+                                    <div class="notif-icon">🛎️</div>
+                                    <div class="notif-content">
+                                        <div class="notif-title">Limited Offer</div>
+                                        <div class="notif-text">-50% ends in <span class="notif-timer" data-seconds="45">00:45</span>. Tap to claim.</div>
+                                    </div>
+                                    <div class="notif-cta">View</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-offer offer-btn" data-offer="push_notification" data-offer-button>Claim -50%</button>
+                    </article>
+
+                    <!-- Technique 3: Real-time social proof banner with activity feed -->
+                    <article class="tech-card" data-aos="fade-up" data-aos-delay="250">
+                        <header class="tech-header">
+                            <span class="tech-badge social">REAL-TIME</span>
+                            <h3>Real-time Social Proof</h3>
+                        </header>
+                        <p class="tech-desc">"People are viewing this right now" nudges action through herd cues.</p>
+                        <div class="tech-illustration">
+                            <div class="realtime-wrap" aria-live="polite">
+                                <div class="realtime-banner">
+                                    <span class="pulse-dot" aria-hidden="true"></span>
+                                    <span class="live-text"><span id="viewerCount">37</span> people are viewing this right now</span>
+                                </div>
+                                <ul class="activity-feed" id="activityFeed" aria-label="Recent viewing activity"></ul>
+                            </div>
+                        </div>
+                        <button class="btn-offer offer-btn activity-btn" data-offer="real_time" data-offer-button>See what they're seeing</button>
+                    </article>
+
+                    <!-- Technique 4: Flash Sales -->
+                    <article class="tech-card" data-aos="fade-up" data-aos-delay="300">
+                        <header class="tech-header">
+                            <span class="tech-badge flash">FLASH SALE</span>
+                            <h3>Flash Sales</h3>
+                        </header>
+                        <p class="tech-desc">Short time windows force rapid decisions. Timer below intensifies urgency.</p>
+                        <div class="tech-illustration">
+                            <div class="timer-box">
+                                <span class="timer-label">Ends in</span>
+                                <span class="flash-timer" data-seconds="120">02:00</span>
+                            </div>
+                        </div>
+                        <button class="btn-offer offer-btn" data-offer="flash_sale" data-offer-button>Buy Before It Ends</button>
+                    </article>
+
+                    <!-- Technique 5: Hotel Booking Scarcity -->
+                    <article class="tech-card" data-aos="fade-up" data-aos-delay="350">
+                        <header class="tech-header">
+                            <span class="tech-badge hotel">HOTEL BOOKING</span>
+                            <h3>Fake Scarcity Alerts</h3>
+                        </header>
+                        <p class="tech-desc">"Only 2 rooms left at this price" - but companies create smaller price brackets to always show scarcity.</p>
+                        <div class="tech-illustration">
+                            <div class="hotel-booking-demo">
+                                <div class="hotel-card">
+                                    <div class="hotel-name">🏨 Grand Hotel Paris</div>
+                                    <div class="hotel-price">€89/night</div>
+                                    <div class="hotel-scarcity">⚠️ Only 2 rooms left at this price!</div>
+                                    <div class="hotel-explanation">Companies segment prices into tiny brackets to always show "limited availability"</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-offer offer-btn" data-offer="hotel_scarcity" data-offer-button>Book Now - Limited!</button>
+                    </article>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Technique 3: Real-time social proof banner with activity feed -->
-    <section class="section techniques-section">
+    <!-- Awareness Checkboxes Section -->
+    <section class="section awareness-section">
         <div class="section-content">
-            <article class="tech-card" data-aos="fade-up" data-aos-delay="250">
-                <header class="tech-header">
-                    <span class="tech-badge social">REAL-TIME</span>
-                    <h3>Real-time Social Proof</h3>
-                </header>
-                <p class="tech-desc">"People are viewing this right now" nudges action through herd cues.</p>
-                <div class="realtime-wrap" aria-live="polite">
-                    <div class="realtime-banner">
-                        <span class="pulse-dot" aria-hidden="true"></span>
-                        <span class="live-text"><span id="viewerCount">37</span> people are viewing this right now</span>
+            <div class="awareness-content">
+                <h2 class="section-title" data-aos="fade-up">Awareness Checklist</h2>
+                <p class="awareness-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    Check each box as you understand the psychological impact of these techniques
+                </p>
+                
+                <div class="awareness-grid" data-aos="fade-up" data-aos-delay="400">
+                    <div class="awareness-item">
+                        <h3>Overconsumption & Financial Impact</h3>
+                        <p>Scarcity campaigns can lead to purchasing items we don't actually need, which may result in unnecessary spending and clutter. Being aware helps us make more thoughtful purchasing decisions.</p>
+                        <label class="awareness-checkbox">
+                            <input type="checkbox" class="aware-box"> I understand this concept
+                        </label>
                     </div>
-                    <ul class="activity-feed" id="activityFeed" aria-label="Recent viewing activity"></ul>
+                    
+                    <div class="awareness-item">
+                        <h3>Impulse Buying Patterns</h3>
+                        <p>Limited-time offers can trigger quick decisions without proper consideration. Recognizing these patterns helps us pause and evaluate whether we truly want or need the item.</p>
+                        <label class="awareness-checkbox">
+                            <input type="checkbox" class="aware-box"> I understand this concept
+                        </label>
+                    </div>
+                    
+                    <div class="awareness-item">
+                        <h3>Psychological Influence</h3>
+                        <p>Marketing techniques often work on subconscious levels, making us feel like we're making independent choices when we're actually being influenced by design and messaging.</p>
+                        <label class="awareness-checkbox">
+                            <input type="checkbox" class="aware-box"> I understand this concept
+                        </label>
+                    </div>
+                    
+                    <div class="awareness-item">
+                        <h3>Fear of Missing Out (FOMO)</h3>
+                        <p>Time-limited offers can create anxiety about missing opportunities. Understanding this helps us distinguish between genuine urgency and artificial pressure.</p>
+                        <label class="awareness-checkbox">
+                            <input type="checkbox" class="aware-box"> I understand this concept
+                        </label>
+                    </div>
+                    
+                    <div class="awareness-item">
+                        <h3>Artificial Scarcity Tactics</h3>
+                        <p>Some companies create artificial scarcity by segmenting inventory or prices to always show "limited availability." This awareness helps us recognize when scarcity is real versus manufactured.</p>
+                        <label class="awareness-checkbox">
+                            <input type="checkbox" class="aware-box"> I understand this concept
+                        </label>
+                    </div>
                 </div>
-                <button class="btn-offer offer-btn activity-btn" data-offer="real_time" data-offer-button>See what they're seeing</button>
-            </article>
-        </div>
-    </section>
-
-    <!-- Psychology Explanation 4: FOMO -->
-    <section class="section psychology-section">
-        <div class="section-content">
-            <div class="psy-block" data-aos="fade-up" data-aos-delay="100">
-                <h3>FOMO → Psychological stress</h3>
-                <p>The fear of missing an opportunity generates anxiety and pressure. Flash sales and ephemeral offers trap buyers in a cycle of stressed consumption.</p>
-                <label class="awareness-checkbox">
-                    <input type="checkbox" class="aware-box"> I am now aware
-                </label>
             </div>
-        </div>
-    </section>
-
-    <!-- Technique 4: Flash Sales -->
-    <section class="section techniques-section">
-        <div class="section-content">
-            <article class="tech-card" data-aos="fade-up" data-aos-delay="300">
-                <header class="tech-header">
-                    <span class="tech-badge flash">FLASH SALE</span>
-                    <h3>Flash Sales</h3>
-                </header>
-                <p class="tech-desc">Short time windows force rapid decisions. Timer below intensifies urgency.</p>
-                <div class="timer-box">
-                    <span class="timer-label">Ends in</span>
-                    <span class="flash-timer" data-seconds="120">02:00</span>
-                </div>
-                <button class="btn-offer offer-btn" data-offer="flash_sale" data-offer-button>Buy Before It Ends</button>
-            </article>
         </div>
     </section>
 
@@ -194,9 +292,9 @@
     <section class="section psychology-section">
         <div class="section-content">
             <div class="calm-trigger" id="calm-trigger" data-aos="fade-up" data-aos-delay="300">
-                <p class="bottom-text">congratulations, you have reached the bottom of the page</p>
-                <button class="btn-calm" id="enterCalmBtn" disabled>enter awareness world</button>
-                <p class="calm-hint">Check all awareness boxes above to unlock the awareness world.</p>
+                <p class="bottom-text">congratulations,<br>you have reached the bottom of the page</p>
+                <button class="btn-calm" id="enterCalmBtn" disabled>enter<br>awareness world</button>
+                <p class="calm-hint">Check all awareness boxes above<br>to unlock the awareness world.</p>
             </div>
         </div>
     </section>
@@ -211,14 +309,14 @@
             </div>
             <div class="awareness-copy" data-aos="fade-up" data-aos-delay="260">
                 <h3>Why ethical marketing matters</h3>
-                <p>Ethical marketing respects consumer autonomy and builds genuine trust. It informs rather than manipulates.</p>
+                <p>Ethical marketing respects consumer autonomy and builds genuine trust. It informs rather than manipulates, creating long-term value for both businesses and consumers.</p>
                 
                 <h3>Why awareness is crucial</h3>
-                <p>Understanding manipulation techniques empowers you to make conscious choices. Recognize triggers, pause, and decide based on your true needs.</p>
+                <p>Understanding manipulation techniques empowers you to make conscious choices. Recognize triggers, pause, and decide based on your true needs rather than artificial urgency.</p>
             </div>
             <div class="awareness-actions">
                 <button class="btn-back-top" id="btn-back-top">Back to Top</button>
-                <button class="btn-back-main" id="btn-back-main">Back to Main Menu</button>
+                <button class="btn-back-main" id="btn-back-main">🏠 Back to Main Menu</button>
             </div>
         </div>
     </section>

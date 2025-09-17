@@ -25,33 +25,55 @@
         </div>
     </nav>
 
-    <!-- Promo Banner -->
-    <section class="promo-banner" aria-label="Promotional banner">
-        <div class="promo-content">
-            <div class="promo-badges">
-                <span class="badge badge-hot">Exceptional</span>
-                <span class="badge badge-timer">Available for 24h only</span>
+    <!-- Welcome Section -->
+    <section class="welcome-section" aria-label="Welcome to pricing world">
+        <div class="welcome-glow"></div>
+        <div class="welcome-content">
+            <h1 class="welcome-title">
+                <span class="title-line">Welcome to the</span>
+                <span class="title-line highlight">World of Pricing</span>
+            </h1>
+            <p class="welcome-subtitle">Where every number ends in .99 to feel lower</p>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- Deal Banner -->
+    <section class="deal-banner" aria-label="Deal announcement">
+        <div class="deal-glow"></div>
+        <div class="deal-content">
+            <div class="deal-badges">
+                <span class="badge badge-won">🎉 YOU WON!</span>
+                <span class="badge badge-free">FREE ACCESS</span>
             </div>
-            <h1 class="promo-title">Premium access to the site</h1>
-            <div class="promo-pricing">
-                <span class="promo-old">€20</span>
-                <span class="promo-sep">→</span>
-                <span class="promo-new">€19.99/month</span>
+            <h2 class="deal-title">Congratulations! You won a deal!</h2>
+            <div class="deal-pricing">
+                <span class="deal-original">€99</span>
+                <span class="deal-sep">→</span>
+                <span class="deal-new">€0</span>
             </div>
-            <p class="promo-sub">Price anchoring at work: a tiny drop can make the offer feel irresistible.</p>
-            <div class="promo-actions">
-                <a class="promo-cta" href="#overview" title="See pricing techniques overview">See the techniques</a>
+            <p class="deal-sub">You've earned FREE access to explore our pricing playground!</p>
+            <div class="deal-features">
+                <div class="feature">✅ Lifetime Access</div>
+                <div class="feature">✅ All Pricing Techniques</div>
+                <div class="feature">✅ Interactive Demos</div>
+            </div>
+            <div class="deal-actions">
+                <a class="deal-cta" href="#overview" title="Start exploring pricing techniques">Start Exploring</a>
             </div>
         </div>
-        <div class="promo-glow"></div>
     </section>
 
     <!-- Deal World Overview Grid -->
     <section id="overview" class="deal-overview">
-        <div class="overview-content">
-            <h2 class="overview-title">Explore pricing techniques</h2>
-            <p class="overview-sub">Click a card to jump to its demo below</p>
-            <div class="deal-grid">
+        <div class="overview-content viewport-stack">
+            <div class="visual-viewport">
+                <h2 class="overview-title">Explore the Pricing Playground</h2>
+                <p class="overview-sub">Click a card to jump to its interactive demo below</p>
+                <div class="deal-grid">
                 <a class="deal-card card-addon" href="#addon">
                     <div class="card-icon">🍔</div>
                     <h3 class="card-title">Add-on Pricing</h3>
@@ -77,20 +99,23 @@
                     <h3 class="card-title">Prestige Pricing</h3>
                     <p class="card-text">High-end tech with round prices</p>
                 </a>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="scroll-arrow"></div>
+                    <span>Scroll to explore</span>
+                </div>
             </div>
-            <div class="explain-panel" id="explain-overview" aria-hidden="true">
-                <h3 class="explain-title">Psychology: Priming & Visual Framing</h3>
-                <p>This playful map primes your attention and sets expectations. Clear categories and fun icons nudge where you’ll explore first.</p>
-            </div>
+            <div class="explain-viewport"></div>
         </div>
     </section>
 
     <!-- Themed Sections -->
     <section id="addon" class="deal-theme-section theme-addon">
-        <div class="theme-content">
-            <h2 class="theme-title">Add-on Pricing — Build Your Burger</h2>
-            <p class="theme-intro">Create a “complete” burger, but every extra adds up. Build yours below.</p>
-            <div class="burger-builder" id="burger-builder">
+        <div class="theme-content viewport-stack">
+            <div class="visual-viewport">
+                <h2 class="theme-title">Add-on Pricing — Build Your Burger</h2>
+                <p class="theme-intro">Create a “complete” burger, but every extra adds up. Build yours below.</p>
+                <div class="burger-builder" id="burger-builder">
                 <div class="burger-item"><label><input type="checkbox" class="burger-extra" data-price="0" checked disabled> Burger base</label><span>€5.00</span></div>
                 <div class="burger-item"><label><input type="checkbox" class="burger-extra" data-price="0.8"> Cheese +</label><span>€0.80</span></div>
                 <div class="burger-item"><label><input type="checkbox" class="burger-extra" data-price="0.5"> Tomato +</label><span>€0.50</span></div>
@@ -98,11 +123,26 @@
                 <div class="burger-item"><label><input type="checkbox" class="burger-extra" data-price="2"> Fries +</label><span>€2.00</span></div>
                 <div class="burger-item"><label><input type="checkbox" class="burger-extra" data-price="1.5"> Soda +</label><span>€1.50</span></div>
                 <div class="burger-total"><span>Total</span><span id="burger-total">€5.00</span></div>
+                <div class="offer-actions">
+                    <button class="buy-btn" data-bias="Add-on Pricing" data-message="This is add-on pricing in action! Many companies like airlines use this technique to make prices feel lower. They show you a base price, then add small fees for extras like baggage, seat selection, or meals. Each small cost seems trivial, but they quickly add up.
+
+The psychology: By breaking down the total cost into smaller pieces, companies avoid the 'sticker shock' of one large price. You're more likely to accept multiple small charges than one big one.
+
+SOLUTION:
+• Always calculate the final total price including all add-ons before deciding
+• Compare the complete package price with competitors, not just the base price">Buy Now</button>
+                </div>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="scroll-arrow"></div>
+                    <span>Scroll to explore</span>
+                </div>
             </div>
-            <button class="why-toggle" data-target="#explain-addon">Why this works</button>
-            <div class="explain-panel" id="explain-addon" aria-hidden="true">
-                <h3 class="explain-title">Psychology: Partitioned Pricing</h3>
-                <p>Small add-ons feel trivial when separated, so you accept more of them. The total creeps up without a single “big” decision.</p>
+            <div class="explain-viewport">
+                <div class="explain-panel" id="explain-addon" aria-hidden="true">
+                    <h3 class="explain-title">Psychology: Add-on Pricing</h3>
+                    <p>Create a burger with only paid add-ons: cheese, tomato, bacon, fries, and a drink. Because each supplement feels small on its own, you keep adding them to reach a “complete” meal. The cost escalates without one big decision—classic partitioned/add-on pricing.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -110,21 +150,37 @@
     <div class="theme-divider"></div>
 
     <section id="discounting" class="deal-theme-section theme-discounting">
-        <div class="theme-content">
-            <h2 class="theme-title">Discounting Price — Black Friday</h2>
-            <p class="theme-intro">“Buy now or miss the deal!” Feel the pressure of time and scarcity.</p>
-            <div class="discount-banner">
+        <div class="theme-content viewport-stack">
+            <div class="visual-viewport">
+                <h2 class="theme-title">Discounting Price — Black Friday</h2>
+                <p class="theme-intro">“Buy now or miss the deal!” Feel the pressure of time and scarcity.</p>
+                <div class="discount-banner">
                 <div class="discount-badge">-70%</div>
                 <div class="discount-texts">
                     <div class="line">Mega Sale Ends In <span class="fake-timer" id="bf-timer">00:30</span></div>
                     <div class="line">Only <b id="bf-left">3</b> items left at this price</div>
                 </div>
-                <button class="discount-cta" id="bf-cta">Grab the deal</button>
+                <button class="discount-cta" id="bf-cta">Grab the Deal</button>
+                <div class="offer-actions">
+                    <button class="buy-btn" data-bias="Discounting Price" data-message="This is discount pricing with urgency tactics! Companies create artificial time pressure and scarcity to trigger FOMO (Fear of Missing Out). The countdown timer and 'limited stock' messages make you feel like you'll miss out on savings if you don't act now.
+
+The psychology: When we see a discount with time pressure, our brain focuses on the potential loss of savings rather than whether we actually need the product. This can lead to impulse purchases.
+
+SOLUTION:
+• Remember that there's always another sale - discounts are marketing tools, not rare opportunities
+• Ask yourself: Would I buy this at full price? If not, the discount isn't really a 'deal'">Buy Now</button>
+                </div>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="scroll-arrow"></div>
+                    <span>Scroll to explore</span>
+                </div>
             </div>
-            <button class="why-toggle" data-target="#explain-discounting">Why this works</button>
-            <div class="explain-panel" id="explain-discounting" aria-hidden="true">
-                <h3 class="explain-title">Psychology: Scarcity & Urgency</h3>
-                <p>Ticking clocks and “Only X left” spike arousal and FOMO, pushing snap decisions to avoid imagined loss.</p>
+            <div class="explain-viewport">
+                <div class="explain-panel" id="explain-discounting" aria-hidden="true">
+                    <h3 class="explain-title">Psychology: Discounting Price</h3>
+                    <p>Black Friday is an invitation to consume because you feel you’ll miss a chance to “save money.” Timers and scarcity cues trigger FOMO and loss aversion, nudging fast purchases to avoid missing out.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -132,19 +188,51 @@
     <div class="theme-divider"></div>
 
     <section id="decoy" class="deal-theme-section theme-decoy">
-        <div class="theme-content">
-            <h2 class="theme-title">Decoy Pricing — Cinema Popcorn</h2>
-            <p class="theme-intro">Pick your size. Notice how one option makes another look “obvious”.</p>
-            <div class="popcorn-table" id="popcorn-table">
-                <button class="pop-row" data-size="small" data-price="3"><span>Small</span><span>€3.00</span></button>
-                <button class="pop-row decoy" data-size="medium" data-price="6.5"><span>Medium</span><span>€6.50</span></button>
-                <button class="pop-row highlight" data-size="large" data-price="7"><span>Large — Best Value</span><span>€7.00</span></button>
+        <div class="theme-content viewport-stack">
+            <div class="visual-viewport">
+                <h2 class="theme-title">Decoy Pricing — Cinema Popcorn</h2>
+                <p class="theme-intro">Compare these two menus. Adding one extra option can change your perception of value.</p>
+                <div class="decoy-comparison">
+                    <div class="menu-container">
+                        <h3 class="menu-title">Menu A</h3>
+                        <div class="popcorn-table">
+                            <div class="pop-row"><span>Small</span><span>€2.99</span></div>
+                            <div class="pop-row"><span>Large</span><span>€3.99</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-container">
+                        <h3 class="menu-title">Menu B</h3>
+                        <div class="popcorn-table">
+                            <div class="pop-row"><span>Small</span><span>€2.99</span></div>
+                            <div class="pop-row decoy"><span>Medium</span><span>€3.49</span></div>
+                            <div class="pop-row"><span>Large</span><span>€3.99</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="decoy-explanation">
+                    <p>By adding an extra product (Medium), companies influence our decision. The Medium option makes the Large seem like a much better deal!</p>
+                </div>
+                <div class="offer-actions">
+                    <button class="buy-btn" data-bias="Decoy Pricing" data-message="This is decoy pricing in action! Companies add a third option (the 'decoy') to make their preferred choice seem more attractive. In Menu B, the Medium option at €3.49 makes the Large at €3.99 look like an obvious choice - 'just 50 cents more for much more popcorn!'
+
+The psychology: The decoy creates an anchor that makes the target option appear superior. Without the decoy, you might choose the Small size, but with it, the Large seems like the smart choice.
+
+Why does the Medium option even exist? The whole point of the Medium option is to change your choice from Small to Large. It's not there because it's a good deal - it's there to make the Large size seem like the obvious choice!
+
+SOLUTION:
+• Evaluate each option independently - don't let comparisons influence your decision
+• Ask yourself: What do I actually need, not what seems like the 'best deal'?">Reveal the Trick</button>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="scroll-arrow"></div>
+                    <span>Scroll to explore</span>
+                </div>
             </div>
-            <div class="pop-choice" id="pop-choice">Selected: —</div>
-            <button class="why-toggle" data-target="#explain-decoy">Why this works</button>
-            <div class="explain-panel" id="explain-decoy" aria-hidden="true">
-                <h3 class="explain-title">Psychology: Asymmetric Dominance</h3>
-                <p>An inferior “decoy” (Medium) makes the Large feel like a no-brainer, steering you to the pricier option.</p>
+            <div class="explain-viewport">
+                <div class="explain-panel" id="explain-decoy" aria-hidden="true">
+                    <h3 class="explain-title">Psychology: Decoy Pricing</h3>
+                    <p>Companies strategically add a third option to make their preferred choice seem more attractive. In this example, the Medium option at €3.49 is the decoy - it makes the Large at €3.99 look like an obvious choice for just 50 cents more.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -152,17 +240,43 @@
     <div class="theme-divider"></div>
 
     <section id="charm" class="deal-theme-section theme-charm">
-        <div class="theme-content">
-            <h2 class="theme-title">Charm Pricing — €1.99 vs €2.00</h2>
-            <p class="theme-intro">Toggle the price and feel how different they seem.</p>
-            <div class="charm-display">
-                <button class="charm-toggle" id="charm-toggle" aria-pressed="false">Switch to €1.99</button>
-                <div class="charm-values"><span class="charm-old" id="charm-old">€2.00</span><span class="promo-sep">→</span><span class="charm-new" id="charm-new">€1.99</span></div>
+        <div class="theme-content viewport-stack">
+            <div class="visual-viewport">
+                <h2 class="theme-title">Charm Pricing — The .99 Effect</h2>
+                <p class="theme-intro">Notice how much prices feel different by just reducing 1 cent.</p>
+                <div class="charm-showcase">
+                    <div class="charm-product">
+                        <div class="product-icon">🧁</div>
+                        <div class="product-name">Premium Yogurt</div>
+                        <div class="charm-price-display">
+                            <span class="price-value" id="charm-price">€2.00</span>
+                        </div>
+                        <label class="charm-toggle" id="charm-toggle">
+                            <input type="checkbox" class="toggle-checkbox" id="charm-checkbox">
+                            <span class="toggle-switch"></span>
+                            <span class="toggle-text">Charm the Price</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="offer-actions">
+                    <button class="buy-btn" data-bias="Charm Pricing" data-message="This is charm pricing in action! By changing €2.00 to €1.99, companies take advantage of left-digit bias. Our brains process the leading digit first, so €1.99 feels much closer to €1 than €2, making it seem significantly cheaper.
+
+The psychology: We read from left to right, so the '1' in €1.99 creates a stronger first impression than the '2' in €2.00. This 1-cent difference can make a product feel like a much better deal.
+
+SOLUTION:
+• Always round up prices ending in .99 to see the real cost
+• Focus on the actual value you're getting, not the psychological price perception">Reveal the Trick</button>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="scroll-arrow"></div>
+                    <span>Scroll to explore</span>
+                </div>
             </div>
-            <button class="why-toggle" data-target="#explain-charm">Why this works</button>
-            <div class="explain-panel" id="explain-charm" aria-hidden="true">
-                <h3 class="explain-title">Psychology: Left-Digit Bias</h3>
-                <p>€1.99 is processed closer to €1 than €2. The leading digit anchors perception, making it feel cheaper.</p>
+            <div class="explain-viewport">
+                <div class="explain-panel" id="explain-charm" aria-hidden="true">
+                    <h3 class="explain-title">Psychology: Charm Pricing</h3>
+                    <p>Prices ending in .99 take advantage of left-digit bias. We process the leading digit first, so €1.99 feels much closer to €1 than €2, making it seem significantly cheaper despite being only 1 cent less.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -170,21 +284,56 @@
     <div class="theme-divider"></div>
 
     <section id="prestige" class="deal-theme-section theme-prestige">
-        <div class="theme-content">
-            <h2 class="theme-title">Prestige Pricing — High-End Tech</h2>
-            <p class="theme-intro">Switch between round and .99 pricing to see the vibe shift.</p>
-            <div class="prestige-display" id="prestige-display">
-                <div class="prestige-item"><span>iPhone</span><span class="prestige-price" data-round="1200" data-charm="1199">€1,200</span></div>
-                <div class="prestige-item"><span>Headphones</span><span class="prestige-price" data-round="300" data-charm="299">€300</span></div>
+        <div class="theme-content viewport-stack">
+            <div class="visual-viewport">
+                <h2 class="theme-title">Prestige Pricing — High-End Tech</h2>
+                <p class="theme-intro">Click on each phone to learn about prestige pricing psychology.</p>
+                <div class="prestige-phones">
+                    <div class="phone-option" data-price="high" data-value="1199">
+                        <div class="phone-image">📱</div>
+                        <div class="phone-name">iPhone Pro</div>
+                        <div class="phone-price">€1,199</div>
+                        <button class="phone-select" data-choice="high">Learn About This Price</button>
+                    </div>
+                    <div class="phone-option" data-price="low" data-value="499">
+                        <div class="phone-image">📱</div>
+                        <div class="phone-name">iPhone Pro</div>
+                        <div class="phone-price">€499</div>
+                        <button class="phone-select" data-choice="low">Learn About This Price</button>
+                    </div>
+                </div>
+                <div class="prestige-question">Which one seems more qualitative to you? Click to learn why!</div>
+                <div class="scroll-indicator">
+                    <div class="scroll-arrow"></div>
+                    <span>Scroll to explore</span>
+                </div>
             </div>
-            <div class="prestige-actions"><button class="prestige-toggle" id="prestige-toggle">Switch to .99</button></div>
-            <button class="why-toggle" data-target="#explain-prestige">Why this works</button>
-            <div class="explain-panel" id="explain-prestige" aria-hidden="true">
-                <h3 class="explain-title">Psychology: Rounded vs .99</h3>
-                <p>Rounded prices signal elegance and quality; .99 endings push “deal” vibes. Brands choose intentionally to shape perception.</p>
+            <div class="explain-viewport">
+                <div class="explain-panel" id="explain-prestige" aria-hidden="true">
+                    <h3 class="explain-title">Psychology: Prestige Pricing</h3>
+                    <p>Rounded prices signal simplicity, elegance and exclusivity. Premium brands avoid .99 endings to create an impression of quality and innovation.</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Purchase Bias Modal -->
+    <div class="buy-modal" id="buy-modal" aria-hidden="true" role="dialog" aria-modal="true" style="display: none;">
+        <div class="buy-modal-backdrop" id="buy-modal-backdrop"></div>
+        <div class="buy-modal-content" role="document">
+            <div class="buy-modal-header">
+                <h3 class="buy-modal-title">How is it working?</h3>
+                <button class="buy-modal-close" id="buy-modal-close" aria-label="Close">×</button>
+            </div>
+            <div class="buy-modal-body">
+                <div class="buy-modal-bias" id="buy-modal-bias"></div>
+                <p class="buy-modal-message" id="buy-modal-message"></p>
+            </div>
+            <div class="buy-modal-footer">
+                <button class="buy-modal-ok" id="buy-modal-ok">OK</button>
+            </div>
+        </div>
+    </div>
 
     
 
@@ -209,6 +358,18 @@
     <!-- Page Load Tracking System -->
     <script src="assets/js/core/page-load-tracking.js"></script>
     
+    <!-- Ending Section -->
+    <section class="ending-section">
+        <div class="ending-content">
+            <h2 class="ending-title">Like all the good deals, this world ends</h2>
+            <p class="ending-subtitle">But like the next good deal, there is another world waiting for you</p>
+            <div class="ending-actions">
+                <a href="index.html#worlds" class="ending-btn">Go to the Map</a>
+            </div>
+        </div>
+        <div class="ending-glow"></div>
+    </section>
+
     <!-- Footer -->
     <div id="footer-placeholder"></div>
     
@@ -223,7 +384,8 @@
             easing: 'ease-out',
             once: true,
             offset: 50
-        });
+            });
     </script>
 </body>
+</html>
 </html>

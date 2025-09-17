@@ -64,6 +64,20 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             extras.forEach(cb => cb.addEventListener('change', updateTotal));
             updateTotal();
+
+            // Allow clicking anywhere on the burger row to toggle the option
+            const rows = document.querySelectorAll('.burger-item');
+            rows.forEach(row => {
+                row.style.cursor = 'pointer';
+                row.addEventListener('click', (e) => {
+                    // Avoid double toggling when clicking directly the checkbox
+                    if ((e.target instanceof HTMLInputElement) && e.target.type === 'checkbox') return;
+                    const cb = row.querySelector('input.burger-extra');
+                    if (!cb || cb.disabled) return;
+                    cb.checked = !cb.checked;
+                    cb.dispatchEvent(new Event('change'));
+                });
+            });
         }
 
         // Discounting: countdown + stock
@@ -89,62 +103,60 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        // Decoy: selection feedback
-        const popTable = document.getElementById('popcorn-table');
-        const popChoice = document.getElementById('pop-choice');
-        if (popTable && popChoice) {
-            popTable.addEventListener('click', (e) => {
-                const btn = e.target.closest('button.pop-row');
-                if (!btn) return;
-                const size = btn.getAttribute('data-size');
-                const price = btn.getAttribute('data-price');
-                popChoice.textContent = `Selected: ${size} (€${parseFloat(price).toFixed(2)})`;
+        // Decoy: comparison tables (no interaction needed for new design)
+
+        // Charm: toggle pricing
+        const charmCheckbox = document.getElementById('charm-checkbox');
+        const charmPrice = document.getElementById('charm-price');
+        const toggleText = document.querySelector('.toggle-text');
+        
+        if (charmCheckbox && charmPrice && toggleText) {
+            charmCheckbox.addEventListener('change', () => {
+                if (charmCheckbox.checked) {
+                    charmPrice.textContent = '€1.99';
+                    toggleText.textContent = 'Remove Charm';
+                } else {
+                    charmPrice.textContent = '€2.00';
+                    toggleText.textContent = 'Charm the Price';
+                }
             });
         }
 
-        // Charm: toggle
-        const charmToggle = document.getElementById('charm-toggle');
-        const charmOld = document.getElementById('charm-old');
-        const charmNew = document.getElementById('charm-new');
-        if (charmToggle && charmOld && charmNew) {
-            let showingCharm = false;
-            const render = () => {
-                if (showingCharm) {
-                    charmOld.textContent = '€2.00';
-                    charmNew.textContent = '€1.99';
-                    charmToggle.textContent = 'Switch to €2.00';
-                    charmToggle.setAttribute('aria-pressed', 'true');
-                } else {
-                    charmOld.textContent = '€2.00';
-                    charmNew.textContent = '€2.00';
-                    charmToggle.textContent = 'Switch to €1.99';
-                    charmToggle.setAttribute('aria-pressed', 'false');
-                }
-            };
-            charmToggle.addEventListener('click', () => { showingCharm = !showingCharm; render(); });
-            render();
-        }
-
-        // Prestige: toggle round vs .99
-        const prestigeToggle = document.getElementById('prestige-toggle');
-        if (prestigeToggle) {
-            let useCharm = false;
-            const prices = document.querySelectorAll('.prestige-price');
-            const fmt = (n) => n.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-            const render = () => {
-                prices.forEach(p => {
-                    const round = p.getAttribute('data-round');
-                    const charm = p.getAttribute('data-charm');
-                    const value = useCharm ? charm : round;
-                    if (value) {
-                        p.textContent = `€${fmt(value)}`;
+        // Prestige: interactive phone selection
+        const phoneOptions = document.querySelectorAll('.phone-option');
+        const phoneSelects = document.querySelectorAll('.phone-select');
+        
+        phoneSelects.forEach(select => {
+            select.addEventListener('click', (e) => {
+                e.preventDefault();
+                const choice = select.getAttribute('data-choice');
+                const phoneOption = select.closest('.phone-option');
+                
+                // Remove previous selections
+                phoneOptions.forEach(option => option.classList.remove('selected'));
+                
+                // Add selection to clicked option
+                phoneOption.classList.add('selected');
+                
+                // Show educational message
+                const modal = document.getElementById('buy-modal');
+                const biasEl = document.getElementById('buy-modal-bias');
+                const msgEl = document.getElementById('buy-modal-message');
+                
+                if (modal && biasEl && msgEl) {
+                    if (choice === 'high') {
+                        biasEl.textContent = 'Prestige Pricing Psychology';
+                        msgEl.textContent = 'This is prestige pricing in action! The €1,199 price creates an impression of quality, exclusivity, and premium value. Companies use rounded prices (avoiding .99 endings) to signal sophistication and luxury.\n\nThe psychology: Higher prices trigger our perception that quality comes at a premium. We associate expensive items with better materials, superior craftsmanship, and social status.\n\nSOLUTION:\n• Research the actual product specifications and features\n• Compare with similar products to see if the price reflects real value or just brand positioning';
+                    } else {
+                        biasEl.textContent = 'Value-Based Pricing Psychology';
+                        msgEl.textContent = 'This demonstrates how pricing affects our perception! The €499 price suggests good value and accessibility. Companies use this pricing strategy to appeal to budget-conscious consumers while maintaining quality perception.\n\nThe psychology: Mid-range prices feel like a smart compromise - not too cheap to seem low-quality, but not so expensive as to be unaffordable.\n\nSOLUTION:\n• Focus on the actual features and benefits you need\n• Consider the total cost of ownership, not just the initial price';
                     }
-                });
-                prestigeToggle.textContent = useCharm ? 'Switch to round' : 'Switch to .99';
-            };
-            prestigeToggle.addEventListener('click', () => { useCharm = !useCharm; render(); });
-            render();
-        }
+                    modal.style.display = 'block';
+                    modal.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
 
         // Reveal explanation panels on scroll using IntersectionObserver
         const observer = new IntersectionObserver((entries) => {
@@ -155,33 +167,68 @@ document.addEventListener('DOMContentLoaded', function() {
                     panel.setAttribute('aria-hidden', 'false');
                 }
             });
-        }, { root: null, threshold: 0.25 });
+        }, { root: null, threshold: 0.05 });
 
         document.querySelectorAll('.explain-panel').forEach(panel => {
             observer.observe(panel);
         });
 
-        // Also reveal the overview explanation shortly after load for priming
-        const overviewExplain = document.getElementById('explain-overview');
-        if (overviewExplain) {
-            setTimeout(() => {
-                overviewExplain.style.display = 'block';
-                overviewExplain.setAttribute('aria-hidden', 'false');
-            }, 600);
-        }
+        // Overview explanation auto-reveal removed
     } catch (e) {
         console.log('Deal World interactive init skipped:', e);
     }
 
-    // Load footer component
-    fetch('../../components/footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
-        })
-        .catch(error => {
-            console.log('Footer component not found, using fallback');
+    // Purchase Bias Modal wiring - enhanced overlay
+    try {
+        const modal = document.getElementById('buy-modal');
+        const biasEl = document.getElementById('buy-modal-bias');
+        const msgEl = document.getElementById('buy-modal-message');
+        const closeBtn = document.getElementById('buy-modal-close');
+        const okBtn = document.getElementById('buy-modal-ok');
+        const backdrop = document.getElementById('buy-modal-backdrop');
+
+        function openModal(bias, message) {
+            if (!modal || !biasEl || !msgEl) return;
+            biasEl.textContent = `Bias: ${bias}`;
+            msgEl.textContent = message;
+            modal.style.display = 'block';
+            modal.setAttribute('aria-hidden', 'false');
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            if (!modal) return;
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        document.querySelectorAll('.buy-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const bias = btn.getAttribute('data-bias') || 'Pricing Bias';
+                const message = btn.getAttribute('data-message') || 'Cette offre exploite un biais de tarification.';
+                openModal(bias, message);
+            });
         });
+
+        // Close modal handlers
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (okBtn) okBtn.addEventListener('click', closeModal);
+        if (backdrop) backdrop.addEventListener('click', closeModal);
+        
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal && modal.style.display === 'block') {
+                closeModal();
+            }
+        });
+    } catch (e) {
+        console.log('Buy modal wiring skipped:', e);
+    }
+    // Footer is loaded by footer-loader.js
 });
 
 // Scroll to top function

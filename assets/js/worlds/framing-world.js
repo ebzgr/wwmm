@@ -10,15 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Load footer component
-    fetch('../../components/footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
-        })
-        .catch(error => {
-            console.log('Footer component not found, using fallback');
-        });
+    // Footer is loaded by footer-loader.js
 
     // Framing Lab interactions (prototype)
     try {
@@ -39,6 +31,16 @@ function scrollToTop() {
         behavior: 'smooth'
     });
 }
+
+// Close modal function
+function closeModal() {
+    const overlay = document.getElementById('lab-overlay');
+    if (overlay) {
+        overlay.classList.remove('show');
+        overlay.setAttribute('aria-hidden', 'true');
+    }
+}
+
 
 // Reveal slider logic
 function setupRevealFade() {
@@ -63,6 +65,7 @@ function setupRevealFade() {
             if (message) {
                 message.classList.remove('show');
             }
+            
                 
                 // Reset both images to their initial state
                 if (topImg) {
@@ -103,6 +106,7 @@ function setupRevealFade() {
                         message.classList.add('show');
                     }, 2500);
                 }
+                
             }
         });
     });
@@ -160,19 +164,10 @@ function setupFramingChoice() {
                 const detail = choice === 'positive'
                     ? 'Positive framing makes the exact same information feel safer and more appealing.'
                     : 'Negative framing makes the exact same information feel riskier and less appealing.';
-                const headline = choice === 'positive'
-                    ? '<span class="manipulated">You were manipulated.</span>'
-                    : '<span class="praise">Good job! You are better than marketing.</span>';
-                overlayMsg.innerHTML = `${headline}<span class="explain">Framing effect: ${detail} Both labels describe the same yoghurt (80% fat-free = 20% fat). Your judgment changed because the wording guided your attention and emotion, not because the facts changed.</span>`;
+                const headline = '<span class="educational">Framing Effect</span>';
+                overlayMsg.innerHTML = `${headline}<span class="explain">${detail} Both labels describe the same yoghurt (80% fat-free = 20% fat). Your judgment changed because the wording guided your attention and emotion, not because the facts changed.</span><button class="close-modal-btn" onclick="closeModal()">Close</button>`;
                 overlay.classList.add('show');
                 overlay.setAttribute('aria-hidden', 'false');
-
-                // Auto-hide after ~4.5s
-                clearTimeout(window.__labOverlayTimeout);
-                window.__labOverlayTimeout = setTimeout(() => {
-                    overlay.classList.remove('show');
-                    overlay.setAttribute('aria-hidden', 'true');
-                }, 4500);
             }
 
             // Track event (if system available)
@@ -211,23 +206,15 @@ function setupAnchoringExperiment() {
 
             // Big central dynamic overlay (happy style, same as section 1)
             if (overlay && overlayMsg) {
-                const headline = rating === 3
-                    ? '<span class="manipulated">You were manipulated.</span>'
-                    : '<span class="praise">Good job! You are better than marketing.</span>';
+                const headline = '<span class="educational">Anchoring Effect</span>';
                 
                 const explanation = rating === 3
-                    ? 'Anchoring effect: The €199 reference price made €99 seem like a great deal. The initial anchor influenced your judgment, even though it was irrelevant to the actual value.'
-                    : 'You successfully avoided the anchoring bias! Despite seeing €199 first, you evaluated €99 on its own merits rather than being influenced by the initial high price anchor.';
+                    ? 'The €199 reference price made €99 seem like a great deal. The initial anchor influenced your judgment, even though it was irrelevant to the actual value.'
+                    : 'Despite seeing €199 first, you evaluated €99 on its own merits rather than being influenced by the initial high price anchor.';
                 
-                overlayMsg.innerHTML = `${headline}<span class=\"explain\">${explanation}</span>`;
+                overlayMsg.innerHTML = `${headline}<span class=\"explain\">${explanation}</span><button class="close-modal-btn" onclick="closeModal()">Close</button>`;
                 overlay.classList.add('show');
                 overlay.setAttribute('aria-hidden', 'false');
-
-                clearTimeout(window.__labOverlayTimeout);
-                window.__labOverlayTimeout = setTimeout(() => {
-                    overlay.classList.remove('show');
-                    overlay.setAttribute('aria-hidden', 'true');
-                }, 4500);
             }
         });
     });

@@ -29,11 +29,6 @@
     <section class="section social-proof-section">
         <div class="section-content">
             <div class="social-proof-content">
-                <div class="popular-badge" data-aos="zoom-in">MOST POPULAR</div>
-                <h1 class="section-title" data-aos="fade-up" data-aos-delay="200">👥 SOCIAL WORLD 👥</h1>
-                <p class="social-text" data-aos="fade-up" data-aos-delay="400">
-                    Welcome to the realm where <span class="social-highlight">EVERYONE ELSE IS DOING IT!</span>
-                </p>
 
                 
 
@@ -48,6 +43,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -73,6 +69,9 @@
     <!-- Footer -->
     <div id="footer-placeholder"></div>
     
+    <!-- Footer Loader -->
+    <script src="assets/js/core/footer-loader.js"></script>
+    
     <script src="assets/js/worlds/social-world.js"></script>
     <script>
         // Initialize AOS
@@ -82,13 +81,6 @@
             once: true,
             offset: 50
         });
-        
-        // Load footer component
-        fetch('components/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
     </script>
 </body>
 </html>

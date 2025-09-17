@@ -10,29 +10,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Load footer component
-    fetch('../../components/footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
-        })
-        .catch(error => {
-            console.log('Footer component not found, using fallback');
-        });
+    // Footer is loaded by footer-loader.js
 
     // Render IG-like feed
     renderSocialFeed();
-    setupInfiniteScroll();
+    // Disable infinite scroll and hide loader
+    const loaderEl = document.getElementById('feed-loader');
+    if (loaderEl) loaderEl.style.display = 'none';
 
     // Arrival toasts
     showArrivalToasts();
 
     // Welcome confetti
     showWelcomeConfetti();
+
+    // Side celebrity promotions
+    renderSideCelebPromos();
 });
 
 // Feed data
 const initialPosts = [
+    // Introduction post
+    {
+        username: 'Social Media Guide',
+        sponsored: false,
+        product: 'Social Media World',
+        caption: 'Welcome to the World of Social Proofing & Celebrities! 🎭\n\nIn this social media realm, you\'ll encounter:\n🤥 Lies and Truth\n🎯 Promotions with Intentions\n🧭 Your Job: Navigate Wisely\n\nCan you spot the difference between genuine recommendations and clever marketing? 🤔',
+        hashtags: ['#socialproof', '#marketing', '#awareness'],
+        likes: 0,
+        timeAgo: 'Just now',
+        avatarUrl: 'https://i.pravatar.cc/100?img=1',
+        mediaUrl: 'assets/img/phones.jpg',
+        isIntro: true
+    },
     {
         username: 'lux_skin_by_lina',
         sponsored: true,
@@ -42,7 +52,7 @@ const initialPosts = [
         likes: 12543,
         timeAgo: '2h',
         avatarUrl: 'https://i.pravatar.cc/100?img=12',
-        mediaUrl: 'assets/img/BTHXxsj6RS6zfws_mxLQLw.webp'
+        mediaUrl: 'assets/img/a-lifestyle-product-advertisement-featur_BTHXxsj6RS6zfws_mxLQLw_G4bsJfSjRy6IyKJfdPM0Xg.jpeg'
     },
     {
         username: 'fitwithmarco',
@@ -66,81 +76,99 @@ const initialPosts = [
         avatarUrl: 'https://i.pravatar.cc/100?img=33',
         mediaUrl: 'assets/img/image 1.png'
     },
+    // Travel social-proof critique post (with provided image)
     {
-        username: 'travelwithana_removed',
+        username: 'EcoWatch (Investigations)',
         sponsored: false,
-        product: '',
-        caption: '',
-        hashtags: [],
+        product: 'Travel Hype vs. Earth',
+        caption: 'Travel companies lean on social proof — “this island is the new paradise”, “everyone is going” — to trigger FOMO and herd behavior. But mass tourism means more flights, reef damage, and waste. Paradise for ads, pressure for the planet.',
+        hashtags: ['#socialproof', '#tourism', '#climate'],
+        likes: 6234,
+        timeAgo: '1h',
+        avatarUrl: 'https://i.pravatar.cc/100?img=48',
+        mediaUrl: 'assets/img/fais-moi-une-affiche-de-publicite-pour-u_WkmHYMLuTv6qKfqRgt5cHg_kSTLx57wSeKbq2JJS4cqyQ.jpeg'
+    },
+    // Toothbrush ad (restored)
+    {
+        username: 'ShopNow • Paid Partnership',
+        sponsored: true,
+        product: 'UltraClean ToothWave',
+        caption: 'Dentist-approved shine in 7 days. See the difference ✨',
+        hashtags: ['#sponsored', '#oralcare'],
+        likes: 3245,
+        timeAgo: '2h',
+        avatarUrl: 'https://i.pravatar.cc/100?img=24',
+        mediaUrl: 'assets/img/image 2.png',
+        proof: { bestSeller: true, press: ['Vogue', 'ELLE'], influencer: 'Dr. Maya, DDS' }
+    },
+    // Apple strategy post (new)
+    {
+        username: 'brandwatcher.ai',
+        sponsored: false,
+        product: 'Apple — Social Proof by Design',
+        caption: 'Status is contagious. Apple turns ownership into a public signal — keynote applause, launch lines, “Shot on iPhone”, and blue bubbles — so buying in feels like joining the in‑group. Scarcity drops and premium pricing then frame it as the high‑status default.',
+        hashtags: ['#apple', '#socialproof', '#branding'],
+        likes: 7120,
+        timeAgo: '30m',
+        avatarUrl: 'https://i.pravatar.cc/100?img=41',
+        mediaUrl: 'assets/img/a-sleek-product-advertisement-showcasing_JLY3X1AYTe-7VHk2XYzyKg_47lzCXjERdK-L6mVGe1fuQ.jpeg',
+        proof: { press: ['The Verge', 'WIRED'], trending: true }
+    },
+    // Ending post
+    {
+        username: 'WWMM Team',
+        sponsored: false,
+        product: 'Explore Other Worlds',
+        caption: 'Unlike other social media that keep you with their endless posts... 📱\n\nWe let you go to explore other worlds! 🌍\n\nReady to discover more manipulative marketing techniques? The journey continues beyond this feed.',
+        hashtags: ['#explore', '#marketing', '#awareness', '#freedom'],
         likes: 0,
-        timeAgo: '',
-        avatarUrl: '',
-        noMedia: true
-    },
-    
-    // Professor/Teacher posts - Explanations (social proof)
-    {
-        username: 'Prof. Léa Martin (Marketing)',
-        sponsored: false,
-        product: 'Explainer: Social Proof',
-        caption: 'Companies signal popularity (ratings, “bestseller”, “as seen in”) to reduce uncertainty and leverage our herd instinct. When choices are ambiguous, we copy others—especially “people like us.”',
-        hashtags: ['#socialproof', '#marketingpsychology', '#heuristics'],
-        likes: 2213,
-        timeAgo: '3h',
-        avatarUrl: 'https://i.pravatar.cc/100?img=52',
-        noMedia: true
-    },
-    {
-        username: 'Dr. Hugo Bernard (Psychology)',
-        sponsored: false,
-        product: 'Explainer: Authority & Popularity',
-        caption: '“Most popular” and “press mentions” exploit informational social influence: we assume others (or media) know better. This is amplified by urgency or scarcity claims.',
-        hashtags: ['#behavioralscience', '#authority', '#influence'],
-        likes: 1987,
-        timeAgo: '5h',
-        avatarUrl: 'https://i.pravatar.cc/100?img=58',
-        noMedia: true
-    },
-    // Professor/Teacher posts - Solutions/Awareness
-    {
-        username: 'Prof. Ana Ribeiro (Marketing Ethics)',
-        sponsored: false,
-        product: 'Solutions: Build Awareness',
-        caption: 'Pause on “bestseller” or “trending” tags. Ask: Would I buy without the label? Check sample sizes on reviews, and separate usefulness from popularity.',
-        hashtags: ['#criticalthinking', '#consumerawareness', '#ethics'],
-        likes: 1742,
-        timeAgo: '8h',
-        avatarUrl: 'https://i.pravatar.cc/100?img=61',
-        noMedia: true
-    },
-    {
-        username: 'Dr. Camille Dupont (Cognitive Psych)',
-        sponsored: false,
-        product: 'Solutions: Slow Decisions',
-        caption: 'Counter social proof by switching to System 2: compare alternatives, read a neutral review, and set a 24h rule for non-essentials before buying.',
-        hashtags: ['#debiasing', '#system2', '#buyinghabits'],
-        likes: 1659,
-        timeAgo: '10h',
-        avatarUrl: 'https://i.pravatar.cc/100?img=64',
-        noMedia: true
+        timeAgo: 'Just now',
+        avatarUrl: 'https://i.pravatar.cc/100?img=2',
+        mediaUrl: 'assets/img/why-effective.jpg',
+        isEnding: true
     }
 ];
 
 let feedState = {
     posts: [...initialPosts],
     page: 1,
-    loading: false
+    loading: false,
+    usedSignatures: new Set(),
+    usedAdSignatures: new Set()
 };
 
 function renderSocialFeed() {
     const feed = document.getElementById('social-feed');
     if (!feed) return;
+    // Track signatures to avoid duplicates
+    for (const p of feedState.posts) {
+        feedState.usedSignatures.add(getPostSignature(p));
+    }
     feed.innerHTML = '';
-    const postsWithAds = insertAds(feedState.posts);
+    
+    // Separate intro, ending, and regular posts
+    const introPost = feedState.posts.find(p => p.isIntro);
+    const endingPost = feedState.posts.find(p => p.isEnding);
+    const regularPosts = feedState.posts.filter(p => !p.isIntro && !p.isEnding && !!p.mediaUrl && !p.noMedia);
+    
+    // Render intro post first
+    if (introPost) {
+        const introEl = createPostElement(introPost, 0);
+        feed.appendChild(introEl);
+    }
+    
+    // Insert ads into regular posts and render them
+    const postsWithAds = insertAds(regularPosts);
     postsWithAds.forEach((post, index) => {
-        const postEl = createPostElement(post, index);
+        const postEl = createPostElement(post, index + 1);
         feed.appendChild(postEl);
     });
+    
+    // Render ending post last
+    if (endingPost) {
+        const endingEl = createPostElement(endingPost, feedState.posts.length - 1);
+        feed.appendChild(endingEl);
+    }
 }
 
 function createPostElement(post, index) {
@@ -159,13 +187,23 @@ function createPostElement(post, index) {
         </div>`}
         <div class="post-actions">
             ${post.isAd ? `
-                <button class="btn-icon btn-cta" data-action="shop" data-index="${index}">Shop Now</button>
+                <button class="btn-icon btn-cta btn-buy" data-action="shop" data-index="${index}">Buy Now</button>
                 <button class="btn-icon" data-action="save" data-index="${index}">🔖 Save</button>
+            ` : post.isIntro ? `
+                <button class="btn-icon" data-action="like" data-index="${index}">❤ Like</button>
+                <button class="btn-icon" data-action="comment" data-index="${index}">💬 Comment</button>
+                <button class="btn-icon" data-action="save" data-index="${index}">🔖 Save</button>
+                <button class="btn-icon btn-buy" data-action="shop" data-index="${index}">🛒 Explore</button>
+            ` : post.isEnding ? `
+                <button class="btn-icon" data-action="like" data-index="${index}">❤ Like</button>
+                <button class="btn-icon" data-action="comment" data-index="${index}">💬 Comment</button>
+                <button class="btn-icon" data-action="save" data-index="${index}">🔖 Save</button>
+                <button class="btn-icon btn-buy" data-action="shop" data-index="${index}" onclick="window.location.href='index.html#worlds'">🛒 Back to Map</button>
             ` : `
                 <button class="btn-icon" data-action="like" data-index="${index}">❤ Like</button>
                 <button class="btn-icon" data-action="comment" data-index="${index}">💬 Comment</button>
                 <button class="btn-icon" data-action="save" data-index="${index}">🔖 Save</button>
-                <button class="btn-icon" data-action="shop" data-index="${index}">🛍 Shop</button>
+                <button class="btn-icon btn-buy" data-action="shop" data-index="${index}">🛒 Buy Now</button>
             `}
         </div>
         ${renderProofBadges(post)}
@@ -174,6 +212,8 @@ function createPostElement(post, index) {
         </div>
         ${renderPressStrip(post)}
         <div class="post-meta">${formatNumber(post.likes)} likes • ${post.timeAgo}</div>
+        ${(post.isIntro || post.isEnding) ? '' : renderComments(post)}
+        ${(post.isIntro || post.isEnding) ? '' : renderPostExplainer(post)}
     `;
 
     el.querySelectorAll('.btn-icon').forEach(btn => {
@@ -215,7 +255,7 @@ function onPostActionClick(e) {
 
     // Simulate shop click CTA
     if (action === 'shop') {
-        alert('This would open a product page.');
+        alert('are you sure you are not being inluenced ?');
     }
 }
 
@@ -233,94 +273,159 @@ function setupInfiniteScroll() {
 }
 
 async function loadMorePosts() {
-    feedState.loading = true;
-    // Simulate async load
-    await new Promise(r => setTimeout(r, 600));
-    const more = initialPosts
-        .map(p => ({ ...p }))
-        .slice(0, 3)
-        .map(p => ({ ...p, timeAgo: `${feedState.page + 1}d` }));
-    feedState.posts.push(...more);
-    feedState.page += 1;
-    renderSocialFeed();
-    feedState.loading = false;
-
-    try {
-        if (typeof trackUserEvent === 'function') {
-            trackUserEvent('social_feed_load_more', { page: feedState.page });
-        }
-    } catch (err) {}
+    // Disabled: do not load more posts
+    return;
 }
 
 function insertAds(posts) {
-    // Insert a fake ad after every 3 posts
+    // Insert a fake ad after every 3 posts, avoid duplicates
     const result = [];
     let count = 0;
+    let lastAdSignature = null;
     for (const p of posts) {
         result.push(p);
         count++;
         if (count % 3 === 0) {
-            result.push(createFakeAd(count));
+            const ad = createUniqueAd(count, lastAdSignature);
+            lastAdSignature = getAdSignature(ad);
+            result.push(ad);
         }
     }
     return result;
 }
 
-function createFakeAd(seed) {
-    const ads = [
+function createUniqueAd(seed, avoidSignature) {
+    const baseAds = [
         {
             username: 'ShopNow • Paid Partnership',
-            product: 'UltraClean ToothWave',
-            caption: 'Dentist-approved shine in 7 days. See the difference ✨',
+            products: ['UltraClean ToothWave', 'SmileWave Pro', 'PearlShine X'],
+            captions: [
+                'Dentist-approved shine in 7 days. See the difference ✨',
+                'Whiter teeth, fast. Clinically shown.',
+                'Your new daily clean — better in a week.'
+            ],
             hashtags: ['#sponsored', '#oralcare'],
-            likes: 0,
-            timeAgo: 'Just now',
-            avatarUrl: 'https://i.pravatar.cc/100?img=24',
-            mediaUrl: 'assets/img/image 2.png',
-            isAd: true,
-            proof: {
-                bestSeller: true,
-                press: ['Vogue', 'ELLE'],
-                influencer: 'Dr. Maya, DDS'
-            }
-        },
-        {
-            username: 'UrbanStyle • Sponsored',
-            product: 'AeroMax Sneakers',
-            caption: 'Comfort that propels you forward 🚀',
-            hashtags: ['#ad', '#streetwear'],
-            likes: 0,
-            timeAgo: 'Just now',
-            avatarUrl: 'https://i.pravatar.cc/100?img=29',
-            mediaUrl: 'https://source.unsplash.com/800x800/?sneakers,street',
-            isAd: true,
-            proof: {
-                trending: true,
-                press: ['GQ', 'Hypebeast'],
-                influencer: 'MarcoFit'
-            }
+            avatarImg: 24,
+            mediaQuery: 'toothbrush,oralcare',
+            proofTemplates: () => ({ bestSeller: true, press: pickSome(['Vogue', 'ELLE', 'Allure'], 2), influencer: 'Dr. Maya, DDS' })
         },
         {
             username: 'HomeChef • Sponsored',
-            product: 'Stainless Master Knife',
-            caption: 'Slice like a pro. Limited drop. 🔪',
+            products: ['Stainless Master Knife', 'ProEdge Santoku', 'ChefLine Paring Set'],
+            captions: [
+                'Slice like a pro. Limited drop. 🔪',
+                'Balanced. Sharp. Built to last.'
+            ],
             hashtags: ['#partner', '#kitchen'],
-            likes: 0,
-            timeAgo: 'Just now',
-            avatarUrl: 'https://i.pravatar.cc/100?img=14',
-            mediaUrl: 'https://source.unsplash.com/800x800/?knife,kitchen',
-            isAd: true,
-            proof: {
-                verified: true,
-                press: ['Bon Appétit'],
-                influencer: 'Chef Tariq'
-            }
+            avatarImg: 14,
+            mediaQuery: 'knife,kitchen',
+            proofTemplates: () => ({ verified: true, press: pickSome(['Bon Appétit', 'Food52'], 1), influencer: 'Chef Tariq' })
         }
     ];
-    return ads[seed % ads.length];
+
+    let tries = 0;
+    while (tries < 50) {
+        tries++;
+        const b = baseAds[Math.floor(Math.random() * baseAds.length)];
+        const product = b.products[Math.floor(Math.random() * b.products.length)];
+        const caption = b.captions[Math.floor(Math.random() * b.captions.length)];
+        const ad = {
+            username: b.username,
+            product,
+            caption,
+            hashtags: b.hashtags,
+            likes: 0,
+            timeAgo: 'Just now',
+            avatarUrl: `https://i.pravatar.cc/100?img=${b.avatarImg}`,
+            mediaUrl: `https://source.unsplash.com/800x800/?${encodeURIComponent(b.mediaQuery)}`,
+            isAd: true,
+            proof: b.proofTemplates()
+        };
+        const sig = getAdSignature(ad);
+        if (sig !== avoidSignature && !feedState.usedAdSignatures.has(sig)) {
+            feedState.usedAdSignatures.add(sig);
+            return ad;
+        }
+    }
+    // Fallback: simple variant to guarantee return
+    return {
+        username: 'Sponsored',
+        product: 'Featured Product',
+        caption: 'Discover what everyone is talking about.',
+        hashtags: ['#ad'],
+        likes: 0,
+        timeAgo: 'Just now',
+        avatarUrl: 'https://i.pravatar.cc/100?img=1',
+        mediaUrl: 'https://source.unsplash.com/800x800/?product,ad',
+        isAd: true,
+        proof: { trending: true }
+    };
 }
 
 // Interludes removed
+
+function getPostSignature(post) {
+    return [post.username, post.product, post.caption].map(x => String(x || '').toLowerCase()).join('::');
+}
+
+function generateNewPosts(count) {
+    const creators = [
+        'tech.by.mina', 'chef.luc', 'runwithkori', 'eco.wander', 'studio_ari', 'soundseekers', 'gearhub_daily'
+    ];
+    const products = [
+        'PeakBuds ANC', 'TerraKettle', 'SprintLite Runners', 'OceanSafe Sunscreen', 'MonoCam X', 'PulseTracker S', 'NightBrew Maker'
+    ];
+    const captions = [
+        'Switched last week — never going back. 🔄',
+        'Hype is real. Didn\'t expect this much difference.',
+        'Spotted everywhere lately, finally tried it. Impressed.'
+    ];
+    const tagSets = [
+        ['#review', '#trending'],
+        ['#everydaycarry', '#bestseller'],
+        ['#gear', '#verified'],
+        ['#sustainable', '#popular'],
+        ['#creatorpick', '#seenon']
+    ];
+
+    const generated = [];
+    let safety = 0;
+    while (generated.length < count && safety < 200) {
+        safety++;
+        const seed = Date.now() + safety + Math.floor(Math.random() * 100000);
+        const username = creators[Math.floor(Math.random() * creators.length)];
+        const product = products[Math.floor(Math.random() * products.length)];
+        const caption = captions[Math.floor(Math.random() * captions.length)];
+        const hashtags = tagSets[Math.floor(Math.random() * tagSets.length)];
+        const base = {
+            username,
+            sponsored: Math.random() < 0.25,
+            product,
+            caption,
+            hashtags,
+            likes: 1500 + Math.floor(Math.random() * 22000),
+            timeAgo: `${feedState.page + 1}d`,
+            avatarUrl: `https://i.pravatar.cc/100?img=${(seed % 70) + 1}`,
+            mediaUrl: `https://source.unsplash.com/800x800/?${encodeURIComponent(product)},product`
+        };
+
+        // Attach proof cues with variety
+        const proof = {};
+        if (Math.random() < 0.4) proof.bestSeller = true;
+        if (Math.random() < 0.4) proof.trending = true;
+        if (Math.random() < 0.25) proof.verified = true;
+        if (Math.random() < 0.3) proof.influencer = ['Mina', 'Kori', 'Ari', 'Luc'][Math.floor(Math.random() * 4)];
+        if (Math.random() < 0.35) proof.press = ['WIRED', 'GQ', 'The Verge', 'Bon Appétit'].sort(() => 0.5 - Math.random()).slice(0, 2);
+        if (Object.keys(proof).length) base.proof = proof;
+
+        const sig = getPostSignature(base);
+        if (!feedState.usedSignatures.has(sig)) {
+            feedState.usedSignatures.add(sig);
+            generated.push(base);
+        }
+    }
+    return generated;
+}
 
 function attachImageFallback(imgEl, candidates) {
     if (!imgEl) return;
@@ -474,10 +579,166 @@ function renderPressStrip(post) {
     return `<div class="press-strip"><span class="press-label">As seen in:</span> ${list}</div>`;
 }
 
+function renderPostExplainer(post) {
+    const analysis = analyzePostForSocialProof(post);
+    return `
+        <div class="post-explainer">
+            <div class="explainer-title">Why this works</div>
+            <p class="explainer-text">${escapeHtml(analysis.strategy)}</p>
+            <div class="explainer-proof"><strong>Social proof:</strong> ${escapeHtml(analysis.proofSummary)}</div>
+        </div>
+    `;
+}
+
+function renderComments(post) {
+    const comments = generateCommentsForPost(post);
+    if (!comments.length) return '';
+    const items = comments.map(c => `
+        <div class="comment-item">
+            <img class="comment-avatar" src="${escapeAttr(c.avatar)}" alt="${escapeAttr(c.name)}" />
+            <div class="comment-content">
+                <div class="comment-author">${escapeHtml(c.name)}</div>
+                <div class="comment-text">${escapeHtml(c.text)}</div>
+            </div>
+        </div>
+    `).join('');
+    return `<div class="comments">${items}</div>`;
+}
+
+function generateCommentsForPost(post) {
+    if (!post || (!post.mediaUrl && post.noMedia)) return [];
+    const names = ['Alex M.', 'Zoé L.', 'Nina P.', 'Karim B.', 'Sophie D.', 'Eric T.', 'Luca R.', 'Maya K.'];
+    const baseTexts = [
+        'Je l\'ai, trop bien 👍',
+        'Reçu la semaine dernière, validé.',
+        'Franchement, ça marche mieux que prévu.',
+        'Team déjà convaincue ici.',
+        'Qualité au rendez-vous.'
+    ];
+    const productTexts = [
+        `J\'ai ${post.product || 'ce produit'} — aucun regret.`,
+        `${post.product || 'Ce produit'}: approuvé à la maison.`,
+        `Utilisé tous les jours depuis 10j.`
+    ];
+    const count = 2 + Math.floor(Math.random() * 3); // 2-4 comments
+    const result = [];
+    for (let i = 0; i < count; i++) {
+        const name = names[(hashCode(post.username + i) >>> 0) % names.length];
+        const avatarSeed = 1 + ((hashCode(name + post.product) >>> 0) % 70);
+        const textPool = Math.random() < 0.6 ? productTexts : baseTexts;
+        const text = textPool[(hashCode(post.caption + i) >>> 0) % textPool.length];
+        result.push({
+            name,
+            text,
+            avatar: `https://i.pravatar.cc/64?img=${avatarSeed}`
+        });
+    }
+    return result;
+}
+
+function analyzePostForSocialProof(post) {
+    const isEducational = /(Explainer|Solutions)/i.test(String(post.product || '')) || /(Prof\.|Dr\.)/.test(String(post.username || ''));
+    if (isEducational) {
+        return {
+            strategy: 'Informational post aimed at raising awareness and teaching how social proof influences decisions.',
+            proofSummary: 'None (educational)'
+        };
+    }
+
+    const cues = collectSocialProofCues(post);
+
+    const parts = [];
+    if (cues.endorsement) parts.push('Leverages influencer endorsement to transfer trust.');
+    if (cues.popularity) parts.push('Signals popularity (bestseller/trending) to reduce uncertainty.');
+    if (cues.authority) parts.push('Uses authority cues (verification/press) for reassurance.');
+    if (cues.herdLikes) parts.push('Shows high engagement to trigger herd behavior.');
+    if (!parts.length) parts.push('Uses subtle social signals to suggest many others approve.');
+
+    const proofTypes = [];
+    if (cues.endorsement) proofTypes.push('Endorsement (influencer/creator)');
+    if (cues.popularity) proofTypes.push('Popularity (bestseller/trending)');
+    if (cues.authority) proofTypes.push('Authority (press/verified)');
+    if (cues.herdLikes) proofTypes.push('Herd popularity (visible likes)');
+
+    return {
+        strategy: parts.join(' '),
+        proofSummary: proofTypes.length ? proofTypes.join(', ') : 'Implied popularity'
+    };
+}
+
+function collectSocialProofCues(post) {
+    const p = post.proof || {};
+    const likes = Number(post.likes) || 0;
+    return {
+        endorsement: !!(p.influencer || post.sponsored || post.isAd),
+        popularity: !!(p.bestSeller || p.trending),
+        authority: !!(p.verified || (p.press && p.press.length > 0)),
+        herdLikes: likes >= 10000
+    };
+}
+
 // Scroll to top function
 function scrollToTop() {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
+}
+
+function getAdSignature(ad) {
+    return ['AD', ad.username, ad.product, ad.caption].map(x => String(x || '').toLowerCase()).join('::');
+}
+
+function pickSome(arr, n) {
+    const copy = [...arr];
+    copy.sort(() => 0.5 - Math.random());
+    return copy.slice(0, n);
+}
+
+function renderSideCelebPromos() {
+    try {
+        const left = document.createElement('div');
+        const right = document.createElement('div');
+        left.className = 'side-promos side-promos-left';
+        right.className = 'side-promos side-promos-right';
+
+        const promos = [
+            {
+                name: 'Justin Bieber',
+                text: '“Vous devez voir ça.”',
+                avatar: 'https://source.unsplash.com/64x64/?celebrity,male',
+                badge: 'Top célébrité'
+            },
+            {
+                name: 'Kylie Jenner',
+                text: '“Incontournable cette saison.”',
+                avatar: 'https://source.unsplash.com/64x64/?celebrity,female',
+                badge: 'Tendance'
+            }
+        ];
+
+        const makeItem = (p) => {
+            const item = document.createElement('button');
+            item.type = 'button';
+            item.className = 'side-promo';
+            item.innerHTML = `
+                <img class="promo-avatar" src="${escapeAttr(p.avatar)}" alt="${escapeAttr(p.name)}" />
+                <div class="promo-meta">
+                    <div class="promo-name">${escapeHtml(p.name)}</div>
+                    <div class="promo-text">${escapeHtml(p.text)}</div>
+                </div>
+                <span class="promo-badge">${escapeHtml(p.badge)}</span>
+            `;
+            item.addEventListener('click', () => {
+                alert(`${p.name} fait la promo de ce produit.`);
+            });
+            return item;
+        };
+
+        left.appendChild(makeItem(promos[0]));
+        right.appendChild(makeItem(promos[1]));
+
+        document.body.appendChild(left);
+        document.body.appendChild(right);
+    } catch (e) {}
 }
