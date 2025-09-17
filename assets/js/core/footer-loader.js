@@ -52,9 +52,9 @@ function loadFooter() {
                 margin: 0 auto;
                 padding: 0 2rem;
                 display: grid;
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 2fr 1fr 1fr;
                 gap: 2rem;
-                text-align: center;
+                text-align: left;
             }
 
             .footer-section h3 {
@@ -193,9 +193,9 @@ function loadFooter() {
                     margin: 0 auto;
                     padding: 0 2rem;
                     display: grid;
-                    grid-template-columns: 1fr 1fr;
+                    grid-template-columns: 2fr 1fr 1fr;
                     gap: 2rem;
-                    text-align: center;
+                    text-align: left;
                 }
 
                 .footer-section h3 {
