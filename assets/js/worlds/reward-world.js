@@ -10,7 +10,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Footer is loaded by footer-loader.js
+    // Load footer component
+    fetch('../../components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        })
+        .catch(error => {
+            console.log('Footer component not found, using fallback');
+        });
 
     // Dopamine Meter Logic
     const meter = document.querySelector('.dopamine-meter');
@@ -48,6 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const boost = parseFloat(btn.getAttribute('data-boost') || '5');
             setDopamine(dopamine + boost);
 
+            // Award points equal to the boost value
+            award(boost);
+
             // visual burst near the button
             const rect = btn.getBoundingClientRect();
             spawnBurst(rect.left + rect.width / 2, rect.top + window.scrollY - 8, `+${boost}`);
@@ -67,6 +78,73 @@ document.addEventListener('DOMContentLoaded', function() {
     setDopamine(0);
 
     // (wheel removed)
+
+    // Confetti effect for ending section
+    function createConfetti() {
+        const colors = ['#8b5cf6', '#06b6d4', '#feca57', '#ff6b6b', '#4ecdc4', '#45b7d1'];
+        const confettiCount = 30;
+        const endingSection = document.querySelector('.ending-section');
+        
+        if (!endingSection) return;
+        
+        const sectionRect = endingSection.getBoundingClientRect();
+        
+        for (let i = 0; i < confettiCount; i++) {
+            setTimeout(() => {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti-piece';
+                confetti.style.position = 'fixed';
+                confetti.style.width = Math.random() * 8 + 4 + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = (sectionRect.left + Math.random() * sectionRect.width) + 'px';
+                confetti.style.top = (sectionRect.top - 10) + 'px';
+                confetti.style.zIndex = '9999';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                
+                document.body.appendChild(confetti);
+                
+                // Animate confetti falling within the section
+                const animation = confetti.animate([
+                    { 
+                        transform: 'translateY(0px) rotate(0deg)', 
+                        opacity: 1 
+                    },
+                    { 
+                        transform: `translateY(${sectionRect.height + 50}px) rotate(720deg)`, 
+                        opacity: 0 
+                    }
+                ], {
+                    duration: Math.random() * 2000 + 1500,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                });
+                
+                animation.onfinish = () => {
+                    confetti.remove();
+                };
+            }, i * 30);
+        }
+    }
+
+    // Trigger continuous confetti when ending section comes into view
+    const endingSection = document.querySelector('.ending-section');
+    let confettiInterval;
+    
+    if (endingSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Start continuous confetti
+                    createConfetti();
+                    confettiInterval = setInterval(createConfetti, 3000); // Every 3 seconds
+                    observer.unobserve(entry.target); // Only trigger once
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        observer.observe(endingSection);
+    }
 
     // Awareness percentage count-up
     const awarenessEl = document.getElementById('awareness-percentage');
@@ -88,6 +166,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const slider = document.getElementById('swap-slider');
     const imgNormal = document.getElementById('swap-image-normal');
     const imgPhones = document.getElementById('swap-image-phones');
+    let lastImageState = null; // Track the last image state
+    let imageChangeRewarded = false; // Track if first image change was rewarded
 
     function updateSwapImages(value) {
         const showPhones = Number(value) >= 50;
@@ -100,13 +180,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 imgNormal.classList.add('is-visible');
             }
         }
+        return showPhones; // Return the current state
     }
 
     if (slider) {
-        updateSwapImages(slider.value);
+        lastImageState = updateSwapImages(slider.value);
         slider.addEventListener('input', (e) => {
             const value = (e.target && e.target.value) || '0';
-            updateSwapImages(value);
+            const currentState = updateSwapImages(value);
+            
+            // Award points only once for the first image change
+            if (currentState !== lastImageState && !imageChangeRewarded) {
+                award(50);
+                imageChangeRewarded = true;
+                lastImageState = currentState;
+            } else if (currentState !== lastImageState) {
+                // Update state but don't award points
+                lastImageState = currentState;
+            }
         });
     }
 
@@ -119,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function openLightbox(src, captionText) {
         if (!lightbox || !lightboxImg) return;
         lightboxImg.src = src;
-        if (lightboxCap) lightboxCap.textContent = captionText || '';
+        if (lightboxCap) lightboxCap.textContent = ''; // Remove text from modals
         lightbox.classList.add('is-open');
         lightbox.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
@@ -224,44 +315,29 @@ document.addEventListener('DOMContentLoaded', function() {
         img.addEventListener('error', () => replaceWithFallback(img), { once: true });
     });
 
-    // Discover toggles: swap illustration -> original image
-    function setupDiscover(buttonId, illuId, origId) {
+    // Discover buttons: replace illustration with the original explanatory image (no popups)
+    // Discover buttons -> open current illustration as a popup (lightbox)
+    function setupDiscoverLightbox(buttonId, illuId) {
         const btn = document.getElementById(buttonId);
         const illu = document.getElementById(illuId);
-        const orig = document.getElementById(origId);
-        if (!btn || !illu || !orig) return;
-        btn.addEventListener('click', () => {
-            illu.classList.add('hidden');
-            orig.classList.remove('hidden');
-            // open in lightbox as well
-            openLightbox(orig.src, orig.alt || '');
-        });
-    }
-    // Updated: if original image is not present, open illustration in lightbox
-    function setupDiscoverFallback(buttonId, illuId, origId) {
-        const btn = document.getElementById(buttonId);
-        const illu = document.getElementById(illuId);
-        const orig = document.getElementById(origId);
         if (!btn || !illu) return;
-        btn.addEventListener('click', () => {
-            const targetImg = orig || illu;
-            if (orig) {
-                illu.classList.add('hidden');
-                orig.classList.remove('hidden');
-                // ensure inline display if any default CSS hides it
-                orig.style.display = '';
-            }
-            openLightbox(targetImg.src, targetImg.alt || '');
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openLightbox(illu.src, illu.alt || '');
+            // Award 40 points for discovering
+            award(40);
         });
     }
-    setupDiscoverFallback('discover-why', 'why-illustration', 'why-original');
-    setupDiscoverFallback('discover-dopamine', 'dopamine-illustration', 'dopamine-original');
+    // Show specific images in the lightbox for each Discover button
+    setupDiscoverLightbox('discover-why', 'why-original');
+    setupDiscoverLightbox('discover-dopamine', 'dopamine-original');
 
     // Media buttons (podcast and sound)
     const podcastBtn = document.getElementById('btn-podcast');
     const soundBtn = document.getElementById('btn-sound');
     const podcastAudio = document.getElementById('podcast-audio');
     const sfxAudio = document.getElementById('sfx-audio');
+    const musicAudio = document.getElementById('music-audio');
 
     if (podcastBtn && podcastAudio) {
         podcastBtn.addEventListener('click', async () => {
@@ -278,14 +354,140 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    if (soundBtn && sfxAudio) {
+    if (soundBtn) {
         soundBtn.addEventListener('click', async () => {
             try {
-                sfxAudio.currentTime = 0;
-                await sfxAudio.play();
+                if (musicAudio) {
+                    if (musicAudio.paused) {
+                        if (podcastAudio && !podcastAudio.paused) podcastAudio.pause();
+                        await musicAudio.play();
+                        soundBtn.textContent = '⏸ Pause music';
+                    } else {
+                        musicAudio.pause();
+                        soundBtn.textContent = '▶ Listen to music';
+                    }
+                } else if (sfxAudio) {
+                    sfxAudio.currentTime = 0;
+                    await sfxAudio.play();
+                }
             } catch (e) {
-                console.warn('SFX playback failed:', e);
+                console.warn('Audio playback failed:', e);
             }
+        });
+    }
+
+    // Dopamine brain glow interaction with burst effect
+    const brainBtn = document.getElementById('btn-brain-glow');
+    const brainImg = document.getElementById('dopamine-illustration');
+    
+    function createBurstEffect(element) {
+        const rect = element.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        // Create multiple intense ripple layers for dramatic effect
+        const rippleLayers = [
+            {
+                size: 300,
+                duration: 800,
+                delay: 0,
+                gradient: 'radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 215, 0, 0.9) 20%, rgba(255, 69, 0, 0.7) 40%, rgba(139, 92, 246, 0.5) 60%, transparent 100%)',
+                blur: '0px'
+            },
+            {
+                size: 400,
+                duration: 1000,
+                delay: 100,
+                gradient: 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(0, 255, 255, 0.6) 30%, rgba(255, 0, 255, 0.4) 60%, transparent 100%)',
+                blur: '2px'
+            },
+            {
+                size: 500,
+                duration: 1200,
+                delay: 200,
+                gradient: 'radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, rgba(139, 92, 246, 0.4) 40%, rgba(6, 182, 212, 0.2) 70%, transparent 100%)',
+                blur: '4px'
+            }
+        ];
+        
+        // Create each ripple layer
+        rippleLayers.forEach((layer, index) => {
+            const burst = document.createElement('div');
+            burst.style.position = 'fixed';
+            burst.style.left = centerX + 'px';
+            burst.style.top = centerY + 'px';
+            burst.style.width = '0px';
+            burst.style.height = '0px';
+            burst.style.borderRadius = '50%';
+            burst.style.background = layer.gradient;
+            burst.style.transform = 'translate(-50%, -50%)';
+            burst.style.zIndex = '9999';
+            burst.style.pointerEvents = 'none';
+            burst.style.transition = `all ${layer.duration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
+            burst.style.filter = `blur(${layer.blur})`;
+            burst.style.boxShadow = '0 0 50px rgba(255, 255, 255, 0.8), 0 0 100px rgba(255, 215, 0, 0.6), 0 0 150px rgba(255, 69, 0, 0.4)';
+            
+            document.body.appendChild(burst);
+            
+            // Animate each layer with staggered timing
+            setTimeout(() => {
+                burst.style.width = layer.size + 'px';
+                burst.style.height = layer.size + 'px';
+                burst.style.opacity = '0';
+                burst.style.transform = 'translate(-50%, -50%) scale(1.2)';
+            }, layer.delay + 10);
+            
+            // Remove after animation
+            setTimeout(() => {
+                if (burst.parentNode) {
+                    burst.remove();
+                }
+            }, layer.duration + layer.delay + 100);
+        });
+        
+        // Add intense flash effect
+        const flash = document.createElement('div');
+        flash.style.position = 'fixed';
+        flash.style.left = '0';
+        flash.style.top = '0';
+        flash.style.width = '100vw';
+        flash.style.height = '100vh';
+        flash.style.background = 'radial-gradient(circle at ' + centerX + 'px ' + centerY + 'px, rgba(255, 255, 255, 0.3) 0%, transparent 50%)';
+        flash.style.zIndex = '9998';
+        flash.style.pointerEvents = 'none';
+        flash.style.opacity = '0';
+        flash.style.transition = 'opacity 0.1s ease-out';
+        
+        document.body.appendChild(flash);
+        
+        // Flash effect
+        setTimeout(() => {
+            flash.style.opacity = '1';
+        }, 10);
+        
+        setTimeout(() => {
+            flash.style.opacity = '0';
+        }, 50);
+        
+        setTimeout(() => {
+            if (flash.parentNode) {
+                flash.remove();
+            }
+        }, 200);
+        
+        // Add screen shake effect
+        document.body.style.animation = 'brainShake 0.3s ease-in-out';
+        setTimeout(() => {
+            document.body.style.animation = '';
+        }, 300);
+    }
+    
+    if (brainBtn && brainImg) {
+        brainBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            createBurstEffect(brainImg);
+            setDopamine(dopamine + 8);
+            award(20); // Award 20 points for brain glow
         });
     }
 
@@ -303,12 +505,13 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: 'Diamond', color: '#67e8f9', threshold: 520 }
     ];
 
+    // In-memory points so clicks increase during the session
+    let sessionPoints = 0;
     function getPoints() {
-        // Always start from 0 on refresh
-        return 0;
+        return sessionPoints;
     }
     function setPoints(n) {
-        // No persistence per requirement
+        sessionPoints = n;
     }
     function currentTier(points) {
         let t = tiers[0];
@@ -361,7 +564,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if ((tracker && tracker.contains(target)) || (infoModal && infoModal.contains(target)) || (lightboxEl && lightboxEl.contains(target))) {
             return;
         }
-        award(5);
+        award(1); // Reduced to 1 point for general clicks
     });
 
     // Better World modal handling
@@ -375,8 +578,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const exampleContent = {
         better1: {
             title: 'Orange',
-            text: 'As to make its users aware, Orange has created a website where they can find tips and information about marketing strategies as dark patterns.',
-            link: '',
+            text: 'Orange created resources to help users recognize manipulative designs (dark patterns) and stay safe online.',
+            link: 'https://bienvivreledigital.orange.fr/securite/attention-arnaques/orange-arnaque-dark-patterns.html',
             logo: 'assets/img/logo-orange.png'
         },
         better2: {
@@ -413,6 +616,8 @@ document.addEventListener('DOMContentLoaded', function() {
         infoModal.classList.add('is-open');
         infoModal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        // Award 100 points for learning more
+        award(100);
     }
     function closeInfoModal() {
         if (!infoModal) return;
@@ -430,7 +635,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const key = card.getAttribute('data-example');
             openInfoModal(key);
         });
-        });
+    });
 });
 
 // Scroll to top function
