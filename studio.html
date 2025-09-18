@@ -175,52 +175,93 @@
                 <p class="section-description">Get into the tune</p>
             </div>
             
-            <div class="music-grid" data-aos="fade-up" data-aos-delay="200">
-                <div class="album-card">
-                    <div class="album-artwork">
-                        <div class="album-placeholder">
-                            <span class="album-icon">🎵</span>
+            <!-- Music Player -->
+            <div class="music-player" data-aos="fade-up" data-aos-delay="200">
+                <audio id="music-audio" preload="metadata">
+                    <source src="assets/music/Wispers of lights.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="player-display">
+                    <div class="current-track-artwork">
+                        <img id="current-artwork" src="assets/music/Wispers of lights.png" alt="Current track artwork">
+                        <div class="play-overlay" id="play-overlay">
+                            <span class="play-icon-large">▶</span>
                         </div>
                     </div>
-                    <div class="album-info">
-                        <h3 class="album-title">Marketing Beats</h3>
-                        <p class="album-artist">WWMM Collective</p>
-                        <p class="album-description">Ambient sounds for focused learning</p>
-                    </div>
-                    <div class="album-status">
-                        <span class="status-text">Coming Soon</span>
+                    <div class="current-track-info">
+                        <h3 id="current-title">Whispers of Lights</h3>
+                        <p id="current-artist">WWMM Collective</p>
+                        <div class="player-controls">
+                            <button class="control-btn" id="prev-btn">⏮</button>
+                            <button class="control-btn play-pause-btn" id="play-pause-btn">
+                                <span class="play-icon">▶</span>
+                            </button>
+                            <button class="control-btn" id="next-btn">⏭</button>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="music-progress"></div>
+                            </div>
+                            <span class="time-display" id="music-time">0:00 / 0:00</span>
+                        </div>
                     </div>
                 </div>
-
-                <div class="album-card">
-                    <div class="album-artwork">
-                        <div class="album-placeholder">
-                            <span class="album-icon">🎶</span>
+            </div>
+            
+            <!-- Playlist -->
+            <div class="playlist-container" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="playlist-title">Playlist</h3>
+                <div class="playlist">
+                    <div class="track-item active" data-track="0">
+                        <div class="track-artwork">
+                            <img src="assets/music/Wispers of lights.png" alt="Whispers of Lights">
+                            <div class="track-overlay">
+                                <span class="track-play-icon">▶</span>
+                            </div>
+                        </div>
+                        <div class="track-info">
+                            <h4 class="track-title">Whispers of Lights</h4>
+                            <p class="track-artist">WWMM Collective</p>
                         </div>
                     </div>
-                    <div class="album-info">
-                        <h3 class="album-title">Psychology Loops</h3>
-                        <p class="album-artist">Cognitive Sounds</p>
-                        <p class="album-description">Background music for deep thinking</p>
-                    </div>
-                    <div class="album-status">
-                        <span class="status-text">Coming Soon</span>
-                    </div>
-                </div>
 
-                <div class="album-card">
-                    <div class="album-artwork">
-                        <div class="album-placeholder">
-                            <span class="album-icon">🎼</span>
+                    <div class="track-item" data-track="1">
+                        <div class="track-artwork">
+                            <img src="assets/music/2 be free.png" alt="2 Be Free">
+                            <div class="track-overlay">
+                                <span class="track-play-icon">▶</span>
+                            </div>
+                        </div>
+                        <div class="track-info">
+                            <h4 class="track-title">2 Be Free</h4>
+                            <p class="track-artist">WWMM Collective</p>
                         </div>
                     </div>
-                    <div class="album-info">
-                        <h3 class="album-title">Ethical Marketing</h3>
-                        <p class="album-artist">Better World Music</p>
-                        <p class="album-description">Songs about conscious consumption</p>
+
+                    <div class="track-item" data-track="2">
+                        <div class="track-artwork">
+                            <img src="assets/music/The Gilded Whisper.png" alt="The Gilded Whisper">
+                            <div class="track-overlay">
+                                <span class="track-play-icon">▶</span>
+                            </div>
+                        </div>
+                        <div class="track-info">
+                            <h4 class="track-title">The Gilded Whisper</h4>
+                            <p class="track-artist">WWMM Collective</p>
+                        </div>
                     </div>
-                    <div class="album-status">
-                        <span class="status-text">Coming Soon</span>
+
+                    <div class="track-item" data-track="3">
+                        <div class="track-artwork">
+                            <img src="assets/music/illusion of victory.png" alt="Illusion of Victory">
+                            <div class="track-overlay">
+                                <span class="track-play-icon">▶</span>
+                            </div>
+                        </div>
+                        <div class="track-info">
+                            <h4 class="track-title">Illusion of Victory</h4>
+                            <p class="track-artist">WWMM Collective</p>
+                        </div>
                     </div>
                 </div>
             </div>
