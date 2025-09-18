@@ -184,7 +184,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const biasEl = document.getElementById('buy-modal-bias');
         const msgEl = document.getElementById('buy-modal-message');
         const closeBtn = document.getElementById('buy-modal-close');
-        const okBtn = document.getElementById('buy-modal-ok');
         const backdrop = document.getElementById('buy-modal-backdrop');
 
         function openModal(bias, message) {
@@ -216,7 +215,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Close modal handlers
         if (closeBtn) closeBtn.addEventListener('click', closeModal);
-        if (okBtn) okBtn.addEventListener('click', closeModal);
         if (backdrop) backdrop.addEventListener('click', closeModal);
         
         // Close on Escape key

@@ -198,6 +198,13 @@ class MusicPlayer {
                 audio: 'assets/music/Illusion of victory.mp3',
                 artwork: 'assets/music/illusion of victory.png',
                 duration: '2:30'
+            },
+            {
+                title: 'The Hidden Price',
+                artist: 'WWMM Collective',
+                audio: 'assets/music/The Hidden Price.mp3',
+                artwork: 'assets/music/The Hidden Price.png',
+                duration: '2:45'
             }
         ];
         this.init();

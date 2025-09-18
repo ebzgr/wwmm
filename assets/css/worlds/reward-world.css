@@ -533,22 +533,27 @@ body {
 @media (max-width: 768px) {
     .gamification-welcome {
         padding: 2rem 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
     }
     
     .gamification-content {
         text-align: center;
         padding: 0 1rem;
+        width: 100%;
     }
     
     .section-title {
-        font-size: 1.8rem;
+        font-size: clamp(1.5rem, 8vw, 2.2rem);
         line-height: 1.2;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
     }
     
     .gamification-text {
-        font-size: 1.1rem;
-        margin-bottom: 1.5rem;
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        margin-bottom: 2rem;
+        line-height: 1.4;
     }
     
     .awareness-content { 
@@ -560,17 +565,50 @@ body {
     .awareness-percentage { 
         border-right: 0; 
         border-bottom: 1px solid rgba(255,255,255,0.1);
-        padding: 1rem;
-        font-size: 2.5rem;
+        padding: 1.5rem;
+        font-size: clamp(2rem, 10vw, 3rem);
     }
     
     .awareness-text {
-        padding: 0 1rem;
+        padding: 1rem;
     }
     
     .awareness-text p {
-        font-size: 0.95rem;
+        font-size: clamp(0.9rem, 3vw, 1rem);
         line-height: 1.4;
+    }
+    
+    .ending-section {
+        min-height: 100vh;
+        padding: 2rem 1rem;
+    }
+    
+    .ending-content {
+        max-width: 100%;
+        padding: 2rem 1rem;
+    }
+    
+    .ending-title {
+        font-size: clamp(1.5rem, 8vw, 2.5rem);
+        line-height: 1.2;
+        margin-bottom: 2rem;
+    }
+    
+    .ending-message {
+        margin-bottom: 2rem;
+    }
+    
+    .game-message,
+    .dopamine-status,
+    .next-mission {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        margin-bottom: 1rem;
+        line-height: 1.4;
+    }
+    
+    .back-link {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        padding: 1rem 2rem;
     }
 }
 

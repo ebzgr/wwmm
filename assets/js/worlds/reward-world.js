@@ -10,15 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Load footer component
-    fetch('../../components/footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
-        })
-        .catch(error => {
-            console.log('Footer component not found, using fallback');
-        });
 
     // Dopamine Meter Logic
     const meter = document.querySelector('.dopamine-meter');
