@@ -205,6 +205,13 @@ class MusicPlayer {
                 audio: 'assets/music/The Hidden Price.mp3',
                 artwork: 'assets/music/The Hidden Price.png',
                 duration: '2:45'
+            },
+            {
+                title: 'Caught in the Feed',
+                artist: 'WWMM Collective',
+                audio: 'assets/music/Caught in the feed.mp3',
+                artwork: 'assets/music/Caught in the feed.png',
+                duration: '3:10'
             }
         ];
         this.init();
